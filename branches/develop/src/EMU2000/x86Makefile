@@ -1,0 +1,22 @@
+SUBDIRS = librtdb share Protocol/SocketFtp procman rdbms BayLayer Protocol/ModBus Protocol/IEC104 Protocol/Xml Protocol/UPS Protocol/IEC103 Protocol/LFP Protocol/DDB Protocol/Dlt645 Protocol/ModBusMaster Protocol/IEC101S Protocol/ModBusTcp Protocol/ModBusSlave Protocol/DataTransS Protocol/ESDCMMI cgi Protocol/CDT Protocol/ModBusTcp-Transfer Protocol/ModBusTcp_Gather Protocol/SPA Protocol/IEC61850 Protocol/NanziPDS
+all:
+	 @list='$(SUBDIRS)'; for subdir in $$list; do \
+                echo "Making all in $$list"; \
+                (cd $$subdir && make -f x86Makefile all -j4 ) ;  \
+		 if [ $$? -ne 0 ]; then echo stoped complie ; break; \
+                 fi; \
+		echo -e "\n" ; \
+        done; 
+.PHONY: clean
+clean:
+	@list='$(SUBDIRS)'; for subdir in $$list; do \
+                echo "Clean in $$subdir"; \
+                (cd $$subdir && make -f x86Makefile clean -j4); \
+		echo -e "\n" ; \
+       done
+distclean:
+	@list='$(SUBDIRS)'; for subdir in $$list; do \
+                echo "Clean in $$subdir"; 		\
+                (cd $$subdir && make -f x86Makefile distclean -j4); \
+		echo -e "\n" ; \
+        done

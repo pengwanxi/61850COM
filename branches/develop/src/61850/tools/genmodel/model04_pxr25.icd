@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SCL xmlns="http://www.iec.ch/61850/2003/SCL"
+xmlns:sac="http://www.sac-china.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd">
+  <Header nameStructure="IEDName" revision="0.1" version="0.3">
+    <History>
+      <HItem revision="0.3" what="更新为标准格式"
+      when="2026-03-05 13:00:00" who="mengqp" />
+      <HItem revision="0.1" what="初始化配置文件"
+      when="2026-02-04 14:10:10" who="mengqp" />
+    </History>
+  </Header>
+  <Communication desc="">
+    <SubNetwork desc="Local" name="MMS" type="8-MMS">
+      <BitRate multiplier="M" unit="b/s" />
+      <ConnectedAP apName="AP1" iedName="izm2c-61850com">
+        <Address>
+          <P type="OSI-AP-Title">1,1,9999,1</P>
+          <P type="OSI-AE-Qualifier">12</P>
+          <P type="OSI-PSEL">00000001</P>
+          <P type="OSI-SSEL">0001</P>
+          <P type="OSI-TSEL">0001</P>
+          <P type="IP">192.189.7.132</P>
+          <P type="IP-SUBNET">255.255.252.0</P>
+          <P type="IP-GATEWAY">192.1.1.2</P>
+        </Address>
+      </ConnectedAP>
+    </SubNetwork>
+  </Communication>
+  <IED desc="izm2c-61850com" name="izm2c-61850com">
+    <Services>
+      <DynAssociation />
+      <SettingGroups>
+        <SGEdit />
+        <ConfSG />
+      </SettingGroups>
+      <GetDirectory />
+      <GetDataObjectDefinition />
+      <GetDataSetValue />
+      <ConfDataSet max="64" maxAttributes="256" />
+      <!-- <ConfReportControl max="20" bufConf="false" /> -->
+      <DataSetDirectory />
+      <ReadWrite />
+      <GetCBValues />
+      <ConfLNs fixLnInst="true" fixPrefix="true" />
+      <!-- <GOOSE max="10" /> -->
+      <GSSE max="10" />
+      <FileHandling />
+      <GSEDir />
+      <TimerActivatedControl />
+    </Services>
+    <AccessPoint name="AP1">
+      <Server>
+        <Authentication />
+        <LDevice inst="PXR25">
+          <LN0 lnClass="LLN0" lnType="LLN01" inst="">
+            <DataSet desc="" name="StatXCBR">
+              <!-- <FCDA ldInst="PXR25" doName="Pos" fc="ST" -->
+              <!-- lnClass="CSWI" lnInst="1" /> -->
+              <FCDA ldInst="PXR25" doName="Pos" fc="ST"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="OpCnt" fc="ST"
+              lnClass="XCBR" lnInst="1" />
+            </DataSet>
+            <DataSet desc="" name="StatEnergy">
+              <FCDA ldInst="PXR25" doName="TotWh" fc="ST"
+              lnClass="MMTR" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="TotVArh" fc="ST"
+              lnClass="MMTR" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="TotVAh" fc="ST"
+              lnClass="MMTR" lnInst="1" />
+            </DataSet>
+            <DataSet desc="" name="StatMeas">
+            <FCDA ldInst="PXR25" doName="TotW" fc="MX"
+            lnClass="MMXU" lnInst="1" />
+            <FCDA ldInst="PXR25" doName="TotVAr" fc="MX"
+            lnClass="MMXU" lnInst="1" />
+            <FCDA ldInst="PXR25" doName="TotVA" fc="MX"
+            lnClass="MMXU" lnInst="1" />
+            <FCDA ldInst="PXR25" doName="TotPF" fc="MX"
+            lnClass="MMXU" lnInst="1" />
+            <FCDA ldInst="PXR25" doName="Hz" fc="MX" lnClass="MMXU"
+            lnInst="1" />
+            <FCDA ldInst="PXR25" doName="PPV" fc="MX"
+            lnClass="MMXU" lnInst="1" />
+            <FCDA ldInst="PXR25" doName="A" fc="MX" lnClass="MMXU"
+            lnInst="1" />
+            <!-- <FCDA ldInst="PXR25"  doName="W" fc="MX" lnClass="MMXU" lnInst="1" /> -->
+            <!-- <FCDA ldInst="PXR25"  doName="VAr" fc="MX" lnClass="MMXU" -->
+            <!-- lnInst="1" /> -->
+            <!-- <FCDA ldInst="PXR25"  doName="VA" fc="MX" lnClass="MMXU" -->
+            <!-- lnInst="1" /> -->
+            <!-- <FCDA ldInst="PXR25"  doName="PF" fc="MX" lnClass="MMXU" -->
+            lnInst="1" /&gt;
+            <FCDA ldInst="PXR25" doName="ThdA" fc="MX"
+            lnClass="MHAI" lnInst="1" />
+            <FCDA ldInst="PXR25" doName="ThdPPV" fc="MX"
+            lnClass="MHAI" lnInst="1" /></DataSet>
+            <DataSet desc="" name="StatMeas_eaton">
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="DmdPeakTotW" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="DmdPeakTotVAr" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="DmdPeakTotVA" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="DmdTotW" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="DmdTotVAr" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="DmdTotVA" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="Tmp" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMXU"
+              lnInst="2" doName="MaxTmp" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMTR"
+              lnInst="2" doName="ForwardTotWh" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMTR"
+              lnInst="2" doName="ReverseTotWh" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMTR"
+              lnInst="2" doName="LeadVArh" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMTR"
+              lnInst="2" doName="LagVArh" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MMTR"
+              lnInst="2" doName="NetVArh" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MSTA"
+              lnInst="1" doName="MaxAmps" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MSTA"
+              lnInst="1" doName="MinAmps" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MSTA"
+              lnInst="2" doName="MaxPhVolts" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MSTA"
+              lnInst="2" doName="MinPhVolts" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MSTA"
+              lnInst="2" doName="MaxPPVolts" fc="MX" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="MSTA"
+              lnInst="2" doName="MinPPVolts" fc="MX" />
+            </DataSet>
+            <DataSet desc="" name="StatCounter_eaton">
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="INSTorSDT" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="LFTorGFT" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="OpCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="SDTCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="INSTCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="HCDTCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="LDTCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="GFTCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="TotalTripCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="TestTripCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="CommOpenCnt" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="2" doName="ManuOpenCnt" fc="ST" />
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="2" doName="LastOpeTm" fc="ST" /> -->
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="2" doName="LastTmpTm" fc="ST" /> -->
+            </DataSet>
+            <DataSet desc="" name="StatProtection">
+              <FCDA ldInst="PXR25" doName="Tr" fc="ST"
+              lnClass="PTRC" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTRC" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTTR" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTTR" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PIOC" lnInst="1" prefix="A50_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A51L_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A51L_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A51S_" />
+              <!-- <FCDA ldInst="PXR25" doName="Op" fc="ST" -->
+              <!-- lnClass="PTOC" lnInst="1" prefix="A51S_" /> -->
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A51G_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A51G_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOC" lnInst="2" prefix="A51G_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTOC" lnInst="2" prefix="A51G_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTUV" lnInst="1" prefix="A27_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTUV" lnInst="1" prefix="A27_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOV" lnInst="1" prefix="A59_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTOV" lnInst="1" prefix="A59_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PDOP" lnInst="1" prefix="A32_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PDOP" lnInst="1" prefix="A32_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTUF" lnInst="1" prefix="A81_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTUF" lnInst="1" prefix="A81_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOF" lnInst="1" prefix="A81_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTOF" lnInst="1" prefix="A81_" />
+              <FCDA ldInst="PXR25" doName="Str" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A67_" />
+              <FCDA ldInst="PXR25" doName="Op" fc="ST"
+              lnClass="PTOC" lnInst="1" prefix="A67_" />
+            </DataSet>
+            <DataSet desc="" name="StatHealth">
+              <FCDA ldInst="PXR25" doName="PhyHealth" fc="ST"
+              lnClass="LPHD" lnInst="1" />
+              <FCDA ldInst="PXR25" doName="Beh" fc="ST"
+              lnClass="LPHD" lnInst="1" />
+              <!-- <FCDA ldInst="PXR25" doName="Mod" fc="ST" -->
+              <!-- lnClass="LLN0" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Health" fc="ST" -->
+              <!-- lnClass="LLN0" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="LLN0" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTRC" lnInst="1" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PIOC" lnInst="1" prefix="A50_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOC" lnInst="1" prefix="A51L_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOC" lnInst="1" prefix="A51S_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOC" lnInst="1" prefix="A51G_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOC" lnInst="2" prefix="A51G_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTUV" lnInst="1" prefix="A27_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOV" lnInst="1" prefix="A59_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PDOP" lnInst="1" prefix="A32_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTUF" lnInst="1" prefix="A81_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOF" lnInst="1" prefix="A81_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="PTOC" lnInst="1" prefix="A67_" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="MMXU" lnInst="1" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="MHAI" lnInst="1" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="MMTR" lnInst="1" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="CSWI" lnInst="1" /> -->
+              <!-- <FCDA ldInst="PXR25" doName="Beh" fc="ST" -->
+              <!-- lnClass="XCBR" lnInst="1" /> -->
+            </DataSet>
+            <DataSet desc="" name="StatState">
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="1" doName="Un-acknowiedgedTrip" fc="ST" /> -->
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="1" doName="ActiveOrunacknowiedgedAlarm" -->
+              <!-- fc="ST" /> -->
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="1" doName="Alm" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="1" doName="MaintenanceActive" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="1" doName="TestActive" fc="ST" />
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="1" doName="PhaseRotationABC1" fc="ST" />
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="1" doName="LongDelayActive" fc="ST" /> -->
+              <FCDA ldInst="PXR25" prefix="" lnClass="GGIO"
+              lnInst="1" doName="ZoneInterLockActive" fc="ST" />
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="1" doName="BreakerInConenctedPos" fc="ST" /> -->
+              <!-- <FCDA ldInst="PXR25" prefix="" lnClass="GGIO" -->
+              <!-- lnInst="1" doName="SpringInChargeState" fc="ST" /> -->
+            </DataSet>
+            <DataSet desc="" name="StatAlmMeas">
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="EventId" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="Primary" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="Secondary" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="Cause" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="A" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="PPV" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="PhV" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="TotW" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="TotVAr" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="TotVA" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="DmdTotW" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="DmdTotVAr" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="DmdTotVA" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="Tmp" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="Hz" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="TotPF" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Alm_"
+              lnInst="1" doName="OpCnt" fc="MX" />
+            </DataSet>
+            <DataSet desc="" name="StatTripMeas">
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="EventId" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="Primary" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="Secondary" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="Cause" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="A" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="PPV" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="PhV" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="TotW" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="TotVAr" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="TotVA" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="DmdTotW" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="DmdTotVAr" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="DmdTotVA" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="Tmp" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="Hz" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="TotPF" fc="MX" />
+              <FCDA ldInst="PXR25" lnClass="RDRE" prefix="Trip_"
+              lnInst="2" doName="OpCnt" fc="MX" />
+            </DataSet>
+            <!-- <DataSet name="alarm"> -->
+            <!--   <FCDA ldInst="PXR25" prefix="" lnClass="CALH" -->
+            <!--   lnInst="1" doName="OpenCloseState" fc="ST" /> -->
+            <!--   <FCDA ldInst="PXR25" prefix="" lnClass="CALH" -->
+            <!--   lnInst="1" doName="TrippedState" fc="ST" /> -->
+            <!--   <FCDA ldInst="PXR25" prefix="" lnClass="CALH" -->
+            <!--   lnInst="1" doName="Alarmed" fc="ST" /> -->
+            <!--   <FCDA ldInst="PXR25" prefix="" lnClass="CALH" -->
+            <!--   lnInst="1" doName="Ipckedup" fc="ST" /> -->
+            <!-- </DataSet> -->
+            <!-- <ReportControl name="URCB_StatXCBR" rptID="URCB_StatXCBR" -->
+            <!-- datSet="StatXCBR" buffered="false" bufTime="1000" -->
+            <!-- intgPd="900000" PurgeBuf="true" confRev="1"> -->
+            <!--   <TrgOps dchg="true" qchg="true" dupd="true" -->
+            <!--   period="true" gi="true" /> -->
+            <!--   <OptFields seqNum="true" timeStamp="true" -->
+            <!--   dataSet="true" reasonCode="true" dataRef="false" -->
+            <!--   entryID="true" configRef="true" /> -->
+            <!--   <RptEnabled max="4" /> -->
+            <!-- </ReportControl> -->
+            <!-- <LogControl name="EventLog" datSet="alarm" -->
+            <!-- logName="EventLog"> -->
+            <!--   <TrgOps dchg="true" qchg="true" /> -->
+            <!-- </LogControl> -->
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatXCBR" indexed="true" intgPd="0"
+            name="URCB_StatXCBR" rptID="URCB_StatXCBR">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatProtection" indexed="true"
+            intgPd="0" name="URCB_StatProtection"
+            rptID="URCB_StatProtection">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatHealth" indexed="true"
+            intgPd="0" name="URCB_StatHealth"
+            rptID="URCB_StatHealth">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatMeas" indexed="true" intgPd="0"
+            name="URCB_StatMeas" rptID="URCB_StatMeas">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatEnergy" indexed="true"
+            intgPd="0" name="URCB_StatEnergy"
+            rptID="URCB_StatEnergy">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatAlmMeas" indexed="true"
+            intgPd="0" name="URCB_StatAlmMeas"
+            rptID="URCB_StatAlmMeas">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatTripMeas" indexed="true"
+            intgPd="0" name="URCB_StatTripMeas"
+            rptID="URCB_StatTripMeas">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatCounter_eaton" indexed="true"
+            intgPd="0" name="URCB_StatCounter_eaton"
+            rptID="URCB_StatCounter_eaton">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+          </LN0>
+          <!-- <LN inst="1" lnClass="CSWI" lnType="CSWI01"> -->
+          <!-- </LN> -->
+          <LN inst="1" lnClass="LPHD" lnType="LPHD01">
+            <DOI name="PhyName">
+              <DAI name="vendor">
+                <Val>PXR61850Com</Val>
+              </DAI>
+            </DOI>
+            <DOI name="PhyHealth">
+              <DAI name="stVal">
+                <Val>Ok</Val>
+              </DAI>
+            </DOI>
+            <DOI name="Proxy">
+              <DAI name="stVal">
+                <Val>true</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN inst="1" lnClass="XCBR" lnType="XCBR01">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="MMXU" lnType="MMXUPXR">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+            <!-- <DOI name="ClcMth"> -->
+            <!--   <DAI name="setVal"> -->
+            <!--     <Val>0</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="2" lnClass="MMXU" lnType="MMXUPXR_2">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+            <!-- <DOI name="ClcMth"> -->
+            <!--   <DAI name="setVal"> -->
+            <!--     <Val>0</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <!-- <LN inst="3" lnClass="MMXU" lnType="MMXUAlm" /> -->
+          <LN inst="1" lnClass="RDRE" lnType="RDREPXR"
+          prefix="Alm_"></LN>
+          <LN inst="2" lnClass="RDRE" lnType="RDREPXR"
+          prefix="Trip_"></LN>
+          <LN inst="1" lnClass="MSTA" lnType="MSTAPXR" />
+          <LN inst="2" lnClass="MSTA" lnType="MSTAPXR_2" />
+          <LN inst="1" lnClass="MMTR" lnType="MMTRPXR">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="2" lnClass="MMTR" lnType="MMTRPXR_2" />
+          <LN inst="1" lnClass="MHAI" lnType="MHAIPXR">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <!-- <LN inst="1" lnClass="MMXN" lnType="MMXN01" /> -->
+          <LN inst="1" lnClass="GGIO" lnType="GGIO1" />
+          <LN inst="2" lnClass="GGIO" lnType="GGIO2" />
+          <!-- <LN inst="1" lnClass="CALH" lnType="CALH1" /> -->
+          <!-- <LN inst="1" lnClass="PTOC" lnType="PTOC1"> -->
+          <!--   <!-\- <DOI name="Beh"> -\-> -->
+          <!--   <!-\-   <DAI name="stVal"> -\-> -->
+          <!--   <!-\-     <Val>on</Val> -\-> -->
+          <!--   <!-\-   </DAI> -\-> -->
+          <!--   <!-\- </DOI> -\-> -->
+          <!-- </LN> -->
+          <LN inst="1" lnClass="PTRC" lnType="PTRC1">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTTR" lnType="PTTR1">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PIOC" lnType="PIOC1" prefix="A50_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTUV" lnType="PTUV1" prefix="A27_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTOV" lnType="PTOV1" prefix="A59_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PDOP" lnType="PDOP1" prefix="A32_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTUF" lnType="PTUF1" prefix="A81_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTOF" lnType="PTOF1" prefix="A81_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTOC" lnType="PTOC1" prefix="A67_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+          </LN>
+          <LN inst="1" lnClass="PTOC" lnType="PTOC1"
+          prefix="A51L_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN inst="1" lnClass="PTOC" lnType="S_PTOC"
+          prefix="A51S_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN inst="1" lnClass="PTOC" lnType="PTOC1"
+          prefix="A51G_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN inst="2" lnClass="PTOC" lnType="PTOC1"
+          prefix="A51G_">
+            <!-- <DOI name="Beh"> -->
+            <!--   <DAI name="stVal"> -->
+            <!--     <Val>on</Val> -->
+            <!--   </DAI> -->
+            <!-- </DOI> -->
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+              <!-- <DAI name="q"> -->
+              <!--   <Val>good</Val> -->
+              <!-- </DAI> -->
+            </DOI>
+          </LN>
+        </LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+  <DataTypeTemplates>
+    <LNodeType id="LLN01" lnClass="LLN0">
+      <DO name="NamPlt" type="LPL_1_NamPlt" />
+      <DO name="OpTmh" type="INS_1_Tmh" />
+      <!-- <DO name="Health" type="INS_1_Health" /> -->
+      <!-- <DO name="Mod" type="INC_1_Mod" /> -->
+    </LNodeType>
+    <LNodeType id="LPHD01" lnClass="LPHD">
+      <DO name="PhyName" type="DPL_1_PhyNam" />
+      <DO name="PhyHealth" type="INS_1_Health" />
+      <DO name="Proxy" type="SPS_1_Ind" />
+      <DO name="Beh" type="INS_2_Beh" />
+    </LNodeType>
+    <LNodeType id="XCBR01" lnClass="XCBR">
+      <DO name="Pos" type="DPC_1_DPCSO1" />
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="OpCnt" type="INC_1_Mod" />
+    </LNodeType>
+    <LNodeType id="CSWI01" lnClass="CSWI">
+      <DO name="Pos" type="DPC_1_DPCSO1" />
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+    </LNodeType>
+    <LNodeType id="MMXUPXR" lnClass="MMXU">
+      <DO desc="总有功" name="TotW" type="MV_1_POWER" />
+      <DO desc="总无功" name="TotVAr" type="MV_1_POWER" />
+      <DO desc="总视在功率" name="TotVA" type="MV_1_POWER" />
+      <DO desc="总功率因数" name="TotPF" type="MV_1_POWER" />
+      <DO desc="hz" name="Hz" type="MV_1_HZ" />
+      <DO desc="三相线电压" name="PPV" type="DEL_1_ppv" />
+      <DO desc="三相电流" name="A" type="WYE_3_phs" />
+      <DO desc="三相电压" name="PhV" type="WYE_1_phs" />
+      <!-- <DO desc="三相有功功率" name="W" type="WYE_1_phs" /> -->
+      <!-- <DO desc="三相无功功率" name="Var" type="WYE_1_phs" /> -->
+      <!-- <DO desc="三相视在功率" name="VA" type="WYE_1_phs" /> -->
+      <!-- <DO desc="计算方法" name="ClcMth" type="ING_1_ACTyp" /> -->
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+    </LNodeType>
+    <LNodeType id="MMXUPXR_2" lnClass="MMXU">
+      <DO desc="有功功率峰值需量" name="DmdPeakTotW" type="MV_1_POWER" />
+      <DO desc="无功功率峰值需量" name="DmdPeakTotVAr" type="MV_1_POWER" />
+      <DO desc="视在功率峰值需量" name="DmdPeakTotVA" type="MV_1_POWER" />
+      <DO desc="有功需量" name="DmdTotW" type="MV_1_POWER" />
+      <DO desc="无功需量" name="DmdTotVAr" type="MV_1_POWER" />
+      <DO desc="视在需量" name="DmdTotVA" type="MV_1_POWER" />
+      <DO desc="装置温度" name="Tmp" type="MV_1_POWER" />
+      <DO desc="最大温度" name="MaxTmp" type="MV_1_POWER" />
+      <DO desc="主要原因" name="Primary" type="MV_2_POWER" />
+      <DO desc="次要原因" name="Secondary" type="MV_2_POWER" />
+      <DO desc="具体原因" name="Cause" type="MV_2_POWER" />
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+    </LNodeType>
+    <!-- <LNodeType id="MMXUAlm" lnClass="MMXU"> -->
+    <!--   <DO desc="事件Id" name="EventId" type="MV_2_POWER" /> -->
+    <!--   <DO desc="主要原因" name="Primary" type="MV_2_POWER" /> -->
+    <!--   <DO desc="次要原因" name="Secondary" type="MV_2_POWER" /> -->
+    <!--   <DO desc="具体原因" name="Cause" type="MV_2_POWER" /> -->
+    <!--   <DO desc="三相电流" name="A" type="WYE_3_phs" /> -->
+    <!--   <DO desc="三相线电压" name="PPV" type="DEL_1_ppv" /> -->
+    <!--   <DO desc="三相电压" name="PhV" type="WYE_1_phs" /> -->
+    <!-- </LNodeType> -->
+    <LNodeType desc="事件数据模拟值" id="RDREPXR" lnClass="RDRE">
+      <DO desc="事件Id" name="EventId" type="MV_2_POWER" />
+      <DO desc="主要原因" name="Primary" type="MV_2_POWER" />
+      <DO desc="次要原因" name="Secondary" type="MV_2_POWER" />
+      <DO desc="具体原因" name="Cause" type="MV_2_POWER" />
+      <DO desc="三相电流" name="A" type="WYE_3_phs" />
+      <DO desc="三相线电压" name="PPV" type="DEL_1_ppv" />
+      <DO desc="三相电压" name="PhV" type="WYE_1_phs" />
+      <DO desc="总有功" name="TotW" type="MV_1_POWER" />
+      <DO desc="总无功" name="TotVAr" type="MV_1_POWER" />
+      <DO desc="总视在功率" name="TotVA" type="MV_1_POWER" />
+      <DO desc="有功需量" name="DmdTotW" type="MV_1_POWER" />
+      <DO desc="无功需量" name="DmdTotVAr" type="MV_1_POWER" />
+      <DO desc="视在需量" name="DmdTotVA" type="MV_1_POWER" />
+      <DO desc="装置温度" name="Tmp" type="MV_1_POWER" />
+      <DO desc="hz" name="Hz" type="MV_1_HZ" />
+      <DO desc="总功率因数" name="TotPF" type="MV_1_POWER" />
+      <DO name="OpCnt" type="MV_2_POWER" />
+    </LNodeType>
+    <LNodeType desc="统计电能" id="MMTRPXR" lnClass="MMTR">
+      <DO name="TotWh" type="BCR_1_Tot" />
+      <DO name="TotVArh" type="BCR_1_Tot" />
+      <DO name="TotVAh" type="BCR_1_Tot" />
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <!-- <DO name="ForwardTotWh" type="BCR_1_Tot" /> -->
+      <!-- <DO name="ReverseTotWh" type="BCR_1_Tot" /> -->
+      <!-- <DO name="TotWh" type="BCR_1_Tot" /> -->
+      <!-- <DO desc="容性（超前）无功电能" name="LeadVArh" type="BCR_1_Tot" /> -->
+      <!-- <DO desc="是感性（滞后）无功电能" name="LagVArh" type="BCR_1_Tot" /> -->
+      <!-- <DO desc="表示感性-容性无功电能的净无功电能" name="NetVArh" type="BCR_1_Tot" /> -->
+      <!-- <DO name="TotVAh" type="BCR_1_Tot" /> -->
+      <!-- <DO name="INSTorSDT" type="BCR_1_Tot" /> -->
+      <!-- <DO name="LFTorGFT" type="BCR_1_Tot" /> -->
+      <!-- <DO name="OpeCount" type="BCR_1_Tot" /> -->
+    </LNodeType>
+    <LNodeType desc="统计电能" id="MMTRPXR_2" lnClass="MMTR">
+      <DO name="ForwardTotWh" type="BCR_1_Tot" />
+      <DO name="ReverseTotWh" type="BCR_1_Tot" />
+      <DO desc="容性（超前）无功电能" name="LeadVArh" type="BCR_1_Tot" />
+      <DO desc="是感性（滞后）无功电能" name="LagVArh" type="BCR_1_Tot" />
+      <DO desc="表示感性-容性无功电能的净无功电能" name="NetVArh"
+      type="BCR_1_Tot" />
+      <!-- <DO name="INSTorSDT" type="BCR_1_Tot" /> -->
+      <!-- <DO name="LFTorGFT" type="BCR_1_Tot" /> -->
+      <!-- <DO name="OpeCount" type="BCR_1_Tot" /> -->
+    </LNodeType>
+    <!-- <LNodeType desc="计量次数" id="MMXN01" lnClass="MMXN"> -->
+    <!--   <DO name="INSTorSDT" type="BCR_1_Tot" /> -->
+    <!--   <DO name="LFTorGFT" type="BCR_1_Tot" /> -->
+    <!-- </LNodeType> -->
+    <LNodeType desc="谐波含有率" id="MHAIPXR" lnClass="MHAI">
+      <DO name="ThdA" type="WYE_1_Thd" />
+      <DO name="ThdPhV" type="WYE_2_Thd" />
+      <DO name="ThdPPV" type="DEL_1_ppv" />
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+    </LNodeType>
+    <LNodeType id="PTRC1" lnClass="PTRC">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Tr" type="ACT_Op" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PTOC1" lnClass="PTOC">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="S_PTOC" lnClass="PTOC">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+    </LNodeType>
+    <LNodeType id="PTUV1" lnClass="PTUV">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PDOP1" lnClass="PDOP">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PTOF1" lnClass="PTOF">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PTUF1" lnClass="PTUF">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PTOV1" lnClass="PTOV">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PIOC1" lnClass="PIOC">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="PTTR1" lnClass="PTTR">
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <DO name="Str" type="ACD_Str" />
+      <DO name="Op" type="ACT_Op" />
+    </LNodeType>
+    <LNodeType id="MSTAPXR" lnClass="MSTA">
+      <DO desc="最大电流" name="MaxAmps" type="WYE_3_phs" />
+      <DO desc="最小电流" name="MinAmps" type="WYE_3_phs" />
+    </LNodeType>
+    <LNodeType id="MSTAPXR_2" lnClass="MSTA">
+      <DO desc="最大相电压" name="MaxPhVolts" type="WYE_1_phs" />
+      <DO desc="最小相电压" name="MinPhVolts" type="WYE_1_phs" />
+      <DO desc="最大线电压" name="MaxPPVolts" type="DEL_1_ppv" />
+      <DO desc="最小线电压" name="MinPPVolts" type="DEL_1_ppv" />
+    </LNodeType>
+    <LNodeType id="GGIO1" lnClass="GGIO">
+      <!-- <DO desc="未确认的脱扣状态" name="Un-acknowiedgedTrip" -->
+      <!-- type="SPS_1_Ind" /> -->
+      <!-- <DO desc="激活或未确认的报警" name="ActiveOrunacknowiedgedAlarm" -->
+      <!-- type="SPS_1_Ind" /> -->
+      <DO desc="总告警" name="Alm" type="SPS_1_Ind" />
+      <DO desc="维护模式被激活" name="MaintenanceActive"
+      type="SPS_1_Ind" />
+      <DO desc="测试模式被激活" name="TestActive" type="SPS_1_Ind" />
+      <DO desc="三相电源相序" name="PhaseRotationABC1"
+      type="SPS_1_Ind" />
+      <!-- <DO desc="长延时整定被激活" name="LongDelayActive" -->
+      <!-- type="SPS_1_Ind" /> -->
+      <DO desc="区域选择性联锁(ZSI)被激活" name="ZoneInterLockActive"
+      type="SPS_1_Ind" />
+      <!-- <DO desc="接地为返回电源接地" name="SourceGround" type="SPS_1_Ind" /> -->
+      <!-- <DO desc="断路器处于连接状态" name="BreakerInConenctedPos" -->
+      <!-- type="SPS_1_Ind" /> -->
+      <!-- <DO desc="弹簧处于储能状态" name="SpringInChargeState" -->
+      <!-- type="SPS_1_Ind" /> -->
+    </LNodeType>
+    <LNodeType desc="诊断数据" id="GGIO2" lnClass="GGIO">
+      <DO name="INSTorSDT" type="INS_1_Counter" />
+      <DO name="LFTorGFT" type="INS_1_Counter" />
+      <DO name="OpCnt" type="INS_1_Counter" />
+      <DO name="SDTCnt" type="INS_1_Counter" />
+      <DO name="INSTCnt" type="INS_1_Counter" />
+      <DO name="HCDTCnt" type="INS_1_Counter" />
+      <DO name="LDTCnt" type="INS_1_Counter" />
+      <DO name="GFTCnt" type="INS_1_Counter" />
+      <DO name="TotalTripCnt" type="INS_1_Counter" />
+      <DO name="TestTripCnt" type="INS_1_Counter" />
+      <DO name="CommOpenCnt" type="INS_1_Counter" />
+      <DO name="ManuOpenCnt" type="INS_1_Counter" />
+      <!-- <DO name="LastOpeTm" type="INS_1_Counter" /> -->
+      <!-- <DO name="LastTmpTm" type="INS_1_Counter" /> -->
+    </LNodeType>
+    <!-- <LNodeType desc="告警状态" id="CALH1" lnClass="CALH"> -->
+    <!--   <DO desc="分合状态" name="OpenCloseState" type="SPS_1_GrAlm" /> -->
+    <!--   <DO desc="触发状态" name="TrippedState" type="SPS_1_GrAlm" /> -->
+    <!--   <DO desc="告警状态" name="Alarmed" type="SPS_1_GrAlm" /> -->
+    <!--   <DO desc="Pickedup" name="Ipckedup" type="SPS_1_GrAlm" /> -->
+    <!-- </LNodeType> -->
+    <DOType cdc="INC" id="INC_1_Mod">
+      <DA bType="INT32" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModels" />
+    </DOType>
+    <DOType cdc="INS" id="INS_1_Beh">
+      <!-- <DA bType="INT32" dchg="true" fc="ST" name="stVal"  /> -->
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="BehaviourModeKind" />
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="INS" id="INS_2_Beh">
+      <!-- <DA bType="INT32" dchg="true" fc="ST" name="stVal"  /> -->
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="BehaviourEaton" />
+      <!-- <DA bType="Quality" fc="ST" name="q" qchg="true" /> -->
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="INS" id="INS_1_Tmh">
+      <DA bType="INT32" dchg="true" fc="ST" name="stVal" />
+    </DOType>
+    <DOType cdc="INS" id="INS_1_Counter">
+      <DA bType="INT32" dchg="true" fc="ST" name="stVal" />
+    </DOType>
+    <DOType cdc="INS" id="INS_1_Health">
+      <!-- <DA bType="INT32" dchg="true" fc="ST" name="stVal"  /> -->
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="HealthKind" />
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="LPL" id="LPL_1_NamPlt">
+      <DA bType="VisString255" fc="DC" name="vendor" />
+      <DA bType="VisString255" fc="DC" name="swRev" />
+      <DA bType="VisString255" fc="DC" name="d" />
+      <DA bType="VisString255" fc="DC" name="configRev" />
+      <DA bType="VisString255" fc="EX" name="ldNs" />
+    </DOType>
+    <DOType id="DPL_1_PhyNam" cdc="DPL">
+      <DA name="vendor" bType="VisString255" fc="DC" />
+    </DOType>
+    <DOType cdc="SPS" id="SPS_1_GrAlm">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType id="DPC_1_DPCSO1" cdc="DPC">
+      <DA name="stVal" bType="Dbpos" fc="ST" dchg="true" />
+      <DA name="q" bType="Quality" fc="ST" qchg="true" />
+      <DA name="Oper" type="SPCOperate_1" bType="Struct" fc="CO" />
+      <DA name="ctlModel" type="CtlModels" valKind="RO"
+      bType="Enum" fc="CF" />
+      <DA name="t" bType="Timestamp" fc="ST" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_1_phs">
+      <SDO name="phsA" type="CMV_1_phs" />
+      <SDO name="phsB" type="CMV_1_phs" />
+      <SDO name="phsC" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_3_phs">
+      <SDO name="phsA" type="CMV_1_phs" />
+      <SDO name="phsB" type="CMV_1_phs" />
+      <SDO name="phsC" type="CMV_1_phs" />
+      <SDO name="neut" type="CMV_1_phs" />
+      <SDO name="res" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_2_phs">
+      <SDO name="phsA" type="CMV_2_phs" />
+      <SDO name="phsB" type="CMV_2_phs" />
+      <SDO name="phsC" type="CMV_2_phs" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_1_Thd">
+      <SDO name="phsA" type="CMV_1_phs" />
+      <SDO name="phsB" type="CMV_1_phs" />
+      <SDO name="phsC" type="CMV_1_phs" />
+      <SDO name="neut" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_2_Thd">
+      <SDO name="phsA" type="CMV_1_phs" />
+      <SDO name="phsB" type="CMV_1_phs" />
+      <SDO name="phsC" type="CMV_1_phs" />
+    </DOType>
+    <DOType id="ING_1_ACTyp" cdc="ING">
+      <DA name="setVal" bType="INT32" fc="SP" />
+    </DOType>
+    <DOType cdc="BCR" id="BCR_1_Tot">
+      <DA bType="INT64" dchg="true" fc="ST" name="actVal" />
+      <!-- <DA bType="Timestamp" fc="ST" name="t" /> -->
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="DEL_1_ppv">
+      <SDO name="ppvAB" type="CMV_1_phs" />
+      <SDO name="ppvBC" type="CMV_1_phs" />
+      <SDO name="ppvCA" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="ACD" id="ACD_Str">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="general" />
+      <DA bType="Enum" dchg="true" fc="ST" name="dirGeneral"
+      type="dirGeneral" />
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="ACT" id="ACT_Op">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="general" />
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_HZ">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_Av">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_POWER">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="MV" id="MV_2_POWER">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_2" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_imb">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+      <DA bType="Quality" fc="MX" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="MX" name="t" />
+    </DOType>
+    <DOType cdc="CMV" id="CMV_1_phs">
+      <DA bType="Struct" dchg="true" fc="MX" name="cVal"
+      type="Vector_1" />
+    </DOType>
+    <DOType cdc="CMV" id="CMV_2_phs">
+      <DA bType="Struct" dchg="true" fc="MX" name="cVal"
+      type="Vector_2" />
+    </DOType>
+    <DOType cdc="SPS" id="SPS_1_Ind">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal" />
+      <!-- <DA bType="Timestamp" fc="ST" name="t" /> -->
+    </DOType>
+    <DOType cdc="SEQ" id="SEQ_1">
+      <SDO name="c1" type="CMV_1_SEQ" />
+      <SDO name="c2" type="CMV_1_SEQ" />
+      <SDO name="c3" type="CMV_1_SEQ" />
+    </DOType>
+    <DOType cdc="CMV" id="CMV_1_SEQ">
+      <DA bType="Struct" fc="MX" name="cVal"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="ASG" id="ASG_SE_RATE">
+      <DA bType="Struct" fc="SE" name="setMag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="ASG" id="ASG_SE_RATE_2">
+      <DA bType="Struct" fc="SE" name="setMag"
+      type="AnalogueValue_2" />
+    </DOType>
+    <DAType id="Vector_1">
+      <BDA bType="Struct" name="mag" type="AnalogueValue_1" />
+    </DAType>
+    <DAType id="Vector_2">
+      <BDA bType="Struct" name="mag" type="AnalogueValue_2" />
+    </DAType>
+    <DAType id="AnalogueValue_1">
+      <BDA bType="FLOAT32" name="f" />
+    </DAType>
+    <DAType id="AnalogueValue_2">
+      <BDA bType="INT32" name="i" />
+    </DAType>
+    <EnumType id="CtlModels">
+      <EnumVal ord="0">status-only</EnumVal>
+      <EnumVal ord="1">direct-with-normal-security</EnumVal>
+      <EnumVal ord="2">sbo-with-normal-security</EnumVal>
+      <EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+      <EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+    </EnumType>
+    <EnumType id="dirGeneral">
+      <EnumVal ord="0">unknown</EnumVal>
+      <EnumVal ord="1">forward</EnumVal>
+      <EnumVal ord="2">backward</EnumVal>
+      <EnumVal ord="3">both</EnumVal>
+    </EnumType>
+    <EnumType id="OrCat">
+      <EnumVal ord="0">not-supported</EnumVal>
+      <EnumVal ord="1">bay-control</EnumVal>
+      <EnumVal ord="2">station-control</EnumVal>
+      <EnumVal ord="3">remote-control</EnumVal>
+      <EnumVal ord="4">automatic-bay</EnumVal>
+      <EnumVal ord="5">automatic-station</EnumVal>
+      <EnumVal ord="6">automatic-remote</EnumVal>
+      <EnumVal ord="7">maintenance</EnumVal>
+      <EnumVal ord="8">process</EnumVal>
+    </EnumType>
+    <DAType id="Originator_1">
+      <BDA name="orCat" type="OrCat" bType="Enum" />
+      <BDA name="orIdent" bType="Octet64" />
+    </DAType>
+    <DAType id="SPCOperate_1">
+      <BDA name="ctlVal" bType="BOOLEAN" />
+      <BDA name="origin" type="Originator_1" bType="Struct" />
+      <BDA name="ctlNum" bType="INT8U" />
+      <BDA name="T" bType="Timestamp" />
+      <BDA name="Test" bType="BOOLEAN" />
+      <BDA name="Check" bType="Check" />
+    </DAType>
+    <EnumType id="BehaviourModeKind">
+      <EnumVal ord="1">on</EnumVal>
+      <EnumVal ord="2">blocked</EnumVal>
+      <EnumVal ord="3">test</EnumVal>
+      <EnumVal ord="4">test/blocked</EnumVal>
+      <EnumVal ord="5">off</EnumVal>
+    </EnumType>
+    <EnumType id="BehaviourEaton">
+      <EnumVal ord="1">NotApplicable</EnumVal>
+      <EnumVal ord="2">test</EnumVal>
+      <EnumVal ord="3">Poweredup</EnumVal>
+      <EnumVal ord="4">Alarm</EnumVal>
+    </EnumType>
+    <EnumType id="HealthKind">
+      <EnumVal ord="1">Ok</EnumVal>
+      <EnumVal ord="2">Warning</EnumVal>
+      <EnumVal ord="3">Alarm</EnumVal>
+    </EnumType>
+  </DataTypeTemplates>
+</SCL>

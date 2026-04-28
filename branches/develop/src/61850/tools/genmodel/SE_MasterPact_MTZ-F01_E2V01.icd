@@ -1,0 +1,1847 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SCL xmlns="http://www.iec.ch/61850/2003/SCL"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="B"
+version="2007"
+xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd">
+  <Header id="MasterPact MTZ definition file" version="01"
+  revision="01" toolID="FORUM_SCL_GENERATOR_TOOL"></Header>
+  <Communication>
+    <SubNetwork name="IEC61850 network" type="8">
+      <ConnectedAP iedName="TEMPLATE" apName="AP1">
+        <Address>
+          <P type="IP">169.254.12.34</P>
+          <P type="IP-SUBNET">255.255.255.0</P>
+          <P type="IP-GATEWAY">0.0.0.0</P>
+          <P type="OSI-AP-Title">1,3,9999,33</P>
+          <P type="OSI-AE-Qualifier">1</P>
+          <P type="OSI-TSEL">0001</P>
+          <P type="OSI-PSEL">00000001</P>
+          <P type="OSI-SSEL">0001</P>
+        </Address>
+      </ConnectedAP>
+    </SubNetwork>
+  </Communication>
+  <IED name="TEMPLATE" type="IED" manufacturer="Schneider Electric"
+  configVersion="1.0"
+  desc="MasterPact MTZ- Low Voltage Air Circuit Breaker">
+    <Private type="SchneiderElectric-IED-Type">MasterPact
+    MTZ</Private>
+    <Services nameLength="64">
+      <DynAssociation max="4" />
+      <GetDirectory />
+      <GetDataObjectDefinition />
+      <DataObjectDirectory />
+      <GetDataSetValue />
+      <DataSetDirectory />
+      <ConfDataSet max="6" maxAttributes="100" modify="false" />
+      <ConfReportControl bufMode="unbuffered" max="24" />
+      <ReadWrite />
+      <GetCBValues />
+      <ReportSettings cbName="Fix" datSet="Fix" rptID="Dyn"
+      bufTime="Dyn" intgPd="Dyn" optFields="Dyn" trgOps="Dyn" />
+      <ConfLNs fixLnInst="true" fixPrefix="true" />
+    </Services>
+    <AccessPoint name="AP1">
+      <Server>
+        <Authentication />
+        <LDevice inst="LD0">
+          <!--[] -->
+          <LN0 inst="" lnClass="LLN0"
+          lnType="SE_LLN0_90d634d4cd711fa535b4c5a5e261c87fbe1b55ae">
+
+            <DataSet desc="" name="StatXCBR">
+              <FCDA doName="Pos" fc="ST" ldInst="LD0"
+              lnClass="CSWI" lnInst="1" />
+              <FCDA doName="Loc" fc="ST" ldInst="LD0"
+              lnClass="CSWI" lnInst="1" />
+              <FCDA doName="Pos" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="Loc" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="RTC" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="BlkCls" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="BlkOpn" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="OpCnt" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="ChassisPos" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" prefix="Ext_" />
+            </DataSet>
+            <DataSet desc="" name="StatEnergy">
+              <FCDA doName="TotVAh" fc="ST" ldInst="LD0"
+              lnClass="MMTR" lnInst="1" />
+              <FCDA doName="TotVArh" fc="ST" ldInst="LD0"
+              lnClass="MMTR" lnInst="1" />
+              <FCDA doName="TotWh" fc="ST" ldInst="LD0"
+              lnClass="MMTR" lnInst="1" />
+            </DataSet>
+            <DataSet desc="" name="StatMeas">
+              <FCDA doName="TotW" fc="MX" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="TotVAr" fc="MX" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="TotVA" fc="MX" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="TotPF" fc="MX" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="Hz" fc="MX" ldInst="LD0" lnClass="MMXU"
+              lnInst="1" />
+              <FCDA doName="PPV" fc="MX" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="A" fc="MX" ldInst="LD0" lnClass="MMXU"
+              lnInst="1" />
+              <FCDA doName="W" fc="MX" ldInst="LD0" lnClass="MMXU"
+              lnInst="1" />
+              <FCDA doName="VAr" fc="MX" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="VA" fc="MX" ldInst="LD0" lnClass="MMXU"
+              lnInst="1" />
+              <FCDA doName="PF" fc="MX" ldInst="LD0" lnClass="MMXU"
+              lnInst="1" />
+              <FCDA doName="ThdA" fc="MX" ldInst="LD0"
+              lnClass="MHAI" lnInst="1" />
+              <FCDA doName="ThdPPV" fc="MX" ldInst="LD0"
+              lnClass="MHAI" lnInst="1" />
+            </DataSet>
+            <DataSet desc="" name="StatProtection">
+              <FCDA doName="Tr" fc="ST" ldInst="LD0" lnClass="PTRC"
+              lnInst="1" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTRC"
+              lnInst="1" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PIOC"
+              lnInst="1" prefix="A50_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A51L_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOC"
+              lnInst="1" prefix="A51L_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A51S_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOC"
+              lnInst="1" prefix="A51S_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A51G_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOC"
+              lnInst="1" prefix="A51G_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="2" prefix="A51G_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOC"
+              lnInst="2" prefix="A51G_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTUV" lnInst="1" prefix="A27_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTUV"
+              lnInst="1" prefix="A27_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTUV" lnInst="2" prefix="A27_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTUV"
+              lnInst="2" prefix="A27_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOV" lnInst="1" prefix="A59_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOV"
+              lnInst="1" prefix="A59_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOV" lnInst="2" prefix="A59_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOV"
+              lnInst="2" prefix="A59_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PDOP" lnInst="1" prefix="A32_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PDOP"
+              lnInst="1" prefix="A32_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTUF" lnInst="1" prefix="A81_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTUF"
+              lnInst="1" prefix="A81_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOF" lnInst="1" prefix="A81_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOF"
+              lnInst="1" prefix="A81_" />
+              <FCDA doName="Str" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A67_" />
+              <FCDA doName="Op" fc="ST" ldInst="LD0" lnClass="PTOC"
+              lnInst="1" prefix="A67_" />
+            </DataSet>
+            <DataSet desc="" name="StatHealth">
+              <FCDA doName="PhyHealth" fc="ST" ldInst="LD0"
+              lnClass="LPHD" lnInst="1" />
+              <FCDA doName="Mod" fc="ST" ldInst="LD0"
+              lnClass="LLN0" />
+              <FCDA doName="Health" fc="ST" ldInst="LD0"
+              lnClass="LLN0" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="LLN0" />
+              <FCDA doName="Loc" fc="ST" ldInst="LD0"
+              lnClass="LLN0" />
+              <FCDA doName="Mod" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Mod" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Mod" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="3" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="3" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTRC" lnInst="1" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PIOC" lnInst="1" prefix="A50_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A51L_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A51S_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A51G_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="2" prefix="A51G_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTUV" lnInst="1" prefix="A27_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTUV" lnInst="2" prefix="A27_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOV" lnInst="1" prefix="A59_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOV" lnInst="2" prefix="A59_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PDOP" lnInst="1" prefix="A32_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTUF" lnInst="1" prefix="A81_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOF" lnInst="1" prefix="A81_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="PTOC" lnInst="1" prefix="A67_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="MMXU" lnInst="1" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="MHAI" lnInst="1" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="MMTR" lnInst="1" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="CSWI" lnInst="1" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="XCBR" lnInst="1" />
+              <FCDA doName="Mod" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" prefix="Ext_" />
+              <FCDA doName="Beh" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" prefix="Ext_" />
+            </DataSet>
+            <DataSet desc="" name="StatIO">
+              <FCDA doName="Ind1" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Ind2" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Ind3" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Ind4" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Ind5" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Ind6" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="AnIn1" fc="MX" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="SPCSO1" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="SPCSO2" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="SPCSO3" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="1" />
+              <FCDA doName="Ind1" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Ind2" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Ind3" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Ind4" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Ind5" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="Ind6" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="AnIn1" fc="MX" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="SPCSO1" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="SPCSO2" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="SPCSO3" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="2" />
+              <FCDA doName="SPCSO1" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="3" />
+              <FCDA doName="SPCSO2" fc="ST" ldInst="LD0"
+              lnClass="GGIO" lnInst="3" />
+            </DataSet>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatXCBR" indexed="true" intgPd="0"
+            name="URCB_StatXCBR" rptID="URCB_StatXCBR">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatProtection" indexed="true"
+            intgPd="0" name="URCB_StatProtection"
+            rptID="URCB_StatProtection">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatHealth" indexed="true"
+            intgPd="0" name="URCB_StatHealth"
+            rptID="URCB_StatHealth">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatMeas" indexed="true" intgPd="0"
+            name="URCB_StatMeas" rptID="URCB_StatMeas">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatEnergy" indexed="true"
+            intgPd="0" name="URCB_StatEnergy"
+            rptID="URCB_StatEnergy">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="false"
+            confRev="1" datSet="StatIO" indexed="true" intgPd="0"
+            name="URCB_StatIO" rptID="URCB_StatIO">
+              <TrgOps dchg="true" dupd="false" gi="true"
+              period="true" qchg="true" />
+              <OptFields bufOvfl="false" configRef="true"
+              dataRef="true" dataSet="true" entryID="false"
+              reasonCode="true" seqNum="true" timeStamp="true" />
+              <RptEnabled max="4" />
+            </ReportControl>
+            <DOI name="Mod">
+              <DAI name="ctlModel">
+                <Val>status-only</Val>
+              </DAI>
+            </DOI>
+          </LN0>
+          <!--["lphd", "diagmaint"] -->
+          <LN inst="1" lnClass="LPHD"
+          lnType="SE_LPHD_ba105de39cc383fbded1cf39f827d50ea3acd4ae"
+          prefix="">
+            <DOI name="Proxy">
+              <DAI name="stVal">
+                <Val>false</Val>
+              </DAI>
+            </DOI>
+            <DOI name="PhyNam">
+              <DAI name="location">
+                <Val>My Location</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--[] -->
+          <LN inst="1" lnClass="CSWI"
+          lnType="SE_CSWI_8d6948178dcad429a1343c61df6ba8631cc8edd5"
+          prefix="">
+            <DOI name="Pos">
+              <DAI name="sboTimeout">
+                <Val>120000</Val>
+              </DAI>
+              <DAI name="sboClass">
+                <Val>operate-once</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["io1:root"] -->
+          <LN inst="1" lnClass="GGIO"
+          lnType="SE_GGIO_840d82bf10e13c38cdee1ed7f21206d70cb39ec7"
+          prefix="">
+            <DOI name="AnIn1">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>°C</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.5°C" name="db">
+                <Val>1</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind1">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind2">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind3">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind4">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind5">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind6">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO1">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO2">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO3">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["io2:root"] -->
+          <LN inst="2" lnClass="GGIO"
+          lnType="SE_GGIO_840d82bf10e13c38cdee1ed7f21206d70cb39ec7"
+          prefix="">
+            <DOI name="AnIn1">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>°C</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.5°C" name="db">
+                <Val>1</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind1">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind2">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind3">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind4">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind5">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="Ind6">
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO1">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO2">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO3">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["masterpact:root"] -->
+          <LN inst="3" lnClass="GGIO"
+          lnType="SE_GGIO_7df6033a47096e7d012c3554ec9be3fed2120440"
+          prefix="">
+            <DOI name="SPCSO1">
+              <DAI name="ctlModel">
+                <Val>status-only</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+            <DOI name="SPCSO2">
+              <DAI name="ctlModel">
+                <Val>status-only</Val>
+              </DAI>
+              <DAI desc="Input label" name="d">
+                <Val></Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="External I/O's" inst="1" lnClass="GGIO"
+          lnType="SE_GGIO_MasterpactMTZ_EIFE_V001" prefix="Ext_">
+            <DOI name="ChassisPos">
+              <DAI desc="Chassis Position" name="d" valKind="RO">
+                <Val>Chassis Position</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:lt_ptoc"] -->
+          <LN inst="1" lnClass="PTOC"
+          lnType="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53"
+          prefix="A51L_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:st_ptoc"] -->
+          <LN inst="1" lnClass="PTOC"
+          lnType="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53"
+          prefix="A51S_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:gf_ptoc"] -->
+          <LN inst="1" lnClass="PTOC"
+          lnType="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53"
+          prefix="A51G_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:el_ptoc"] -->
+          <LN inst="2" lnClass="PTOC"
+          lnType="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53"
+          prefix="A51G_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:fwd_dir_ptoc_fct"] -->
+          <LN inst="1" lnClass="PTOC"
+          lnType="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53"
+          prefix="A67_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:rv_dir_ptoc_fct"] -->
+          <!--[<LN inst="2" lnClass="PTOC" lnType="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53" prefix="A67_">
+                    <DOI name="Str">
+                    <DAI name="dirGeneral">
+                    <Val>unknown</Val>
+                    </DAI>
+                    </DOI>
+                    <DOI name="Mod">
+                    <DAI name="ctlModel">
+                    <Val>status-only</Val>
+                    </DAI>
+                    </DOI>
+                    </LN>]-->
+          <!--["micrologic:dir_pdop"] -->
+          <LN inst="1" lnClass="PDOP"
+          lnType="SE_PDOP_c5e44d5aa9792e59b4f617f38b4dea7012df4343"
+          prefix="A32_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:ptuf"] -->
+          <LN inst="1" lnClass="PTUF"
+          lnType="SE_PTUF_a38eddb229b7d74dee222b0465e9d9a23ac8070b"
+          prefix="A81_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:ptof"] -->
+          <LN inst="1" lnClass="PTOF"
+          lnType="SE_PTOF_727284bd9af7bdf3557e8bc412da0d20087b7f76"
+          prefix="A81_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:phsmin_ptuv_fct"] -->
+          <LN inst="1" lnClass="PTUV"
+          lnType="SE_PTUV_3974cbec7e40980ac15c6679130d2ebff583a985"
+          prefix="A27_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:phsall_ptuv_fct"] -->
+          <LN inst="2" lnClass="PTUV"
+          lnType="SE_PTUV_3974cbec7e40980ac15c6679130d2ebff583a985"
+          prefix="A27_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:phsmax_ptov_fct"] -->
+          <LN inst="1" lnClass="PTOV"
+          lnType="SE_PTOV_17ddeb8e0b32ccf7d94ebad6275db73741d7b36d"
+          prefix="A59_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:phsall_ptov_fct"] -->
+          <LN inst="2" lnClass="PTOV"
+          lnType="SE_PTOV_17ddeb8e0b32ccf7d94ebad6275db73741d7b36d"
+          prefix="A59_">
+            <DOI name="Str">
+              <DAI name="dirGeneral">
+                <Val>unknown</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:pioc"] -->
+          <LN inst="1" lnClass="PIOC"
+          lnType="SE_PIOC_75e78794787bab108bee536cd71f976ee0b0b82b"
+          prefix="A50_"></LN>
+          <!--["micrologic:ptrc"] -->
+          <LN inst="1" lnClass="PTRC"
+          lnType="SE_PTRC_fe83775ab9c990c2ac3f26a2d9e39a3b422052ee"
+          prefix="" />
+          <!--["micrologic:mmxu"] -->
+          <LN inst="1" lnClass="MMXU"
+          lnType="SE_MMXU_ffe222de97e38afaa583fa3e5552114aa5987068"
+          prefix="">
+            <DOI name="TotW">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>W</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.1kW" name="db">
+                <Val>1</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TotVA">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>VA</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.1kVA" name="db">
+                <Val>1</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TotVAr">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>VAr</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.1kVAR" name="db">
+                <Val>1</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TotPF">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>cos(phi)</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.01" name="db">
+                <Val>1</Val>
+              </DAI>
+            </DOI>
+            <DOI name="Hz">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>Hz</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.01Hz" name="db">
+                <Val>1</Val>
+              </DAI>
+            </DOI>
+            <DOI name="A">
+              <SDI name="phsA">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>A</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>A</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>A</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="neut">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>A</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="net">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>A</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="PPV">
+              <SDI name="phsAB">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>V</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsBC">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>V</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsCA">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>V</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="W">
+              <SDI name="phsA">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>W</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kW" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>W</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kW" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>W</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kW" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="PF">
+              <SDI name="phsA">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>cos(phi)</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.01" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>cos(phi)</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.01" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>cos(phi)</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.01" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="VAr">
+              <SDI name="phsA">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>VAr</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kVAR" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>VAr</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kVAR" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>VAr</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kVAR" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="VA">
+              <SDI name="phsA">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>VA</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kVA" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>VA</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kVA" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <SDI name="units">
+                  <DAI name="SIUnit">
+                    <Val>VA</Val>
+                  </DAI>
+                  <DAI name="multiplier">
+                    <Val />
+                  </DAI>
+                </SDI>
+                <DAI desc="unit: 0.1kVA" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="ClcMth">
+              <DAI name="setVal">
+                <Val>UNSPECIFIED</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:mmtr"] -->
+          <LN inst="1" lnClass="MMTR"
+          lnType="SE_MMTR_a7d5984c3897abf60259595f0784d38eb7834bdd"
+          prefix="">
+            <DOI name="TotVAh">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>VAh</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="TotVArh">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>VArh</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="TotWh">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>Wh</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+            </DOI>
+          </LN>
+          <!--["micrologic:mhai"] -->
+          <LN inst="1" lnClass="MHAI"
+          lnType="SE_MHAI_2fa6a3c7489466fb9d564fa23e8bf84ec6e037d9"
+          prefix="">
+            <DOI name="ThdPPV">
+              <SDI name="phsAB">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsBC">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsCA">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="ThdA">
+              <SDI name="phsA">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+              <SDI name="neut">
+                <DAI desc="unit: 0.1%" name="db">
+                  <Val>1</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="Hz">
+              <SDI name="units">
+                <DAI name="SIUnit">
+                  <Val>Hz</Val>
+                </DAI>
+                <DAI name="multiplier">
+                  <Val />
+                </DAI>
+              </SDI>
+              <DAI desc="unit: 0.01Hz" name="db">
+                <Val>1</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <!--["micrologic:xcbr", "micrologic:lrop"] -->
+          <LN inst="1" lnClass="XCBR"
+          lnType="SE_XCBR_7853af8fc74ab7c1ccd64186a4707eaa306373aa"
+          prefix="">
+            <DOI name="Pos">
+              <DAI name="ctlModel">
+                <Val>status-only</Val>
+              </DAI>
+            </DOI>
+            <DOI desc="Ready To Close - Low Voltage Air Circuit Breaker"
+            name="RTC"></DOI>
+            <DOI name="BlkCls">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+            </DOI>
+            <DOI name="BlkOpn">
+              <DAI name="ctlModel">
+                <Val>status-only</Val>
+              </DAI>
+            </DOI>
+          </LN>
+        </LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+  <DataTypeTemplates>
+    <LNodeType id="SE_LLN0_90d634d4cd711fa535b4c5a5e261c87fbe1b55ae"
+    lnClass="LLN0">
+      <DO name="NamPlt"
+      type="SE_LPL_f95655638926b91062ff9b01a55c0e59a0fb6849" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Health"
+      type="SE_ENS_7cc9a6fe07cd336a39445c1ffafb8d8a3a85b496" />
+      <DO name="Mod"
+      type="SE_ENC_3edf98017024931228f72bbaa065923b378b881c" />
+      <DO name="LocKey" type="SE_SPS_without_d_Ext_V001" />
+      <DO name="Loc" type="SE_SPS_without_d_Ext_V001" />
+    </LNodeType>
+    <LNodeType id="SE_LPHD_ba105de39cc383fbded1cf39f827d50ea3acd4ae"
+    lnClass="LPHD">
+      <DO name="PhyNam"
+      type="SE_DPL_bf21daea265984cc50a42978877a13b61c025a2a" />
+      <DO name="PhyHealth"
+      type="SE_ENS_7cc9a6fe07cd336a39445c1ffafb8d8a3a85b496" />
+      <DO name="Proxy" type="SE_SPS_without_d_Ext_V001" />
+    </LNodeType>
+    <LNodeType id="SE_CSWI_8d6948178dcad429a1343c61df6ba8631cc8edd5"
+    lnClass="CSWI">
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Pos"
+      type="SE_DPC_a4318c5c78147d75d9bbab23649a6b5f3b24d520" />
+      <DO name="Loc" type="SE_SPS_without_d_Ext_V001" />
+    </LNodeType>
+    <LNodeType id="SE_GGIO_840d82bf10e13c38cdee1ed7f21206d70cb39ec7"
+    lnClass="GGIO">
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Mod"
+      type="SE_ENC_3edf98017024931228f72bbaa065923b378b881c" />
+      <DO name="Ind1"
+      type="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767" />
+      <DO name="Ind2"
+      type="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767" />
+      <DO name="Ind3"
+      type="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767" />
+      <DO name="Ind4"
+      type="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767" />
+      <DO name="Ind5"
+      type="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767" />
+      <DO name="Ind6"
+      type="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767" />
+      <DO name="AnIn1"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+      <DO name="SPCSO1"
+      type="SE_SPC_9f856a16983707b6a70f3ef6988b8bd90f46f6cc" />
+      <DO name="SPCSO2"
+      type="SE_SPC_9f856a16983707b6a70f3ef6988b8bd90f46f6cc" />
+      <DO name="SPCSO3"
+      type="SE_SPC_9f856a16983707b6a70f3ef6988b8bd90f46f6cc" />
+    </LNodeType>
+    <LNodeType id="SE_GGIO_7df6033a47096e7d012c3554ec9be3fed2120440"
+    lnClass="GGIO">
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Mod"
+      type="SE_ENC_3edf98017024931228f72bbaa065923b378b881c" />
+      <DO name="SPCSO1" type="SE_SPC_Without_Control" />
+      <DO name="SPCSO2" type="SE_SPC_Without_Control" />
+    </LNodeType>
+    <LNodeType id="SE_GGIO_MasterpactMTZ_EIFE_V001" lnClass="GGIO">
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Mod"
+      type="SE_ENC_3edf98017024931228f72bbaa065923b378b881c" />
+      <DO name="ChassisPos"
+      type="SE_ENS_CRADEL_STATUS_WITH_DATANS_MTZ_V001" />
+    </LNodeType>
+    <LNodeType id="SE_PTOC_49072958460047c9c329bfc5b0588ddd428ffc53"
+    lnClass="PTOC">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Str"
+      type="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PDOP_c5e44d5aa9792e59b4f617f38b4dea7012df4343"
+    lnClass="PDOP">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Str"
+      type="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PTUF_a38eddb229b7d74dee222b0465e9d9a23ac8070b"
+    lnClass="PTUF">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Str"
+      type="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PTOF_727284bd9af7bdf3557e8bc412da0d20087b7f76"
+    lnClass="PTOF">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Str"
+      type="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PTUV_3974cbec7e40980ac15c6679130d2ebff583a985"
+    lnClass="PTUV">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Str"
+      type="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PTOV_17ddeb8e0b32ccf7d94ebad6275db73741d7b36d"
+    lnClass="PTOV">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Str"
+      type="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PIOC_75e78794787bab108bee536cd71f976ee0b0b82b"
+    lnClass="PIOC">
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_PTRC_fe83775ab9c990c2ac3f26a2d9e39a3b422052ee"
+    lnClass="PTRC">
+      <DO name="Tr"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Op"
+      type="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9" />
+    </LNodeType>
+    <LNodeType id="SE_MMXU_ffe222de97e38afaa583fa3e5552114aa5987068"
+    lnClass="MMXU">
+      <DO name="TotW"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+      <DO name="TotVA"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+      <DO name="TotVAr"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+      <DO name="TotPF"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+      <DO name="Hz"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+      <DO name="A"
+      type="SE_WYE_78a3b6b4d6cb21aff94338653b4c9772224efda0" />
+      <DO name="PPV"
+      type="SE_DEL_1534a02d63ed14d7390a3d42fe6b2cd6ab840745" />
+      <DO name="W"
+      type="SE_WYE_8d9127bec5e6ad1592cda1554c0fbd0fc5bb4916" />
+      <DO name="PF"
+      type="SE_WYE_8d9127bec5e6ad1592cda1554c0fbd0fc5bb4916" />
+      <DO name="VAr"
+      type="SE_WYE_8d9127bec5e6ad1592cda1554c0fbd0fc5bb4916" />
+      <DO name="VA"
+      type="SE_WYE_8d9127bec5e6ad1592cda1554c0fbd0fc5bb4916" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="ClcMth"
+      type="SE_ENG_7664ee85ae0bc058814279f665dd701db62b2f6e" />
+    </LNodeType>
+    <LNodeType id="SE_MMTR_a7d5984c3897abf60259595f0784d38eb7834bdd"
+    lnClass="MMTR">
+      <DO name="TotVAh"
+      type="SE_BCR_5147d10706bde96f1b6eca642d698980f47081c8" />
+      <DO name="TotVArh"
+      type="SE_BCR_5147d10706bde96f1b6eca642d698980f47081c8" />
+      <DO name="TotWh"
+      type="SE_BCR_5147d10706bde96f1b6eca642d698980f47081c8" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+    </LNodeType>
+    <LNodeType id="SE_MHAI_2fa6a3c7489466fb9d564fa23e8bf84ec6e037d9"
+    lnClass="MHAI">
+      <DO name="ThdA" type="SE_WYE_WithoutUnitsCMV_withneut" />
+      <DO name="ThdPPV" type="SE_DEL_WithoutUnitCMV" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="Hz"
+      type="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70" />
+    </LNodeType>
+    <LNodeType id="SE_XCBR_7853af8fc74ab7c1ccd64186a4707eaa306373aa"
+    lnClass="XCBR">
+      <DO name="Pos"
+      type="SE_DPC_3c5b4aa94f4f9b91711a363fe6ca37d3330a45d7" />
+      <DO name="OpCnt"
+      type="SE_INS_5c05f6e84631120f92eb30ff7a9c7724a8fcb329" />
+      <DO name="Loc" type="SE_SPS_without_d_Ext_V001" />
+      <DO name="RTC" type="SE_SPS_Ext_V001" />
+      <DO name="Beh"
+      type="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214" />
+      <DO name="BlkOpn"
+      type="SE_SPC_Without_Control_without_d_Ext_V001" />
+      <DO name="BlkCls"
+      type="SE_SPC_3c970ab8b3e575ccf264ed38974f90e7a6ab04f5" />
+    </LNodeType>
+    <DOType cdc="LPL"
+    id="SE_LPL_f95655638926b91062ff9b01a55c0e59a0fb6849">
+      <DA bType="VisString255" fc="DC" name="vendor" />
+      <DA bType="VisString255" fc="DC" name="swRev" />
+      <DA bType="VisString255" fc="DC" name="configRev" />
+      <DA bType="VisString255" fc="EX" name="ldNs">
+        <Val>IEC 61850-7-4:2007A</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="ENS"
+    id="SE_ENS_552e78b6657c5d123c955bb2646b53c33739a214">
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="BehaviourModeKind" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="ENS"
+    id="SE_ENS_7cc9a6fe07cd336a39445c1ffafb8d8a3a85b496">
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="HealthKind" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="ENS"
+    id="SE_ENS_CRADEL_STATUS_WITH_DATANS_MTZ_V001">
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="ChassisPosDef" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="VisString255" fc="DC" name="d" />
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>SE_MTZ IFE 61850:2007A</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="ENC"
+    id="SE_ENC_3edf98017024931228f72bbaa065923b378b881c">
+      <DA bType="Enum" fc="ST" dchg="true" name="stVal"
+      type="BehaviourModeKind" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Enum" fc="CF" name="ctlModel"
+      type="CtlModelKind_StatusOnly" />
+    </DOType>
+    <DOType cdc="SPS"
+    id="SE_SPS_55a43dc813a33690bf084e9b6943b14ca1606767">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="VisString255" fc="DC" name="d" />
+    </DOType>
+    <DOType cdc="SPS" id="SE_SPS_without_d_Ext_V001">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="SPS" id="SE_SPS_Ext_V001">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>SE_MTZ IFE 61850:2007A</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="DPL"
+    id="SE_DPL_bf21daea265984cc50a42978877a13b61c025a2a">
+      <DA bType="VisString255" fc="DC" name="vendor" />
+      <!--[      <DA bType="VisString255" fc="DC" name="hwRev"/>]-->
+      <DA bType="VisString255" fc="DC" name="serNum" />
+      <DA bType="VisString255" fc="DC" name="model" />
+      <DA bType="VisString255" fc="DC" name="location" />
+    </DOType>
+    <DOType cdc="DPC"
+    id="SE_DPC_a4318c5c78147d75d9bbab23649a6b5f3b24d520">
+      <DA bType="VisString129" fc="CO" name="SBO">
+        <ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
+      </DA>
+      <DA bType="Struct" fc="CO" name="SBOw"
+      type="Oper_IEC61850" />
+      <DA bType="Struct" fc="CO" name="Oper"
+      type="Oper_IEC61850" />
+      <DA bType="Struct" fc="CO" name="Cancel"
+      type="Cancel_IEC61850" />
+      <DA name="stVal" bType="Dbpos" fc="ST" dchg="true" />
+      <DA name="q" bType="Quality" fc="ST" qchg="true" />
+      <DA name="t" bType="Timestamp" fc="ST" />
+      <DA name="ctlModel" bType="Enum" fc="CF" type="CtlModelKind">
+        <Val>sbo-with-enhanced-security</Val>
+      </DA>
+      <DA name="sboTimeout" bType="INT32U" fc="CF" />
+      <DA name="sboClass" bType="Enum" fc="CF"
+      type="SboClassKind" />
+    </DOType>
+    <DOType cdc="MV"
+    id="SE_MV_e6f5b4b3b3d1da1ad07e89e32fdcf7180e1f8f70">
+      <DA bType="Struct" fc="MX" dchg="true" name="mag"
+      type="SE_AnalogueValue_19080a959c35118cb3a5d2142468bbd37ddd8a9d" />
+      <DA bType="Quality" fc="MX" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="MX" name="t" />
+      <DA bType="Struct" fc="CF" name="units"
+      type="SE_Unit_f71e5204a35b09ff2579219e11a4677dcbe4da02"
+      valKind="RO" />
+      <DA bType="INT32U" fc="CF" name="db" />
+      <DA bType="VisString255" fc="DC" name="d" />
+    </DOType>
+    <DOType cdc="SPC"
+    id="SE_SPC_9f856a16983707b6a70f3ef6988b8bd90f46f6cc">
+      <!--[<DA bType="Struct" fc="ST" dchg="true" name="origin" type="SE_Originator_8f02869f11c3f876728b29477f8e2b3e7c029e9b"/>]-->
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Struct" fc="CO" name="Oper"
+      type="Oper_IEC61850" />
+      <DA bType="Struct" fc="CO" name="Cancel"
+      type="Cancel_IEC61850" />
+      <DA bType="VisString255" fc="DC" name="d" />
+      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModelKind"
+      valKind="RO" />
+    </DOType>
+    <DOType cdc="ACT"
+    id="SE_ACT_0db1d8f2ff1ef52b85436fd8be8e176bde0a5ef9">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="general" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="ACD"
+    id="SE_ACD_5342a2a5b8ad28271582c4b19af0e81462a385dc">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="general" />
+      <DA bType="Enum" fc="ST" dchg="true" name="dirGeneral"
+      type="FaultDirectionKind" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="CMV"
+    id="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284">
+      <!--[<DA bType="Struct" fc="MX" dchg="true" name="instCVal" type="SE_Vector_fd9e328c191dbde3d85e8ab45b07932353ec0d9d"/>]-->
+      <DA bType="Struct" fc="MX" dchg="true" name="cVal"
+      type="SE_Vector_fd9e328c191dbde3d85e8ab45b07932353ec0d9d" />
+      <DA bType="Quality" fc="MX" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="MX" name="t" />
+      <DA bType="Struct" fc="CF" name="units"
+      type="SE_Unit_f71e5204a35b09ff2579219e11a4677dcbe4da02"
+      valKind="RO" />
+      <DA bType="INT32U" fc="CF" name="db" />
+    </DOType>
+    <DOType cdc="CMV" id="SE_CMV_WithoutUnits">
+      <!--[<DA bType="Struct" fc="MX" dchg="true" name="instCVal" type="SE_Vector_fd9e328c191dbde3d85e8ab45b07932353ec0d9d"/>]-->
+      <DA bType="Struct" fc="MX" dchg="true" name="cVal"
+      type="SE_Vector_fd9e328c191dbde3d85e8ab45b07932353ec0d9d" />
+      <DA bType="Quality" fc="MX" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="MX" name="t" />
+      <DA bType="INT32U" fc="CF" name="db" />
+    </DOType>
+    <DOType cdc="WYE"
+    id="SE_WYE_78a3b6b4d6cb21aff94338653b4c9772224efda0">
+      <SDO name="phsA"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="phsB"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="phsC"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="neut"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="net"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+    </DOType>
+    <DOType cdc="WYE"
+    id="SE_WYE_8d9127bec5e6ad1592cda1554c0fbd0fc5bb4916">
+      <SDO name="phsA"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="phsB"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="phsC"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+    </DOType>
+    <DOType cdc="DEL"
+    id="SE_DEL_1534a02d63ed14d7390a3d42fe6b2cd6ab840745">
+      <SDO name="phsAB"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="phsBC"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+      <SDO name="phsCA"
+      type="SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284" />
+    </DOType>
+    <DOType cdc="DEL" id="SE_DEL_WithoutUnitCMV">
+      <SDO name="phsAB" type="SE_CMV_WithoutUnits" />
+      <SDO name="phsBC" type="SE_CMV_WithoutUnits" />
+      <SDO name="phsCA" type="SE_CMV_WithoutUnits" />
+    </DOType>
+    <DOType cdc="ENG"
+    id="SE_ENG_7664ee85ae0bc058814279f665dd701db62b2f6e">
+      <DA bType="Enum" fc="SP" name="setVal"
+      type="CalcMethodKind" />
+    </DOType>
+    <DOType cdc="BCR"
+    id="SE_BCR_5147d10706bde96f1b6eca642d698980f47081c8">
+      <DA bType="INT64" fc="ST" dchg="true" name="actVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Struct" fc="CF" name="units"
+      type="SE_Unit_f71e5204a35b09ff2579219e11a4677dcbe4da02"
+      valKind="RO" />
+      <DA bType="FLOAT32" fc="CF" name="pulsQty" valKind="RO">
+        <Val>1.0</Val>
+      </DA>
+    </DOType>
+    <!--[<DOType cdc = "WYE" id = "SE_WYE_bb269653e52f4ebe833fcece6e6b9a4998fcad05">
+                        <SDO name = "phsA" type = "SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284"/>
+                        <SDO name = "phsB" type = "SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284"/>
+                        <SDO name = "phsC" type = "SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284"/>
+                        <SDO name = "neut" type = "SE_CMV_5bf9c96dcdfb5ecef7cea330b69493676c72f284"/>
+                </DOType>]-->
+    <!--[<DOType cdc = "WYE" id = "SE_WYE_WithoutUnitsCMV">
+                        <SDO name = "phsA" type = "SE_CMV_WithoutUnits"/>
+                        <SDO name = "phsB" type = "SE_CMV_WithoutUnits"/>
+                        <SDO name = "phsC" type = "SE_CMV_WithoutUnits"/>
+                </DOType>]-->
+    <DOType cdc="WYE" id="SE_WYE_WithoutUnitsCMV_withneut">
+      <SDO name="phsA" type="SE_CMV_WithoutUnits" />
+      <SDO name="phsB" type="SE_CMV_WithoutUnits" />
+      <SDO name="phsC" type="SE_CMV_WithoutUnits" />
+      <SDO name="neut" type="SE_CMV_WithoutUnits" />
+    </DOType>
+    <DOType cdc="DPC"
+    id="SE_DPC_3c5b4aa94f4f9b91711a363fe6ca37d3330a45d7">
+      <DA bType="Dbpos" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Enum" fc="CF" name="ctlModel"
+      type="CtlModelKind_StatusOnly" />
+    </DOType>
+    <DOType cdc="INS"
+    id="SE_INS_5c05f6e84631120f92eb30ff7a9c7724a8fcb329">
+      <DA bType="INT32" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="SPC"
+    id="SE_SPC_3c970ab8b3e575ccf264ed38974f90e7a6ab04f5">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Struct" fc="CO" name="Oper"
+      type="Oper_IEC61850" />
+      <DA bType="Struct" fc="CO" name="Cancel"
+      type="Cancel_IEC61850" />
+      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModelKind"
+      valKind="RO" />
+    </DOType>
+    <DOType cdc="SPC" id="SE_SPC_Without_Control">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Enum" fc="CF" name="ctlModel"
+      type="CtlModelKind_StatusOnly" />
+      <DA bType="VisString255" fc="DC" name="d" />
+    </DOType>
+    <DOType cdc="SPC"
+    id="SE_SPC_Without_Control_without_d_Ext_V001">
+      <DA bType="BOOLEAN" fc="ST" dchg="true" name="stVal" />
+      <DA bType="Quality" fc="ST" qchg="true" name="q" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Enum" fc="CF" name="ctlModel"
+      type="CtlModelKind_StatusOnly" />
+    </DOType>
+    <!--[<DAType id = "SE_Originator_8f02869f11c3f876728b29477f8e2b3e7c029e9b">
+                        <BDA bType = "Enum" name = "orCat" type = "OriginatorCategoryKind"/>
+                        <BDA bType = "Octet64" name = "orIdent"/>
+                </DAType>]-->
+    <DAType id="Originator">
+      <BDA bType="Enum" name="orCat"
+      type="OriginatorCategoryKind" />
+      <BDA bType="Octet64" name="orIdent" />
+    </DAType>
+    <DAType id="Oper_IEC61850">
+      <BDA bType="BOOLEAN" name="ctlVal">
+        <Val>TRUE</Val>
+      </BDA>
+      <BDA bType="Struct" name="origin" type="Originator" />
+      <BDA bType="INT8U" name="ctlNum">
+        <Val>0</Val>
+      </BDA>
+      <BDA bType="Timestamp" name="T" />
+      <BDA bType="BOOLEAN" name="Test">
+        <Val>FALSE</Val>
+      </BDA>
+      <BDA bType="Check" name="Check">
+        <Val>3</Val>
+      </BDA>
+      <ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
+    </DAType>
+    <DAType id="Cancel_IEC61850">
+      <BDA bType="BOOLEAN" name="ctlVal">
+        <Val>FALSE</Val>
+      </BDA>
+      <BDA bType="Struct" name="origin" type="Originator" />
+      <BDA bType="INT8U" name="ctlNum">
+        <Val>0</Val>
+      </BDA>
+      <BDA bType="Timestamp" name="T" />
+      <BDA bType="BOOLEAN" name="Test">
+        <Val>FALSE</Val>
+      </BDA>
+      <ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
+    </DAType>
+    <DAType id="SE_AnalogueValue_19080a959c35118cb3a5d2142468bbd37ddd8a9d">
+
+      <BDA bType="FLOAT32" name="f" />
+    </DAType>
+    <DAType id="SE_Unit_f71e5204a35b09ff2579219e11a4677dcbe4da02">
+      <BDA bType="Enum" name="SIUnit" type="SIUnitKind" />
+      <BDA bType="Enum" name="multiplier" type="MultiplierKind" />
+    </DAType>
+    <DAType id="SE_Vector_fd9e328c191dbde3d85e8ab45b07932353ec0d9d">
+
+      <BDA bType="Struct" name="mag"
+      type="SE_AnalogueValue_19080a959c35118cb3a5d2142468bbd37ddd8a9d" />
+    </DAType>
+    <EnumType id="BehaviourModeKind">
+      <EnumVal ord="1">on</EnumVal>
+      <EnumVal ord="2">blocked</EnumVal>
+      <EnumVal ord="3">test</EnumVal>
+      <EnumVal ord="4">test/blocked</EnumVal>
+      <EnumVal ord="5">off</EnumVal>
+    </EnumType>
+    <EnumType id="HealthKind">
+      <EnumVal ord="1">Ok</EnumVal>
+      <EnumVal ord="2">Warning</EnumVal>
+      <EnumVal ord="3">Alarm</EnumVal>
+    </EnumType>
+    <EnumType id="ChassisPosDef">
+      <EnumVal ord="0">Position Discrepancy</EnumVal>
+      <EnumVal ord="1">Connected</EnumVal>
+      <EnumVal ord="2">Test</EnumVal>
+      <EnumVal ord="3">Disconnected</EnumVal>
+    </EnumType>
+    <!--[<EnumType id = "SequenceKind">
+                        <EnumVal ord = "0">pos-neg-zero</EnumVal>
+                        <EnumVal ord = "1">dir-quad-zero</EnumVal>
+                </EnumType>]-->
+    <EnumType id="CtlModelKind">
+      <EnumVal ord="0">status-only</EnumVal>
+      <EnumVal ord="1">direct-with-normal-security</EnumVal>
+      <EnumVal ord="2">sbo-with-normal-security</EnumVal>
+      <EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+      <EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+    </EnumType>
+    <EnumType id="CtlModelKind_StatusOnly">
+      <EnumVal ord="0">status-only</EnumVal>
+    </EnumType>
+    <EnumType id="OriginatorCategoryKind">
+      <EnumVal ord="0">not-supported</EnumVal>
+      <EnumVal ord="1">bay-control</EnumVal>
+      <EnumVal ord="2">station-control</EnumVal>
+      <EnumVal ord="3">remote-control</EnumVal>
+      <EnumVal ord="4">automatic-bay</EnumVal>
+      <EnumVal ord="5">automatic-station</EnumVal>
+      <EnumVal ord="6">automatic-remote</EnumVal>
+      <EnumVal ord="7">maintenance</EnumVal>
+      <EnumVal ord="8">process</EnumVal>
+    </EnumType>
+    <EnumType id="SboClassKind">
+      <EnumVal ord="0">operate-once</EnumVal>
+      <!--[<EnumVal ord = "1">operate-many</EnumVal>]-->
+    </EnumType>
+    <EnumType id="SIUnitKind">
+      <EnumVal ord="1" />
+      <EnumVal ord="2">m</EnumVal>
+      <EnumVal ord="3">kg</EnumVal>
+      <EnumVal ord="4">s</EnumVal>
+      <EnumVal ord="5">A</EnumVal>
+      <EnumVal ord="6">K</EnumVal>
+      <EnumVal ord="7">mol</EnumVal>
+      <EnumVal ord="8">cd</EnumVal>
+      <EnumVal ord="9">deg</EnumVal>
+      <EnumVal ord="10">rad</EnumVal>
+      <EnumVal ord="11">sr</EnumVal>
+      <EnumVal ord="21">Gy</EnumVal>
+      <EnumVal ord="22">Bq</EnumVal>
+      <EnumVal ord="23">°C</EnumVal>
+      <EnumVal ord="24">Sv</EnumVal>
+      <EnumVal ord="25">F</EnumVal>
+      <EnumVal ord="26">C</EnumVal>
+      <EnumVal ord="27">S</EnumVal>
+      <EnumVal ord="28">H</EnumVal>
+      <EnumVal ord="29">V</EnumVal>
+      <EnumVal ord="30">ohm</EnumVal>
+      <EnumVal ord="31">J</EnumVal>
+      <EnumVal ord="32">N</EnumVal>
+      <EnumVal ord="33">Hz</EnumVal>
+      <EnumVal ord="34">lx</EnumVal>
+      <EnumVal ord="35">Lm</EnumVal>
+      <EnumVal ord="36">Wb</EnumVal>
+      <EnumVal ord="37">T</EnumVal>
+      <EnumVal ord="38">W</EnumVal>
+      <EnumVal ord="39">Pa</EnumVal>
+      <EnumVal ord="41">m²</EnumVal>
+      <EnumVal ord="42">m³</EnumVal>
+      <EnumVal ord="43">m/s</EnumVal>
+      <EnumVal ord="44">m/s²</EnumVal>
+      <EnumVal ord="45">m³/s</EnumVal>
+      <EnumVal ord="46">m/m³</EnumVal>
+      <EnumVal ord="47">M</EnumVal>
+      <EnumVal ord="48">kg/m³</EnumVal>
+      <EnumVal ord="49">m²/s</EnumVal>
+      <EnumVal ord="50">W/m K</EnumVal>
+      <EnumVal ord="51">J/K</EnumVal>
+      <EnumVal ord="52">ppm</EnumVal>
+      <EnumVal ord="53">1/s</EnumVal>
+      <EnumVal ord="54">rad/s</EnumVal>
+      <EnumVal ord="55">W/m²</EnumVal>
+      <EnumVal ord="56">J/m²</EnumVal>
+      <EnumVal ord="57">S/m</EnumVal>
+      <EnumVal ord="58">K/s</EnumVal>
+      <EnumVal ord="59">Pa/s</EnumVal>
+      <EnumVal ord="60">J/kg K</EnumVal>
+      <EnumVal ord="61">VA</EnumVal>
+      <EnumVal ord="62">Watts</EnumVal>
+      <EnumVal ord="63">VAr</EnumVal>
+      <EnumVal ord="64">phi</EnumVal>
+      <EnumVal ord="65">cos(phi)</EnumVal>
+      <EnumVal ord="66">Vs</EnumVal>
+      <EnumVal ord="67">V²</EnumVal>
+      <EnumVal ord="68">As</EnumVal>
+      <EnumVal ord="69">A²</EnumVal>
+      <EnumVal ord="70">A²t</EnumVal>
+      <EnumVal ord="71">VAh</EnumVal>
+      <EnumVal ord="72">Wh</EnumVal>
+      <EnumVal ord="73">VArh</EnumVal>
+      <EnumVal ord="74">V/Hz</EnumVal>
+      <EnumVal ord="75">Hz/s</EnumVal>
+      <EnumVal ord="76">char</EnumVal>
+      <EnumVal ord="77">char/s</EnumVal>
+      <EnumVal ord="78">kgm²</EnumVal>
+      <EnumVal ord="79">dB</EnumVal>
+      <EnumVal ord="80">J/Wh</EnumVal>
+      <EnumVal ord="81">W/s</EnumVal>
+      <EnumVal ord="82">l/s</EnumVal>
+      <EnumVal ord="83">dBm</EnumVal>
+    </EnumType>
+    <EnumType id="MultiplierKind">
+      <EnumVal ord="-24">y</EnumVal>
+      <EnumVal ord="-21">z</EnumVal>
+      <EnumVal ord="-18">a</EnumVal>
+      <EnumVal ord="-15">f</EnumVal>
+      <EnumVal ord="-12">p</EnumVal>
+      <EnumVal ord="-9">n</EnumVal>
+      <EnumVal ord="-6">µ</EnumVal>
+      <EnumVal ord="-3">m</EnumVal>
+      <EnumVal ord="-2">c</EnumVal>
+      <EnumVal ord="-1">d</EnumVal>
+      <EnumVal ord="0" />
+      <EnumVal ord="1">da</EnumVal>
+      <EnumVal ord="2">h</EnumVal>
+      <EnumVal ord="3">k</EnumVal>
+      <EnumVal ord="6">M</EnumVal>
+      <EnumVal ord="9">G</EnumVal>
+      <EnumVal ord="12">T</EnumVal>
+      <EnumVal ord="15">P</EnumVal>
+      <EnumVal ord="18">E</EnumVal>
+      <EnumVal ord="21">Z</EnumVal>
+      <EnumVal ord="24">Y</EnumVal>
+    </EnumType>
+    <EnumType id="FaultDirectionKind">
+      <EnumVal ord="0">unknown</EnumVal>
+      <EnumVal ord="1">forward</EnumVal>
+      <EnumVal ord="2">backward</EnumVal>
+      <EnumVal ord="3">both</EnumVal>
+    </EnumType>
+    <EnumType id="CalcMethodKind">
+      <EnumVal ord="1">UNSPECIFIED</EnumVal>
+      <EnumVal ord="2">TRUE_RMS</EnumVal>
+      <EnumVal ord="3">PEAK_FUNDAMENTAL</EnumVal>
+      <EnumVal ord="4">RMS_FUNDAMENTAL</EnumVal>
+      <EnumVal ord="5">MIN</EnumVal>
+      <EnumVal ord="6">MAX</EnumVal>
+      <EnumVal ord="7">AVG</EnumVal>
+      <EnumVal ord="8">SDV</EnumVal>
+      <EnumVal ord="9">PREDICTION</EnumVal>
+      <EnumVal ord="10">RATE</EnumVal>
+    </EnumType>
+  </DataTypeTemplates>
+</SCL>

@@ -1,0 +1,40 @@
+{
+  "name": "61850-cfg",
+  "version": "1.0.0",
+  "desc": "A JSON schema for representing dotable data structures.",
+
+  "project_name": "61850-cfg",
+  "cfg": {
+    "protocol": "61850"
+  },
+
+  "devlist": [
+    {
+      "port": "0",
+      "addr": "0",
+
+      "devname": "PXR61850",
+      "template": "ied",
+
+      "type": "ied"
+    },
+    {
+      "port": "1",
+      "addr": "1",
+
+      "devname": "pxr20_1",
+      "template": "pxr20",
+
+      "type": "meter"
+    },
+    {
+      "port": "1",
+      "addr": "2",
+
+      "devname": "pxr25_1",
+      "template": "pxr25",
+
+      "type": "meter"
+    }
+  ]
+}

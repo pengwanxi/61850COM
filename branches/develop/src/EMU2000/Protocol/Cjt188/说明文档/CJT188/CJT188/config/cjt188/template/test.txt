@@ -1,0 +1,4 @@
+
+fenum=2
+metertype=20
+slaveaddr=01,02,03,04,05,06,07

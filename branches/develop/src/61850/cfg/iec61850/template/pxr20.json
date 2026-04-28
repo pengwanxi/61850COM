@@ -1,0 +1,1186 @@
+{
+  "name": "pxr20",
+  "version": "1.0.0",
+  "desc": "pxr20 的数据对应template 的数据模板",
+  "proto": "emu2000shm",
+  "cfgname": "PXR20",
+  "ldname": "LD0",
+  "event_default_q": 0,
+
+  "LLN0": {
+    "NamPlt": {
+      "vendor": "Eaton",
+      "swRev": "02.02",
+      "d": "2024-06-01",
+      "configRev": "1.0.0",
+      "ldNs": "PXR20"
+    },
+    "Beh": {
+      "stVal": 1,
+      "q": 0,
+      "t": 0
+    },
+    "Health": {
+      "stVal": 1,
+      "q": 0,
+      "t": 0
+    },
+    "Mod": {
+      "q": 0,
+      "t": 0,
+      "ctlModel": 1
+    }
+  },
+
+  "model": {
+    "model": "TTU",
+    "desc": "TTUshujucaiji",
+    "proType": "",
+    "manuID": "",
+    "isreport": ""
+  },
+
+  "dataset_desc": {
+    "desc": "此项为说明，不读此项",
+    "name_desc": "A相电压，数据惟一标识",
+    "ref_desc": "A相电压对应的iec61850点名",
+    "db_desc": "数据中心名称，如果不写，则与name相同",
+    "data_desc": "对应点"
+  },
+
+  "dataset": [
+    {
+      "name": "A.phsA",
+      "ref_name": "MMXU1.A.phsA.cVal.mag.f",
+      "ref_time": "MMXU1.A.phsA.t",
+      "ref_q": "MMXU1.A.phsA.q",
+      "data_type": "YC",
+      "data_idx": "1",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsB",
+      "ref_name": "MMXU1.A.phsB.cVal.mag.f",
+      "ref_time": "MMXU1.A.phsB.t",
+      "ref_q": "MMXU1.A.phsB.q",
+      "data_type": "YC",
+      "data_idx": "2",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsC",
+      "ref_name": "MMXU1.A.phsC.cVal.mag.f",
+      "ref_time": "MMXU1.A.phsC.t",
+      "ref_q": "MMXU1.A.phsC.q",
+      "data_type": "YC",
+      "data_idx": "3",
+      "ratio": "1"
+    },
+    {
+      "name": "Ig",
+      "ref_name": "MMXU1.A.res.cVal.mag.f",
+      "ref_time": "MMXU1.A.res.t",
+      "ref_q": "MMXU1.A.res.q",
+      "data_type": "YC",
+      "data_idx": "4",
+      "ratio": "1"
+    },
+    {
+      "name": "In",
+      "ref_name": "MMXU1.A.neut.cVal.mag.f",
+      "ref_time": "MMXU1.A.neut.t",
+      "ref_q": "MMXU1.A.neut.q",
+      "data_type": "YC",
+      "data_idx": "5",
+      "ratio": "1"
+    },
+    {
+      "name": "Hz",
+      "ref_name": "MMXU1.Hz.mag.f",
+      "ref_time": "MMXU1.Hz.t",
+      "ref_q": "MMXU1.Hz.q",
+      "data_type": "YC",
+      "data_idx": "16",
+      "ratio": "1"
+    },
+    {
+      "name": "TmpMax",
+      "ref_name": "GGIO2.MaxTmp.mag.f",
+      "ref_time": "GGIO2.MaxTmp.t",
+      "ref_q": "GGIO2.MaxTmp.q",
+      "data_type": "YC",
+      "data_idx": "20",
+      "ratio": "1"
+    },
+    {
+      "name": "Tmp",
+      "ref_name": "GGIO2.Tmp.mag.f",
+      "ref_time": "GGIO2.Tmp.t",
+      "ref_q": "GGIO2.Tmp.q",
+      "data_type": "YC",
+      "data_idx": "21",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsA.min",
+      "ref_name": "MSTA1.MinAmps.phsA.cVal.mag.f",
+      "ref_time": "MSTA1.MinAmps.phsA.t",
+      "ref_q": "MSTA1.MinAmps.phsA.q",
+      "data_type": "YC",
+      "data_idx": "27",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsA.max",
+      "ref_name": "MSTA1.MaxAmps.phsA.cVal.mag.f",
+      "ref_time": "MSTA1.MaxAmps.phsA.t",
+      "ref_q": "MSTA1.MaxAmps.phsA.q",
+      "data_type": "YC",
+      "data_idx": "28",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsB.min",
+      "ref_name": "MSTA1.MinAmps.phsB.cVal.mag.f",
+      "ref_time": "MSTA1.MinAmps.phsB.t",
+      "ref_q": "MSTA1.MinAmps.phsB.q",
+      "data_type": "YC",
+      "data_idx": "29",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsB.max",
+      "ref_name": "MSTA1.MaxAmps.phsB.cVal.mag.f",
+      "ref_time": "MSTA1.MaxAmps.phsB.t",
+      "ref_q": "MSTA1.MaxAmps.phsB.q",
+      "data_type": "YC",
+      "data_idx": "30",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsC.min",
+      "ref_name": "MSTA1.MinAmps.phsC.cVal.mag.f",
+      "ref_time": "MSTA1.MinAmps.phsC.t",
+      "ref_q": "MSTA1.MinAmps.phsC.q",
+      "data_type": "YC",
+      "data_idx": "31",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsC.max",
+      "ref_name": "MSTA1.MaxAmps.phsC.cVal.mag.f",
+      "ref_time": "MSTA1.MaxAmps.phsC.t",
+      "ref_q": "MSTA1.MaxAmps.phsC.q",
+      "data_type": "YC",
+      "data_idx": "32",
+      "ratio": "1"
+    },
+    {
+      "name": "Ig.min",
+      "ref_name": "MSTA1.MinAmps.res.cVal.mag.f",
+      "ref_time": "MSTA1.MinAmps.res.t",
+      "ref_q": "MSTA1.MinAmps.res.q",
+      "data_type": "YC",
+      "data_idx": "33",
+      "ratio": "1"
+    },
+    {
+      "name": "Ig.max",
+      "ref_name": "MSTA1.MaxAmps.res.cVal.mag.f",
+      "ref_time": "MSTA1.MaxAmps.res.t",
+      "ref_q": "MSTA1.MaxAmps.res.q",
+      "data_type": "YC",
+      "data_idx": "34",
+      "ratio": "1"
+    },
+    {
+      "name": "In.min",
+      "ref_name": "MSTA1.MinAmps.neut.cVal.mag.f",
+      "ref_time": "MSTA1.MinAmps.neut.t",
+      "ref_q": "MSTA1.MinAmps.neut.q",
+      "data_type": "YC",
+      "data_idx": "35",
+      "ratio": "1"
+    },
+    {
+      "name": "In.max",
+      "ref_name": "MSTA1.MaxAmps.neut.cVal.mag.f",
+      "ref_time": "MSTA1.MaxAmps.neut.t",
+      "ref_q": "MSTA1.MaxAmps.neut.q",
+      "data_type": "YC",
+      "data_idx": "36",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsA.thd",
+      "ref_name": "MHAI1.ThdA.phsA.cVal.mag.f",
+      "ref_time": "MHAI1.ThdA.phsA.t",
+      "ref_q": "MHAI1.ThdA.phsA.q",
+      "data_type": "YC",
+      "data_idx": "49",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsB.thd",
+      "ref_name": "MHAI1.ThdA.phsB.cVal.mag.f",
+      "ref_time": "MHAI1.ThdA.phsB.t",
+      "ref_q": "MHAI1.ThdA.phsB.q",
+      "data_type": "YC",
+      "data_idx": "50",
+      "ratio": "1"
+    },
+    {
+      "name": "A.phsC.thd",
+      "ref_name": "MHAI1.ThdA.phsC.cVal.mag.f",
+      "ref_time": "MHAI1.ThdA.phsC.t",
+      "ref_q": "MHAI1.ThdA.phsC.q",
+      "data_type": "YC",
+      "data_idx": "51",
+      "ratio": "1"
+    },
+    {
+      "name": "In.thd",
+      "ref_name": "MHAI1.ThdA.neut.cVal.mag.f",
+      "ref_time": "MHAI1.ThdA.neut.t",
+      "ref_q": "MHAI1.ThdA.neut.q",
+      "data_type": "YC",
+      "data_idx": "52",
+      "ratio": "1"
+    },
+    {
+      "name": "BreakerInClosePos",
+      "ref_name": "XCBR1.Pos.stVal",
+      "ref_time": "XCBR1.Pos.t",
+      "ref_q": "XCBR1.Pos.q",
+      "data_type": "YXPOS",
+      "data_idx": "1"
+    },
+    {
+      "name": "MaintenanceActive",
+      "ref_name": "GGIO1.MaintenanceActive.stVal",
+      "ref_time": "GGIO1.MaintenanceActive.t",
+      "ref_q": "GGIO1.MaintenanceActive.q",
+      "data_type": "YX",
+      "data_idx": "4"
+    },
+    {
+      "name": "TestActive",
+      "ref_name": "GGIO1.TestActive.stVal",
+      "ref_time": "GGIO1.TestActive.t",
+      "ref_q": "GGIO1.TestActive.q",
+      "data_type": "YX",
+      "data_idx": "5"
+    },
+    {
+      "name": "PhaseRotationABC1",
+      "ref_name": "GGIO1.PhaseRotationABC1.stVal",
+      "ref_time": "GGIO1.PhaseRotationABC1.t",
+      "ref_q": "GGIO1.PhaseRotationABC1.q",
+      "data_type": "YX",
+      "data_idx": "6"
+    },
+    {
+      "name": "ZoneInterLockActive",
+      "ref_name": "GGIO1.ZoneInterLockActive.stVal",
+      "ref_time": "GGIO1.ZoneInterLockActive.t",
+      "ref_q": "GGIO1.ZoneInterLockActive.q",
+      "data_type": "YX",
+      "data_idx": "8"
+    },
+    {
+      "name": "保护脱扣调节Op",
+      "data_type": "YX",
+      "data_idx": "50"
+    },
+    {
+      "name": "长延时过流保护Op",
+      "data_type": "YX",
+      "data_idx": "51"
+    },
+    {
+      "name": "短延时过流保护Op",
+      "data_type": "YX",
+      "data_idx": "52"
+    },
+    {
+      "name": "A51G接地故障Op",
+      "data_type": "YX",
+      "data_idx": "53"
+    },
+    {
+      "name": "A81欠频保护Op",
+      "data_type": "YX",
+      "data_idx": "57"
+    },
+    {
+      "name": "A81过频保护Op",
+      "data_type": "YX",
+      "data_idx": "58"
+    },
+    {
+      "name": "A50瞬时过流保护Op",
+      "data_type": "YX",
+      "data_idx": "61"
+    },
+    {
+      "name": "过温Op",
+      "data_type": "YX",
+      "data_idx": "62"
+    },
+    {
+      "name": "保护脱扣调节Tr",
+      "data_type": "YX",
+      "data_idx": "63"
+    },
+    {
+      "name": "长延时过流保护Tr",
+      "data_type": "YX",
+      "data_idx": "64"
+    },
+    {
+      "name": "短延时过流保护Tr",
+      "data_type": "YX",
+      "data_idx": "65"
+    },
+    {
+      "name": "A51G接地故障Tr",
+      "data_type": "YX",
+      "data_idx": "66"
+    },
+    {
+      "name": "A81欠频保护Tr",
+      "data_type": "YX",
+      "data_idx": "70"
+    },
+    {
+      "name": "A81过频保护Tr",
+      "data_type": "YX",
+      "data_idx": "71"
+    },
+    {
+      "name": "A50瞬时过流保护Tr",
+      "data_type": "YX",
+      "data_idx": "74"
+    },
+    {
+      "name": "过温Tr",
+      "data_type": "YX",
+      "data_idx": "75"
+    },
+    {
+      "name": "Primary",
+      "ref_name": "GGIO1.Primary.mag.i",
+      "ref_time": "GGIO1.Primary.t",
+      "ref_q": "GGIO1.Primary.q",
+      "data_type": "YM",
+      "data_idx": "12"
+    },
+    {
+      "name": "Secondary",
+      "ref_name": "GGIO1.Secondary.mag.i",
+      "ref_time": "GGIO1.Secondary.t",
+      "ref_q": "GGIO1.Secondary.q",
+      "data_type": "YM",
+      "data_idx": "13"
+    },
+    {
+      "name": "Cause",
+      "ref_name": "GGIO1.Cause.mag.i",
+      "ref_time": "GGIO1.Cause.t",
+      "ref_q": "GGIO1.Cause.q",
+      "data_type": "YM",
+      "data_idx": "14"
+    },
+    {
+      "name": "Secondary_Beh",
+      "ref_name": "LPHD1.Beh.stVal",
+      "ref_time": "LPHD1.Beh.t",
+      "ref_q": "LPHD1.Beh.q",
+      "data_type": "YM",
+      "data_idx": "15"
+    },
+    {
+      "name": "INSTorSDT",
+      "ref_name": "GGIO2.INSTorSDT.stVal",
+      "ref_time": "GGIO2.INSTorSDT.t",
+      "ref_q": "GGIO2.INSTorSDT.q",
+      "data_type": "YM",
+      "data_idx": "25"
+    },
+    {
+      "name": "LDTorGFT",
+      "ref_name": "GGIO2.LDTorGFT.stVal",
+      "ref_time": "GGIO2.LDTorGFT.t",
+      "ref_q": "GGIO2.LDTorGFT.q",
+      "data_type": "YM",
+      "data_idx": "26"
+    },
+    {
+      "name": "OpCnt",
+      "ref_name": "GGIO2.OpCnt.stVal",
+      "ref_time": "GGIO2.OpCnt.t",
+      "ref_q": "GGIO2.OpCnt.q",
+      "data_type": "YM",
+      "data_idx": "27"
+    },
+    {
+      "name": "XCBR_OpCnt",
+      "ref_name": "XCBR1.OpCnt.stVal",
+      "ref_time": "XCBR1.OpCnt.t",
+      "ref_q": "XCBR1.OpCnt.q",
+      "data_type": "YM",
+      "data_idx": "27"
+    },
+    {
+      "name": "SDTCnt",
+      "ref_name": "GGIO2.SDTCnt.stVal",
+      "ref_time": "GGIO2.SDTCnt.t",
+      "ref_q": "GGIO2.SDTCnt.q",
+      "data_type": "YM",
+      "data_idx": "28"
+    },
+    {
+      "name": "INSTCnt",
+      "ref_name": "GGIO2.INSTCnt.stVal",
+      "ref_time": "GGIO2.INSTCnt.t",
+      "ref_q": "GGIO2.INSTCnt.q",
+      "data_type": "YM",
+      "data_idx": "29"
+    },
+    {
+      "name": "HCDTCnt",
+      "ref_name": "GGIO2.HCDTCnt.stVal",
+      "ref_time": "GGIO2.HCDTCnt.t",
+      "ref_q": "GGIO2.HCDTCnt.q",
+      "data_type": "YM",
+      "data_idx": "30"
+    },
+    {
+      "name": "LDTCnt",
+      "ref_name": "GGIO2.LDTCnt.stVal",
+      "ref_time": "GGIO2.LDTCnt.t",
+      "ref_q": "GGIO2.LDTCnt.q",
+      "data_type": "YM",
+      "data_idx": "31"
+    },
+    {
+      "name": "GFTCnt",
+      "ref_name": "GGIO2.GFTCnt.stVal",
+      "ref_time": "GGIO2.GFTCnt.t",
+      "ref_q": "GGIO2.GFTCnt.q",
+      "data_type": "YM",
+      "data_idx": "32"
+    },
+    {
+      "name": "TotalTripCnt",
+      "ref_name": "GGIO2.TotalTripCnt.stVal",
+      "ref_time": "GGIO2.TotalTripCnt.t",
+      "ref_q": "GGIO2.TotalTripCnt.q",
+      "data_type": "YM",
+      "data_idx": "33"
+    },
+    {
+      "name": "TestTripCnt",
+      "ref_name": "GGIO2.TestTripCnt.stVal",
+      "ref_time": "GGIO2.TestTripCnt.t",
+      "ref_q": "GGIO2.TestTripCnt.q",
+      "data_type": "YM",
+      "data_idx": "34"
+    },
+    {
+      "name": "CommOpenCnt",
+      "ref_name": "GGIO2.CommOpenCnt.stVal",
+      "ref_time": "GGIO2.CommOpenCnt.t",
+      "ref_q": "GGIO2.CommOpenCnt.q",
+      "data_type": "YM",
+      "data_idx": "35"
+    },
+    {
+      "name": "ManuOpenCnt",
+      "ref_name": "GGIO2.ManuOpenCnt.stVal",
+      "ref_time": "GGIO2.ManuOpenCnt.t",
+      "ref_q": "GGIO2.ManuOpenCnt.q",
+      "data_type": "YM",
+      "data_idx": "36"
+    },
+    {
+      "name": "LastOpeTms",
+      "ref_name": "GGIO2.LastOpeTms.mag.t",
+      "ref_time": "GGIO2.LastOpeTms.t",
+      "ref_q": "GGIO2.LastOpeTms.q",
+      "data_type": "YM_TIME",
+      "data_idx": "37"
+    },
+    {
+      "name": "MaxTmpTms",
+      "ref_name": "GGIO2.MaxTmpTms.mag.t",
+      "ref_time": "GGIO2.MaxTmpTms.t",
+      "ref_q": "GGIO2.MaxTmpTms.q",
+      "data_type": "YM_TIME",
+      "data_idx": "38"
+    },
+    {
+      "name": "RunnitTms",
+      "ref_name": "GGIO2.RuningTms.stVal",
+      "ref_time": "GGIO2.RuningTms.t",
+      "ref_q": "GGIO2.RuningTms.q",
+      "data_type": "YM",
+      "data_idx": "48"
+    },
+    {
+      "name": "OpTmh",
+      "ref_name": "LLN0.OpTmh.stVal",
+      "ref_time": "LLN0.OpTmh.t",
+      "ref_q": "LLN0.OpTmh.q",
+      "data_type": "YM",
+      "data_idx": "49"
+    },
+    {
+      "name": "PhyHealth",
+      "ref_name": "LPHD1.PhyHealth.stVal",
+      "ref_time": "LPHD1.PhyHealth.t",
+      "ref_q": "LPHD1.PhyHealth.q",
+      "data_type": "YM",
+      "data_idx": "50"
+    },
+    {
+      "name": "LeftPoint",
+      "ref_name": "GGIO2.LeftPoint.stVal",
+      "ref_time": "GGIO2.LeftPoint.t",
+      "ref_q": "GGIO2.LeftPoint.q",
+      "data_type": "YM",
+      "data_idx": "51"
+    }
+  ],
+
+  "event": [
+    {
+      "name": "OpenCloseState",
+      "ref_name": "XCBR1.Pos.stVal",
+      "ref_time": "XCBR1.Pos.t",
+      "ref_q": "XCBR1.Pos.q",
+      "event_idx": "1",
+      "yx_idx": "1"
+    },
+    {
+      "name": "Alarmed",
+      "ref_name": "CALH1.Alarmed.stVal",
+      "ref_time": "CALH1.Alarmed.t",
+      "event_idx": "1",
+      "yx_idx": "14"
+    },
+    {
+      "name": "保护脱扣调节Tr",
+      "ref_name": "PTRC1.Tr.general",
+      "ref_q": "PTRC1.Tr.q",
+      "ref_time": "PTRC1.Tr.t",
+      "event_idx": "1",
+      "yx_idx": "63"
+    },
+    {
+      "name": "A51L长延时过流保护Tr",
+      "ref_name": "A51L_PTOC1.Str.general",
+      "ref_q": "A51L_PTOC1.Str.q",
+      "ref_time": "A51L_PTOC1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "64"
+    },
+    {
+      "name": "A51S短延时过流保护Tr",
+      "ref_name": "A51S_PTOC1.Str.general",
+      "ref_q": "A51S_PTOC1.Str.q",
+      "ref_time": "A51S_PTOC1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "65"
+    },
+    {
+      "name": "A51G接地故障Tr",
+      "ref_name": "A51G_PTOC1.Str.general",
+      "ref_q": "A51G_PTOC1.Str.q",
+      "ref_time": "A51G_PTOC1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "66"
+    },
+    {
+      "name": "A81欠频保护Tr",
+      "ref_name": "A81_PTUF1.Str.general",
+      "ref_q": "A81_PTUF1.Str.q",
+      "ref_time": "A81_PTUF1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "70"
+    },
+    {
+      "name": "A81过频保护Tr",
+      "ref_name": "A81_PTOF1.Str.general",
+      "ref_q": "A81_PTOF1.Str.q",
+      "ref_time": "A81_PTOF1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "71"
+    },
+    {
+      "name": "A50瞬时过流保护Tr",
+      "ref_name": "A50_PIOC1.Str.general",
+      "ref_q": "A50_PIOC1.Str.q",
+      "ref_time": "A50_PIOC1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "74"
+    },
+    {
+      "name": "过温Tr",
+      "ref_name": "PTTR1.Str.general",
+      "ref_q": "PTTR1.Str.q",
+      "ref_time": "PTTR1.Str.t",
+      "event_idx": "1",
+      "yx_idx": "75"
+    },
+    {
+      "name": "保护脱扣调节Op",
+      "ref_name": "PTRC1.Op.general",
+      "ref_q": "PTRC1.Op.q",
+      "ref_time": "PTRC1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "50"
+    },
+    {
+      "name": "A51L长延时过流保护Op",
+      "ref_name": "A51L_PTOC1.Op.general",
+      "ref_q": "A51L_PTOC1.Op.q",
+      "ref_time": "A51L_PTOC1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "51"
+    },
+    {
+      "name": "A51S短延时过流保护Op",
+      "ref_name": "A51S_PTOC1.Op.general",
+      "ref_q": "A51S_PTOC1.Op.q",
+      "ref_time": "A51S_PTOC1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "52"
+    },
+    {
+      "name": "A51G接地故障Op",
+      "ref_name": "A51G_PTOC1.Op.general",
+      "ref_q": "A51G_PTOC1.Op.q",
+      "ref_time": "A51G_PTOC1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "53"
+    },
+    {
+      "name": "A81欠频保护Op",
+      "ref_name": "A81_PTUF1.Op.general",
+      "ref_q": "A81_PTUF1.Op.q",
+      "ref_time": "A81_PTUF1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "57"
+    },
+    {
+      "name": "A81过频保护Op",
+      "ref_name": "A81_PTOF1.Op.general",
+      "ref_q": "A81_PTOF1.Op.q",
+      "ref_time": "A81_PTOF1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "58"
+    },
+    {
+      "name": "A50瞬时过流保护Op",
+      "ref_name": "A50_PIOC1.Op.general",
+      "ref_q": "A50_PIOC1.Op.q",
+      "ref_time": "A50_PIOC1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "61"
+    },
+    {
+      "name": "过温Op",
+      "ref_name": "PTTR1.Op.general",
+      "ref_q": "PTTR1.Op.q",
+      "ref_time": "PTTR1.Op.t",
+      "event_idx": "2",
+      "yx_idx": "62"
+    }
+  ],
+
+  "event_data": [
+    {
+      "idx": "1",
+      "name": "Alm",
+      "data": [
+        {
+          "name": "Alm_event_id",
+          "ref_name": "Alm_RDRE1.EventId.mag.i",
+          "ref_time": "Alm_RDRE1.EventId.t",
+          "ref_q": "Alm_RDRE1.EventId.q",
+          "type": "int",
+          "idx": "1"
+        },
+        {
+          "name": "Alm_Primary",
+          "ref_name": "Alm_RDRE1.Primary.mag.i",
+          "ref_time": "Alm_RDRE1.Primary.t",
+          "ref_q": "Alm_RDRE1.Primary.q",
+          "type": "int",
+          "idx": "2"
+        },
+        {
+          "name": "Alm_Secondary",
+          "ref_name": "Alm_RDRE1.Secondary.mag.i",
+          "ref_time": "Alm_RDRE1.Secondary.t",
+          "ref_q": "Alm_RDRE1.Secondary.q",
+          "type": "int",
+          "idx": "3"
+        },
+        {
+          "name": "Alm_Cause",
+          "ref_name": "Alm_RDRE1.Cause.mag.i",
+          "ref_time": "Alm_RDRE1.Cause.t",
+          "ref_q": "Alm_RDRE1.Cause.q",
+          "type": "int",
+          "idx": "4"
+        },
+        {
+          "name": "Alm_A.phsA",
+          "ref_name": "Alm_RDRE1.A.phsA.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.A.phsA.t",
+          "ref_q": "Alm_RDRE1.A.phsA.q",
+          "type": "float",
+          "idx": "5"
+        },
+        {
+          "name": "Alm_A.phsB",
+          "ref_name": "Alm_RDRE1.A.phsB.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.A.phsB.t",
+          "ref_q": "Alm_RDRE1.A.phsB.q",
+          "type": "float",
+          "idx": "6"
+        },
+        {
+          "name": "Alm_A.phsC",
+          "ref_name": "Alm_RDRE1.A.phsC.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.A.phsC.t",
+          "ref_q": "Alm_RDRE1.A.phsC.q",
+          "type": "float",
+          "idx": "7"
+        },
+        {
+          "name": "Alm_A.neut",
+          "ref_name": "Alm_RDRE1.A.neut.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.A.neut.t",
+          "ref_q": "Alm_RDRE1.A.neut.q",
+          "type": "float",
+          "idx": "8"
+        },
+        {
+          "name": "Alm_Trip_A.sour",
+          "ref_name": "Alm_RDRE1.A.sour.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.A.sour.t",
+          "ref_q": "Alm_RDRE1.A.sour.q",
+          "type": "float",
+          "idx": "9"
+        },
+        {
+          "name": "Alm_A.res",
+          "ref_name": "Alm_RDRE1.A.res.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.A.res.t",
+          "ref_q": "Alm_RDRE1.A.res.q",
+          "type": "float",
+          "idx": "10"
+        },
+        {
+          "name": "Alm_PPV.ppvAB",
+          "ref_name": "Alm_RDRE1.PPV.ppvAB.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.PPV.ppvAB.t",
+          "ref_q": "Alm_RDRE1.PPV.ppvAB.q",
+          "type": "float",
+          "idx": "11"
+        },
+        {
+          "name": "Alm_PPV.ppvBC",
+          "ref_name": "Alm_RDRE1.PPV.ppvBC.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.PPV.ppvBC.t",
+          "ref_q": "Alm_RDRE1.PPV.ppvBC.q",
+          "type": "float",
+          "idx": "12"
+        },
+        {
+          "name": "Alm_PPV.ppvCA",
+          "ref_name": "Alm_RDRE1.PPV.ppvCA.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.PPV.ppvCA.t",
+          "ref_q": "Alm_RDRE1.PPV.ppvCA.q",
+          "type": "float",
+          "idx": "13"
+        },
+        {
+          "name": "Alm_PhV.phsA",
+          "ref_name": "Alm_RDRE1.PhV.phsA.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.PhV.phsA.t",
+          "ref_q": "Alm_RDRE1.PhV.phsA.q",
+          "type": "float",
+          "idx": "14"
+        },
+        {
+          "name": "Alm_PhV.phsB",
+          "ref_name": "Alm_RDRE1.PhV.phsB.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.PhV.phsB.t",
+          "ref_q": "Alm_RDRE1.PhV.phsB.q",
+          "type": "float",
+          "idx": "15"
+        },
+        {
+          "name": "Alm_PhV.phsC",
+          "ref_name": "Alm_RDRE1.PhV.phsC.cVal.mag.f",
+          "ref_time": "Alm_RDRE1.PhV.phsC.t",
+          "ref_q": "Alm_RDRE1.PhV.phsC.q",
+          "type": "float",
+          "idx": "16"
+        },
+        {
+          "name": "Alm_TotW",
+          "ref_name": "Alm_RDRE1.TotW.mag.f",
+          "ref_time": "Alm_RDRE1.TotW.t",
+          "ref_q": "Alm_RDRE1.TotW.q",
+          "type": "float",
+          "idx": "17"
+        },
+        {
+          "name": "Alm_TotVAr",
+          "ref_name": "Alm_RDRE1.TotVAr.mag.f",
+          "ref_time": "Alm_RDRE1.TotVAr.t",
+          "ref_q": "Alm_RDRE1.TotVAr.q",
+          "type": "float",
+          "idx": "18"
+        },
+        {
+          "name": "Alm_TotVA",
+          "ref_name": "Alm_RDRE1.TotVA.mag.f",
+          "ref_time": "Alm_RDRE1.TotVA.t",
+          "ref_q": "Alm_RDRE1.TotVA.q",
+          "type": "float",
+          "idx": "19"
+        },
+        {
+          "name": "Alm_DmdTotW",
+          "ref_name": "Alm_RDRE1.DmdTotW.mag.f",
+          "ref_time": "Alm_RDRE1.DmdTotW.t",
+          "ref_q": "Alm_RDRE1.DmdTotW.q",
+          "type": "float",
+          "idx": "20"
+        },
+        {
+          "name": "Alm_DmdTotVAr",
+          "ref_name": "Alm_RDRE1.DmdTotVAr.mag.f",
+          "ref_time": "Alm_RDRE1.DmdTotVAr.t",
+          "ref_q": "Alm_RDRE1.DmdTotVAr.q",
+          "type": "float",
+          "idx": "21"
+        },
+        {
+          "name": "Alm_DmdTotVA",
+          "ref_name": "Alm_RDRE1.DmdTotVA.mag.f",
+          "ref_time": "Alm_RDRE1.DmdTotVA.t",
+          "ref_q": "Alm_RDRE1.DmdTotVA.q",
+          "type": "float",
+          "idx": "22"
+        },
+        {
+          "name": "Alm_Tmp",
+          "ref_name": "Alm_RDRE1.Tmp.mag.f",
+          "ref_time": "Alm_RDRE1.Tmp.t",
+          "ref_q": "Alm_RDRE1.Tmp.q",
+          "type": "float",
+          "idx": "23"
+        },
+        {
+          "name": "Alm_Hz",
+          "ref_name": "Alm_RDRE1.Hz.mag.f",
+          "ref_time": "Alm_RDRE1.Hz.t",
+          "ref_q": "Alm_RDRE1.Hz.q",
+          "type": "float",
+          "idx": "24"
+        },
+        {
+          "name": "Alm_PF",
+          "ref_name": "Alm_RDRE1.TotPF.mag.f",
+          "ref_time": "Alm_RDRE1.TotPF.t",
+          "ref_q": "Alm_RDRE1.TotPF.q",
+          "type": "float",
+          "idx": "25"
+        },
+        {
+          "name": "Alm_opCnt",
+          "ref_name": "Alm_RDRE1.OpCnt.mag.i",
+          "ref_time": "Alm_RDRE1.OpCnt.t",
+          "ref_q": "Alm_RDRE1.OpCnt.q",
+          "type": "int",
+          "idx": "26"
+        },
+        {
+          "name": "Alm_EventTime",
+          "ref_name": "Alm_RDRE1.EventTime.mag.t",
+          "ref_time": "Alm_RDRE1.EventTime.t",
+          "ref_q": "Alm_RDRE1.EventTime.q",
+          "type": "utc",
+          "idx": "27"
+        }
+      ]
+    },
+    {
+      "idx": "2",
+      "name": "Trip",
+      "data": [
+        {
+          "name": "Trip_event_id",
+          "ref_name": "Trip_RDRE1.EventId.mag.i",
+          "ref_time": "Trip_RDRE1.EventId.t",
+          "ref_q": "Trip_RDRE1.EventId.q",
+          "type": "int",
+          "idx": "1"
+        },
+        {
+          "name": "Trip_Primary",
+          "ref_name": "Trip_RDRE1.Primary.mag.i",
+          "ref_time": "Trip_RDRE1.Primary.t",
+          "ref_q": "Trip_RDRE1.Primary.q",
+          "type": "int",
+          "idx": "2"
+        },
+        {
+          "name": "Trip_Secondary",
+          "ref_name": "Trip_RDRE1.Secondary.mag.i",
+          "ref_time": "Trip_RDRE1.Secondary.t",
+          "ref_q": "Trip_RDRE1.Secondary.q",
+          "type": "int",
+          "idx": "3"
+        },
+        {
+          "name": "Trip_Cause",
+          "ref_name": "Trip_RDRE1.Cause.mag.i",
+          "ref_time": "Trip_RDRE1.Cause.t",
+          "ref_q": "Trip_RDRE1.Cause.q",
+          "type": "int",
+          "idx": "4"
+        },
+        {
+          "name": "Trip_A.phsA",
+          "ref_name": "Trip_RDRE1.A.phsA.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.A.phsA.t",
+          "ref_q": "Trip_RDRE1.A.phsA.q",
+          "type": "float",
+          "idx": "5"
+        },
+        {
+          "name": "Trip_A.phsB",
+          "ref_name": "Trip_RDRE1.A.phsB.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.A.phsB.t",
+          "ref_q": "Trip_RDRE1.A.phsB.q",
+          "type": "float",
+          "idx": "6"
+        },
+        {
+          "name": "Trip_A.phsC",
+          "ref_name": "Trip_RDRE1.A.phsC.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.A.phsC.t",
+          "ref_q": "Trip_RDRE1.A.phsC.q",
+          "type": "float",
+          "idx": "7"
+        },
+        {
+          "name": "Trip_A.neut",
+          "ref_name": "Trip_RDRE1.A.neut.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.A.neut.t",
+          "ref_q": "Trip_RDRE1.A.neut.q",
+          "type": "float",
+          "idx": "8"
+        },
+        {
+          "name": "Trip_A.sour",
+          "ref_name": "Trip_RDRE1.A.sour.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.A.sour.t",
+          "ref_q": "Trip_RDRE1.A.sour.q",
+          "type": "float",
+          "idx": "9"
+        },
+        {
+          "name": "Trip_A.res",
+          "ref_name": "Trip_RDRE1.A.res.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.A.res.t",
+          "ref_q": "Trip_RDRE1.A.res.q",
+          "type": "float",
+          "idx": "10"
+        },
+        {
+          "name": "Trip_PPV.ppvAB",
+          "ref_name": "Trip_RDRE1.PPV.ppvAB.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.PPV.ppvAB.t",
+          "ref_q": "Trip_RDRE1.PPV.ppvAB.q",
+          "type": "float",
+          "idx": "11"
+        },
+        {
+          "name": "Trip_PPV.ppvBC",
+          "ref_name": "Trip_RDRE1.PPV.ppvBC.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.PPV.ppvBC.t",
+          "ref_q": "Trip_RDRE1.PPV.ppvBC.q",
+          "type": "float",
+          "idx": "12"
+        },
+        {
+          "name": "Trip_PPV.ppvCA",
+          "ref_name": "Trip_RDRE1.PPV.ppvCA.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.PPV.ppvCA.t",
+          "ref_q": "Trip_RDRE1.PPV.ppvCA.q",
+          "type": "float",
+          "idx": "13"
+        },
+        {
+          "name": "Trip_PhV.phsA",
+          "ref_name": "Trip_RDRE1.PhV.phsA.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.PhV.phsA.t",
+          "ref_q": "Trip_RDRE1.PhV.phsA.q",
+          "type": "float",
+          "idx": "14"
+        },
+        {
+          "name": "Trip_PhV.phsB",
+          "ref_name": "Trip_RDRE1.PhV.phsB.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.PhV.phsB.t",
+          "ref_q": "Trip_RDRE1.PhV.phsB.q",
+          "type": "float",
+          "idx": "15"
+        },
+        {
+          "name": "Trip_PhV.phsC",
+          "ref_name": "Trip_RDRE1.PhV.phsC.cVal.mag.f",
+          "ref_time": "Trip_RDRE1.PhV.phsC.t",
+          "ref_q": "Trip_RDRE1.PhV.phsC.q",
+          "type": "float",
+          "idx": "16"
+        },
+        {
+          "name": "Trip_TotW",
+          "ref_name": "Trip_RDRE1.TotW.mag.f",
+          "ref_time": "Trip_RDRE1.TotW.t",
+          "ref_q": "Trip_RDRE1.TotW.q",
+          "type": "float",
+          "idx": "17"
+        },
+        {
+          "name": "Trip_TotVAr",
+          "ref_name": "Trip_RDRE1.TotVAr.mag.f",
+          "ref_time": "Trip_RDRE1.TotVAr.t",
+          "ref_q": "Trip_RDRE1.TotVAr.q",
+          "type": "float",
+          "idx": "18"
+        },
+        {
+          "name": "Trip_TotVA",
+          "ref_name": "Trip_RDRE1.TotVA.mag.f",
+          "ref_time": "Trip_RDRE1.TotVA.t",
+          "ref_q": "Trip_RDRE1.TotVA.q",
+          "type": "float",
+          "idx": "19"
+        },
+        {
+          "name": "Trip_DmdTotW",
+          "ref_name": "Trip_RDRE1.DmdTotW.mag.f",
+          "ref_time": "Trip_RDRE1.DmdTotW.t",
+          "ref_q": "Trip_RDRE1.DmdTotW.q",
+          "type": "float",
+          "idx": "20"
+        },
+        {
+          "name": "Trip_DmdTotVAr",
+          "ref_name": "Trip_RDRE1.DmdTotVAr.mag.f",
+          "ref_time": "Trip_RDRE1.DmdTotVAr.t",
+          "ref_q": "Trip_RDRE1.DmdTotVAr.q",
+          "type": "float",
+          "idx": "21"
+        },
+        {
+          "name": "Trip_DmdTotVA",
+          "ref_name": "Trip_RDRE1.DmdTotVA.mag.f",
+          "ref_time": "Trip_RDRE1.DmdTotVA.t",
+          "ref_q": "Trip_RDRE1.DmdTotVA.q",
+          "type": "float",
+          "idx": "22"
+        },
+        {
+          "name": "Trip_Tmp",
+          "ref_name": "Trip_RDRE1.Tmp.mag.f",
+          "ref_time": "Trip_RDRE1.Tmp.t",
+          "ref_q": "Trip_RDRE1.Tmp.q",
+          "type": "float",
+          "idx": "23"
+        },
+        {
+          "name": "Trip_Hz",
+          "ref_name": "Trip_RDRE1.Hz.mag.f",
+          "ref_time": "Trip_RDRE1.Hz.t",
+          "ref_q": "Trip_RDRE1.Hz.q",
+          "type": "float",
+          "idx": "24"
+        },
+        {
+          "name": "Trip_PF",
+          "ref_name": "Trip_RDRE1.TotPF.mag.f",
+          "ref_time": "Trip_RDRE1.TotPF.t",
+          "ref_q": "Trip_RDRE1.TotPF.q",
+          "type": "float",
+          "idx": "25"
+        },
+        {
+          "name": "Trip_opCnt",
+          "ref_name": "Trip_RDRE1.OpCnt.mag.i",
+          "ref_time": "Trip_RDRE1.OpCnt.t",
+          "ref_q": "Trip_RDRE1.OpCnt.q",
+          "type": "int",
+          "idx": "26"
+        },
+        {
+          "name": "Trip_EventTime",
+          "ref_name": "Trip_RDRE1.EventTime.mag.t",
+          "ref_time": "Trip_RDRE1.EventTime.t",
+          "ref_q": "Trip_RDRE1.EventTime.q",
+          "type": "utc",
+          "idx": "27"
+        }
+      ]
+    },
+    {
+      "idx": "3",
+      "name": "Alm1",
+      "data": [
+        {
+          "name": "Alm_event_id",
+          "ref_name": "Alm_RDRE1.EventId.mag.i",
+          "ref_time": "Alm_RDRE1.EventId.t",
+          "ref_q": "Alm_RDRE1.EventId.q",
+          "type": "int",
+          "idx": "1"
+        },
+        {
+          "name": "Alm_Primary",
+          "ref_name": "Alm_RDRE1.Primary.mag.i",
+          "ref_time": "Alm_RDRE1.Primary.t",
+          "ref_q": "Alm_RDRE1.Primary.q",
+          "type": "int",
+          "idx": "2"
+        },
+        {
+          "name": "Alm_Secondary",
+          "ref_name": "Alm_RDRE1.Secondary.mag.i",
+          "ref_time": "Alm_RDRE1.Secondary.t",
+          "ref_q": "Alm_RDRE1.Secondary.q",
+          "type": "int",
+          "idx": "3"
+        },
+        {
+          "name": "Alm_EventTime",
+          "ref_name": "Alm_RDRE1.EventTime.mag.t",
+          "ref_time": "Alm_RDRE1.EventTime.t",
+          "ref_q": "Alm_RDRE1.EventTime.q",
+          "type": "utc",
+          "idx": "4"
+        }
+      ]
+    }
+  ]
+}

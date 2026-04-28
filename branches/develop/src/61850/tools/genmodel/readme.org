@@ -1,0 +1,40 @@
+#+TITLE: 根据icd 生成相应的 .c/h
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:nil
+#+AUTHOR: mengqp
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[概述][概述]]
+- [[具体说明][具体说明]]
+- [[生成cfg 文件][生成cfg 文件]]
+  - [[windows 生成cfg][windows 生成cfg]]
+
+* 概述
+  源码：https://github.com/mz-automation/libiec61850.git
+  在编译源码时在libiec61850/tools/model_generator 下生成的工具。
+
+* 具体说明
+  来源http://libiec61850.com/libiec61850/documentation/
+  + Generate the static model source code from ICD (SCL) file
+
+  Note: You need a Java JRE 6 installed in order to create the model source code!
+
+  In the main directory of the source distribution change to the tools/model_generator directory. Enter
+  #+BEGIN_SRC shell
+  java -jar genmodel.jar my_model.icd
+  #+END_SRC
+
+  This will generate the two files static_model.c and static_model.h. Copy these files to your project directory where the build system can find them. The file static_model.c contains the definition of the data structures that build up the IED data model and also contains pre-configured values provided by the SCL file. The file static_model.h is intended to be included by your code and defines handles that you can use to efficiently access the data model.
+
+
+* 生成cfg 文件
+  java -jar genconfig.jar model.icd > model.cfg
+
+  生成这个文件的意义应该是客户根据我们的文件生成icd 文件后重新组织了dataset 等，我们根据他们组织的数据当作服务器数据
+
+
+** windows 生成cfg
+
+   1) 在win 上安装java
+   2) 执行当前文件夹下的bat 文件。
+   3) 删除前几行多余的内容

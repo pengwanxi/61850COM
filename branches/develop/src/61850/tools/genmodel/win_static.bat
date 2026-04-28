@@ -1,0 +1,1 @@
+java -jar genmodel.jar model.icd

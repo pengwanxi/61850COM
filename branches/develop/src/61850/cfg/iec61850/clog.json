@@ -1,0 +1,243 @@
+{
+  "name": "clog",
+  "desc": "分类日志管理－此文件为配置样例需放到config/下生效",
+  "desc1": "level与 epdu.conf混合生效",
+  "ver": "0.1",
+
+  "default_level": 1,
+  "default_level_desc": "以后更新",
+  "level_desc": "0-5:分别对应DEBUG,INFO,NOTICE,WARN,ERROR,FATAL",
+  "default_timeout_m": 60,
+  "default_timeout_m_desc": "以后更新",
+
+  "glog": [
+    {
+      "name": "dev_model_conf",
+      "level": 2
+    },
+    {
+      "name": "dev_conf",
+      "level": 2
+    },
+    {
+      "name": "modbus_slave_conf",
+      "level": 2
+    },
+    {
+      "name": "modbus_rtu_conf",
+      "level": 2
+    },
+    {
+      "name": "modbus_table_conf",
+      "level": 2
+    }
+  ],
+
+  "protocol": [
+    {
+      "name": "modbus_rtu1",
+      "level": 2
+    },
+    {
+      "name": "modbus_rtu2",
+      "level": 2
+    },
+    {
+      "name": "modbus_rtu3",
+      "level": 2
+    },
+    {
+      "name": "modbus_rtu4",
+      "level": 2
+    },
+    {
+      "name": "modbus_slave1",
+      "level": 2
+    },
+    {
+      "name": "modbus_slave2",
+      "level": 2
+    },
+    {
+      "name": "modbus_slave3",
+      "level": 2
+    },
+    {
+      "name": "modbus_slave4",
+      "level": 2
+    },
+    {
+      "name": "modbus_tcp1",
+      "level": 2
+    },
+    {
+      "name": "modbus_tcp2",
+      "level": 2
+    },
+    {
+      "name": "modbus_tcp3",
+      "level": 2
+    },
+    {
+      "name": "modbus_tcp4",
+      "level": 2
+    }
+  ],
+
+  "port": [
+    {
+      "name": "serial0",
+      "level": 1
+    },
+    {
+      "name": "serial1",
+      "level": 1
+    },
+    {
+      "name": "serial2",
+      "level": 1
+    },
+    {
+      "name": "serial3",
+      "level": 1
+    },
+    {
+      "name": "net0",
+      "level": 1
+    },
+    {
+      "name": "net1",
+      "level": 1
+    },
+    {
+      "name": "net2",
+      "level": 1
+    },
+    {
+      "name": "net3",
+      "level": 1
+    }
+  ],
+
+  "dev": [
+    {
+      "name": "dev_jx",
+      "level": 2
+    },
+    {
+      "name": "dev_ycx1",
+      "level": 2
+    },
+    {
+      "name": "dev_ycx2",
+      "level": 2
+    },
+    {
+      "name": "dev_ycx3",
+      "level": 2
+    },
+    {
+      "name": "dev_ycx4",
+      "level": 2
+    },
+    {
+      "name": "dev_ycx5",
+      "level": 2
+    },
+    {
+      "name": "dev_ycx6",
+      "level": 2
+    },
+    {
+      "name": "dev_yx1",
+      "level": 2
+    },
+    {
+      "name": "dev_yx2",
+      "level": 2
+    },
+    {
+      "name": "dev_yx3",
+      "level": 2
+    },
+    {
+      "name": "dev_yx4",
+      "level": 2
+    },
+    {
+      "name": "dev_yx5",
+      "level": 2
+    },
+    {
+      "name": "dev_yx6",
+      "level": 2
+    },
+    {
+      "name": "dev_sys",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd1",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd2",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd3",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd4",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd5",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd6",
+      "level": 2
+    }
+  ],
+
+  "database": [
+    {
+      "name": "sqlite3",
+      "level": 2
+    },
+    {
+      "name": "alarm",
+      "level": 2
+    },
+    {
+      "name": "dev_param",
+      "level": 2
+    },
+    {
+      "name": "dev_param_modify",
+      "level": 2
+    },
+    {
+      "name": "dev_param_tmp",
+      "level": 2
+    },
+    {
+      "name": "dev_val",
+      "level": 2
+    },
+    {
+      "name": "energy",
+      "level": 2
+    },
+    {
+      "name": "soe",
+      "level": 2
+    },
+    {
+      "name": "dev_fwd",
+      "level": 2
+    }
+  ]
+}

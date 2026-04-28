@@ -1,0 +1,53 @@
+#+TITLE: iec61850
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:{}
+#+AUTHOR: mengqp
+#+LANGUAGE: zh-CN
+#+SETUPFILE: ~/.emacs.d/etc/org-setupfile.org
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[概述][概述]]
+- [[功能][功能]]
+- [[代码分类][代码分类]]
+  - [[../common/通用代码][../common/通用代码]]
+  - [[config 配置][config 配置]]
+    - [[json 配置文件][json 配置文件]]
+    - [[ini 配置文件][ini 配置文件]]
+  - [[data 数据][data 数据]]
+    - [[emushm][emushm]]
+    - [[scu][scu]]
+  - [[services 线程][services 线程]]
+
+* 概述
+
+* TODO 功能 [0/5]
+- [ ] 装置模型
+- [ ] 动态配置
+- [ ] 动态配置生成点表配置
+- [ ] 动态配置配置工具
+- [ ] 装置数据数据中心接口
+- [ ] 装置数据共享内存接口
+
+
+* 代码分类
+
+** ../common/通用代码
+
+** config 配置
+
+*** json 配置文件
+*** ini 配置文件
+
+** data 数据
+
+*** emushm
+从emu2000管理机程序共享内存中获取装置数据
+
+*** scu
+从SCU的json数据中心中获取数据
+
+** services 线程
+- monitor:线程运行监视
+- devget:获取装置信息，包括状态的线程
+- dvalget: 定时获取数据
+- dvalmsg: 消息线程

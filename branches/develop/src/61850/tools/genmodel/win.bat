@@ -1,0 +1,1 @@
+java -jar genconfig.jar model.icd > model.cfg

@@ -1,0 +1,1106 @@
+/* EMU2000 网关配置系统样式表 - 简洁实用风格 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* 登录页面样式 */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.error-msg {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-bottom: 15px;
+    min-height: 18px;
+}
+
+/* 按钮样式 */
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-logout {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #667eea;
+    color: white;
+    /* width: 100%; */
+}
+
+.btn-primary:hover {
+    background-color: #5568d3;
+}
+
+.btn-secondary {
+    background-color: #2e69a0;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #2a6092;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 15px;
+}
+
+.btn-logout:hover {
+    background-color: white;
+    color: #667eea;
+}
+
+.btn-group {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* 主布局 - 全固定布局 */
+.header {
+    background: linear-gradient(135deg, #8b9ff8c0 0%, #975ad3 100%);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 1000;
+}
+
+.header h1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+.container {
+    display: flex;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+}
+
+/* 侧边栏 - 固定定位 */
+.sidebar {
+    width: 220px;
+    background-color: #7c6cd3;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* 主内容区 - 添加左边距和上边距以适应固定头部和侧边栏 */
+.main-content {
+    margin-left: 220px;
+    margin-top: 0;
+    flex: 1;
+    padding: 30px;
+    min-height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu-item {
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #34495e;
+}
+
+.menu-item.active {
+    background-color: #667eea;
+}
+
+.menu-icon {
+    font-size: 18px;
+}
+
+.section {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section.active {
+    display: block;
+}
+
+.section h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 22px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.section-header h2 {
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.section-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.section-actions button {
+    padding: 8px 20px;
+    font-size: 13px;
+    width: auto;
+    white-space: nowrap;
+}
+
+/* 并排行容器 */
+.config-row {
+    display: flex;
+    gap: 20px;
+    /* 两列之间的间距 */
+    margin-bottom: 30px;
+    /* 与下方内容的间距 */
+    border-bottom: 1px solid #eee;
+}
+
+/* 每个配置组均分宽度，并移除原有的底部边框和间距 */
+.config-row .config-group {
+    flex: 1;
+    border-bottom: none;
+    /* 去掉下边框，避免视觉重复 */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* 可选：在两列之间添加分隔线 */
+/* .config-row .config-group:first-child {
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+} */
+
+.config-row .config-group:last-child {
+    padding-left: 20px;
+}
+
+/* 调整内部表单元素宽度，避免在小屏下溢出 */
+.config-row .iec-config {
+    max-width: none;
+    /* 移除原有的 max-width，让宽度自适应 */
+}
+
+/* 如果输入框和选择框太宽，可设置宽度为100% */
+.config-row input,
+.config-row select {
+    width: 100%;
+    box-sizing: border-box;
+    /* 包含内边距和边框在宽度内 */
+}
+
+/* 针对小屏幕（宽度不足）自动换行 */
+@media (max-width: 600px) {
+    .config-row {
+        flex-direction: column;
+        /* 垂直堆叠 */
+        gap: 10px;
+    }
+
+    .config-row .config-group:first-child {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .config-row .config-group:last-child {
+        padding-left: 0;
+    }
+}
+
+/* 配置组 */
+.config-group {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.config-group:last-child {
+    border-bottom: none;
+}
+
+.config-group h3 {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* 网口/串口卡片 */
+.network-config,
+.serial-config {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.port-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.port-card h4 {
+    margin-bottom: 15px;
+    color: #667eea;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.form-row label {
+    width: 100px;
+    color: #666;
+    font-size: 13px;
+}
+
+.form-row input,
+.form-row select {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-row input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* IEC配置 */
+.iec-config {
+    max-width: 500px;
+}
+
+/* 上传下载区域 */
+.transfer-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.transfer-section:last-child {
+    border-bottom: none;
+}
+
+.transfer-section h3 {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+.upload-area {
+    margin-bottom: 15px;
+}
+
+.file-drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 15px;
+}
+
+.file-drop-zone:hover {
+    border-color: #667eea;
+    background-color: #f8f9fa;
+}
+
+.file-drop-zone p {
+    color: #666;
+    margin: 5px 0;
+}
+
+.file-name {
+    color: #667eea;
+    font-weight: 500;
+    /* margin-top: 8px; */
+    /* font-size: 14px; */
+}
+
+.status-success {
+    color: #28a745;
+    margin-left: 10px;
+}
+
+.status-error {
+    color: #dc3545;
+    margin-left: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.config-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.config-actions button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-icon {
+    font-size: 16px;
+}
+
+/* 占位提示 */
+.placeholder-info {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.placeholder-info p {
+    margin: 10px 0;
+}
+
+/* 总线配置样式 - 左右分栏布局 */
+.bus-layout {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 200px);
+    min-height: 500px;
+}
+
+.bus-sidebar {
+    width: 300px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bus-toolbar {
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.bus-toolbar h3 {
+    color: white;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.bus-toolbar-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.bus-search {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #f8f9fa;
+}
+
+.bus-search input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.bus-tree {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.bus-select {
+    width: 120px;
+}
+
+.bus-select-small {
+    width: 85px;
+}
+
+.bus-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.status-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-light.on {
+    background-color: #4caf50;
+    box-shadow: 0 0 4px #4caf50;
+}
+
+.status-light.off {
+    background-color: #f44336;
+    box-shadow: 0 0 4px #f44336;
+}
+
+.tree-item {
+    margin-bottom: 5px;
+}
+
+.tree-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    gap: 8px;
+}
+
+.tree-row:hover {
+    background-color: #e9ecef;
+}
+
+.tree-row.active {
+    background-color: #667eea;
+    color: white;
+}
+
+.tree-row.active .tree-icon {
+    color: white;
+}
+
+.tree-icon {
+    font-size: 16px;
+    color: #667eea;
+    width: 20px;
+    text-align: center;
+}
+
+.tree-label {
+    flex: 1;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tree-badge {
+    background: #28a745;
+    color: white;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.bus-detail {
+    flex: 1;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.bus-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+}
+
+.bus-detail-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.bus-detail-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.form-section {
+    margin-bottom: 25px;
+}
+
+.form-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.form-row label {
+    width: 80px;
+    color: #666;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.form-row input,
+.form-row select {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    max-width: 400px;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-hint {
+    font-size: 12px;
+    color: #6c757d;
+    margin-left: 115px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.empty-state h4 {
+    margin: 0 0 10px 0;
+    color: #495057;
+}
+
+.device-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.device-list-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.device-list-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 13px;
+}
+
+.device-list-table tr:hover {
+    background: #f8f9fa;
+}
+
+.device-list-table tr.editing-row {
+    background: #fff3cd;
+}
+
+.device-list-table tr.editing-row input,
+.device-list-table tr.editing-row select {
+    padding: 5px 8px;
+    border: 2px solid #667eea;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.device-list-table td .btn-small {
+    margin-right: 5px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-small.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-small.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.batch-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* 表格批量编辑模式 */
+.table-mode {
+    margin-top: 20px;
+}
+
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.table-toolbar h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #495057;
+}
+
+/* 模态框背景 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* 模态框内容 */
+.modal-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        padding: 20px;
+    }
+
+    .menu-text {
+        display: none;
+    }
+
+    .network-config,
+    .serial-config {
+        grid-template-columns: 1fr;
+    }
+
+    /* 总线配置移动端适配 */
+    .bus-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .bus-sidebar {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .bus-detail {
+        min-height: 400px;
+    }
+}
+
+/* 消息提示 */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+    /* 不挡点击 */
+}
+
+.toast {
+    pointer-events: auto;
+    padding: 15px 25px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+    opacity: 0.95;
+}
+
+.toast.success {
+    background-color: #28a745;
+}
+
+.toast.error {
+    background-color: #dc3545;
+}
+
+/*重要消息弹窗*/
+.reminder-floating {
+    position: fixed;
+    top: 60px;
+    /* 根据实际 header 高度调整，例如导航栏高 60px */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff9800;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: auto;
+    max-width: 90%;
+    width: auto;
+    min-width: 280px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.reminder-floating .reminder-content {
+    flex: 1;
+    word-break: break-word;
+}
+
+.reminder-floating .reminder-close {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.2);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.reminder-floating .reminder-close:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* 滑入动画 */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.reminder-floating {
+    animation: slideDown 0.2s ease-out;
+}
+
+/*淡入动画 */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.reminder-floating {
+    animation: fadeInScale 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

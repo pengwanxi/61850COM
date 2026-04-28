@@ -1,0 +1,22 @@
+#ifndef _CONFIG_H_
+#define _CONFIG_H_
+
+// the version of linuxc
+#define VERSION_MAJOR "@VERSION_MAJOR@"
+#define VERSION_MINOR "@VERSION_MINOR@"
+#define VERSION_MICRO "@VERSION_MICRO@"
+
+#define PLATFORM @PLAT@
+
+#if PLATFORM == 0
+#define PLATFORM_DESK
+#elif PLATFORM == 1
+#define PLATFORM_T113
+#else
+#define PLATFORM_T113
+#endif
+
+#define ROOTPASSWD "@ROOTPASSWD@"
+#define ESNFILE "@ESNFILE@"
+
+#endif /* _CONFIG_H_ */

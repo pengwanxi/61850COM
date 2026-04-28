@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCL xmlns="http://www.iec.ch/61850/2003/SCL">
+  <Header id=""/>
+  <Communication>
+    <SubNetwork name="subnetwork1" type="8-MMS">
+      <Text>Station bus</Text>
+      <BitRate unit="b/s">10</BitRate>
+      <ConnectedAP iedName="EPDU" apName="accessPoint1">
+        <Address>
+          <P type="IP">192.168.1.136</P>
+          <P type="IP-SUBNET">255.255.255.0</P>
+          <P type="IP-GATEWAY">10.0.0.1</P>
+          <P type="OSI-TSEL">0001</P>
+          <P type="OSI-PSEL">00000001</P>
+          <P type="OSI-SSEL">0001</P>
+        </Address>
+      </ConnectedAP>
+    </SubNetwork>
+  </Communication>
+  <IED name="EPDU">
+    <Services>
+      <DynAssociation />
+      <GetDirectory />
+      <GetDataObjectDefinition />
+      <GetDataSetValue />
+      <DataSetDirectory />
+      <ReadWrite />
+      <GetCBValues />
+      <ConfLNs fixPrefix="true" fixLnInst="true" />
+      <GOOSE max="5" />
+      <GSSE max="5" />
+      <FileHandling />
+      <GSEDir />
+      <TimerActivatedControl />
+    </Services>
+    <AccessPoint name="accessPoint1">
+      <Server>
+        <Authentication />
+        <LDevice inst="HMI">
+          <LN0 lnClass="LLN0" lnType="LLN01" inst="1">
+            <DataSet name="dataset1" desc="">
+	      <FCDA ldInst="HMI" lnClass="MMXU" fc="ST" lnInst="1" doName="YX1" daName="stVal" />
+            </DataSet>
+	  </LN0>
+          <LN lnClass="MMXU" lnType="MMXU1" inst="1" prefix="">
+          </LN>
+          <!-- <LN lnClass="MMXU" lnType="MMXU2" inst="2" prefix=""> -->
+          <!-- </LN> -->
+          <!-- <LN lnClass="MMXU" lnType="MMXU3" inst="3" prefix=""> -->
+          <!-- </LN> -->
+        </LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+  <DataTypeTemplates>
+    <LNodeType id="LLN01" lnClass="LLN0">
+      <DO name="YX1" type="SPS_1_YX" />
+    </LNodeType>
+    <LNodeType id="MMXU1" lnClass="MMXU" desc="JX1">
+      <DO name="YX1" type="SPS_1_YX" />
+      <DO name="Uab" type="MV_1_U" />
+      <DO name="Ubc" type="MV_1_U" />
+      <DO name="UAc" type="MV_1_U" />
+    </LNodeType>
+    <DOType id="SPS_1_YX" cdc="SPS">
+      <DA name="q" bType="Quality" fc="ST" qchg="true" />
+      <DA name="t" bType="Timestamp" fc="ST" />
+      <DA name="stVal" bType="BOOLEAN" fc="CF" dchg="true" />
+    </DOType>
+    <DOType id="MV_1_U" cdc="MV">
+      <DA name="mag" type="AnalogueValue_1" bType="Struct" fc="MX" dchg="true" />
+      <DA name="q" bType="Quality" fc="MX" qchg="true" />
+      <DA name="t" bType="Timestamp" fc="MX" />
+    </DOType>
+    <DAType id="AnalogueValue_1">
+      <BDA name="f" bType="FLOAT32" />
+    </DAType>
+  </DataTypeTemplates>
+</SCL>

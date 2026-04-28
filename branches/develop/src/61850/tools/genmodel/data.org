@@ -1,0 +1,63 @@
+#+TITLE: 数据
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:{}
+#+AUTHOR: mengqp
+#+LANGUAGE: zh-CN
+#+SETUPFILE: ~/.emacs.d/etc/org-setupfile.org
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[数据][数据]]
+
+* 数据
+- 电流
+  + Ia Ib Ic
+  + +In+
+  + +Ig+
+- 线电压
+  - Uab Ubc Uca
+- 相电压
+  - Ua Ub Uc
+- 功率
+  - 总有功功率 W
+  - 总无功功率 Var
+  - 总视在功率 VA
+- 功率因数 PF
+- 频率 HZ
+- +有功功率峰值需量+
+- 产口ID
+- 频率2 HZ
+- 电量
+  - 正向
+  - 反向
+  - 总电量
+  - 视在电量
+- 温度
+  - 装置温度
+  - 最大温度
+- 需量
+  - 无功功率峰值需量
+  - 视在功率峰值需量
+  - 有功功率需量
+  - 无功功率需量
+  - 视在功率需量
+- 最值
+  - 电流最小值最大值
+  - 线电压
+  - 相电压
+- 谐波
+  - 电流
+  - 线电压
+  - 相电压
+- 计数
+  - INST/SDT
+  - LFT/GFT
+  - 操作计数
+- 状态位
+  - 断路器处于闭合位置
+  - 未确认的脱扣状态
+  - 激活或未确认的报警
+  - 维护模式被激活
+  - 测试模式被激活
+  - 长延时整定被激活
+  - 区域选择性联锁(ZSI)被激活
+  - 接地为返回电源接地

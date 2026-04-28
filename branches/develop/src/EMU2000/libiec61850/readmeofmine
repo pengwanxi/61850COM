@@ -1,0 +1,9 @@
+编译步骤:
+0. root下(即本目录下)执行make -f ArmMakefile，生成lib61850.a				//生成步骤2和步骤3需要链接的静态库
+1. make dynlib
+//生成动态库，动态库静态库只需其一!
+2. 进入./example/server_example[1-5]?/下执行make				//生成服务器可执行程序,服务器程序是用来模拟IED的!
+3. 进入./example/iec61850_client_example[1-5]?/下执行make		//生成客户端可执行程序,客户端程序是我们真正需要的!
+
+说明:
+该库已经做了部分更改，测试请使用正规版libiec61850.com下下载的源文件

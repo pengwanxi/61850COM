@@ -1,0 +1,3525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SCL xmlns="http://www.iec.ch/61850/2003/SCL"
+xmlns:sac="http://www.sac-china.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd">
+  <Header nameStructure="IEDName" revision="0.2" version="0.1">
+    <History>
+      <HItem revision="0.1" what="初始化配置文件"
+      when="2019-06-12 14:10:10" who="mengqp" />
+    </History>
+  </Header>
+  <Communication desc="Local">
+    <SubNetwork desc="Local" name="MMS" type="8-MMS">
+      <BitRate multiplier="M" unit="b/s" />
+      <ConnectedAP apName="AP1" iedName="EM6000">
+        <Address>
+          <P type="OSI-AP-Title">1,1,9999,1</P>
+          <P type="OSI-AE-Qualifier">12</P>
+          <P type="OSI-PSEL">00000001</P>
+          <P type="OSI-SSEL">0001</P>
+          <P type="OSI-TSEL">0001</P>
+          <P type="IP">192.189.7.132</P>
+          <P type="IP-SUBNET">255.255.252.0</P>
+          <P type="IP-GATEWAY">192.1.1.2</P>
+        </Address>
+        <GSE cbName="gsecb0" ldInst="EM6000">
+          <Address>
+            <P type="VLAN-ID">02</P>
+            <P type="VLAN-PRIORITY">4</P>
+            <P type="MAC-Address">01-0c-cd-01-00-01</P>
+            <P type="APPID">1000</P>
+          </Address>
+        </GSE>
+        <SMV cbName="smvcb0" ldInst="EM6000">
+          <Address>
+            <P type="VLAN-ID">01</P>
+            <P type="VLAN-PRIORITY">4</P>
+            <P type="MAC-Address">01-0c-cd-04-10-01</P>
+            <P type="APPID">1001</P>
+          </Address>
+        </SMV>
+      </ConnectedAP>
+    </SubNetwork>
+  </Communication>
+  <IED desc="此处现场name可以修改" name="EM6000">
+    <Services>
+      <DynAssociation />
+      <SettingGroups>
+        <SGEdit />
+        <ConfSG />
+      </SettingGroups>
+      <GetDirectory />
+      <GetDataObjectDefinition />
+      <GetDataSetValue />
+      <ConfDataSet max="64" maxAttributes="256" />
+      <!-- <ConfReportControl max="20" bufConf="false" /> -->
+      <DataSetDirectory />
+      <ReadWrite />
+      <GetCBValues />
+      <ConfLNs fixLnInst="true" fixPrefix="true" />
+      <!-- <GOOSE max="10" /> -->
+      <GSSE max="10" />
+      <FileHandling />
+      <GSEDir />
+      <TimerActivatedControl />
+    </Services>
+    <AccessPoint name="AP1">
+      <Server>
+        <Authentication />
+        <LDevice inst="EM6000">
+          <LN0 lnClass="LLN0" lnType="LLN01" inst="">
+            <DataSet name="common_measurement">
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="A" fc="MX" />
+              <FCDA  prefix="" lnClass="MSTA"
+              lnInst="1" doName="AvAmps" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="PhV" fc="MX" />
+              <FCDA  prefix="" lnClass="MSTA"
+              lnInst="1" doName="AvVolts" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="PPV" fc="MX" />
+              <FCDA  prefix="" lnClass="MSTA"
+              lnInst="1" doName="AvVolts2" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="W" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotW" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="Var" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotVAr" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="VA" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotVA" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="PF" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotPF" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="Hz" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotLQ" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="LQ" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotLC" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="LC" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotLF" fc="MX" />
+            </DataSet>
+            <DataSet name="power_quality">
+              <FCDA  prefix="" lnClass="MSQI"
+              lnInst="1" doName="SeqV" fc="MX" />
+              <FCDA  prefix="" lnClass="MSQI"
+              lnInst="1" doName="SeqA" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="PhV_ShortFlicker" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="PhV_LongFlicker" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="ThdATot" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="ThdVTot" fc="MX" />
+            </DataSet>
+            <DataSet name="realtime_data">
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="A" fc="MX" />
+              <FCDA  prefix="" lnClass="MSTA"
+              lnInst="1" doName="AvAmps" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="PhV" fc="MX" />
+              <FCDA  prefix="" lnClass="MSTA"
+              lnInst="1" doName="AvVolts" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="PPV" fc="MX" />
+              <FCDA  prefix="" lnClass="MSTA"
+              lnInst="1" doName="AvVolts2" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="W" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotW" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="Var" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotVAr" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="VA" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotVA" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="PF" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotPF" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="Hz" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotLQ" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="LQ" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotLC" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="LC" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="1" doName="TotLF" fc="MX" />
+              <FCDA  prefix="" lnClass="MSQI"
+              lnInst="1" doName="SeqV" fc="MX" />
+              <FCDA  prefix="" lnClass="MSQI"
+              lnInst="1" doName="SeqA" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="PhV_ShortFlicker" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="PhV_LongFlicker" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="ThdATot" fc="MX" />
+              <FCDA  prefix="" lnClass="MMXU"
+              lnInst="4" doName="ThdVTot" fc="MX" />
+            </DataSet>
+            <DataSet name="DI">
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI1" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI2" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI3" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI4" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI5" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI6" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI7" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="DI8" fc="ST" />
+            </DataSet>
+            <DataSet name="RO">
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="RO1" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="RO2" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="RO3" fc="ST" />
+              <FCDA  prefix="" lnClass="GGIO"
+              lnInst="1" doName="RO4" fc="ST" />
+            </DataSet>
+            <DataSet name="alarm">
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="PhV_Swell" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="PhV_Dip" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="PhV_Interruption" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_1" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_2" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_3" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_4" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_5" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_6" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_7" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_8" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_9" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_10" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_11" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_12" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_13" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_14" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_15" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_16" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_17" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_18" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_19" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_20" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_21" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_22" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_23" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_24" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_25" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_26" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_27" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_28" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_29" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_30" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_31" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_32" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_33" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_34" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_35" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_36" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_37" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_38" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_39" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_40" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_41" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_42" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_43" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_44" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_45" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_46" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_47" fc="ST" />
+              <FCDA  prefix="" lnClass="CALH"
+              lnInst="1" doName="GrAlm_48" fc="ST" />
+            </DataSet>
+            <DataSet name="power_energy">
+              <FCDA  prefix="" lnClass="MMTR"
+              lnInst="1" doName="TotW" fc="ST" />
+              <FCDA  prefix="" lnClass="MMTR"
+              lnInst="1" doName="TotVAr" fc="ST" />
+              <FCDA  prefix="" lnClass="MMTR"
+              lnInst="1" doName="TotVA" fc="ST" />
+            </DataSet>
+            <ReportControl name="common_measurement"
+            rptID="LLN0$RP$common_measurement" datSet="common_measurement"
+            buffered="true" bufTime="1000" intgPd="900000" PurgeBuf="true"
+            confRev="1">
+              <TrgOps dchg="true" qchg="false" dupd="true"
+              period="true" gi="true" />
+              <OptFields seqNum="true" timeStamp="true"
+              dataSet="true" reasonCode="true" dataRef="false"
+              entryID="true" configRef="true" />
+              <RptEnabled max="1" />
+            </ReportControl>
+            <ReportControl name="power_quality"
+            rptID="LLN0$RP$power_quality" datSet="power_quality"
+            buffered="true" bufTime="1000" intgPd="900000" PurgeBuf="true"
+            confRev="1">
+              <TrgOps dchg="true" qchg="false" dupd="true"
+              period="true" gi="true" />
+              <OptFields seqNum="true" timeStamp="true"
+              dataSet="true" reasonCode="true" dataRef="false"
+              entryID="true" configRef="true" />
+              <RptEnabled max="1" />
+            </ReportControl>
+            <ReportControl name="realtime_data"
+            rptID="LLN0$RP$realtime_data" datSet="realtime_data"
+            buffered="true" bufTime="1000" intgPd="900000" PurgeBuf="true"
+            confRev="1">
+              <TrgOps dchg="true" qchg="false" dupd="true"
+              period="true" gi="true" />
+              <OptFields seqNum="true" timeStamp="true"
+              dataSet="true" reasonCode="true" dataRef="false"
+              entryID="true" configRef="true" />
+              <RptEnabled max="1" />
+            </ReportControl>
+            <ReportControl name="DI" rptID="LLN0$RP$DI" datSet="DI"
+            buffered="true" bufTime="1000" intgPd="900000" PurgeBuf="true"
+            confRev="1">
+              <TrgOps dchg="true" qchg="true" dupd="true"
+              period="true" gi="true" />
+              <OptFields seqNum="true" timeStamp="true"
+              dataSet="true" reasonCode="true" dataRef="false"
+              entryID="true" configRef="true" />
+              <RptEnabled max="1" />
+            </ReportControl>
+            <ReportControl name="alarm" rptID="LLN0$RP$alarm"
+            datSet="alarm" buffered="true" bufTime="1000"
+            intgPd="900000" PurgeBuf="true"
+	    confRev="1">
+              <TrgOps dchg="true" qchg="true" dupd="true"
+              period="true" gi="true" />
+              <OptFields seqNum="true" timeStamp="true"
+              dataSet="true" reasonCode="true" dataRef="false"
+              entryID="true" configRef="true" />
+              <RptEnabled max="1" />
+            </ReportControl>
+            <ReportControl name="power_energy"
+            rptID="LLN0$RP$power_energy" datSet="power_energy"
+            buffered="true" bufTime="1000" intgPd="900000" PurgeBuf="true"
+            confRev="1">
+              <TrgOps dchg="true" qchg="false" dupd="true"
+              period="true" gi="true" />
+              <OptFields seqNum="true" timeStamp="true"
+              dataSet="true" reasonCode="true" dataRef="false"
+              entryID="true" configRef="true" />
+              <RptEnabled max="1" />
+            </ReportControl>
+            <SettingControl actSG="1" desc="parameter set"
+            numOfSGs="1" />
+          </LN0>
+          <LN inst="1" lnClass="MMXU" lnType="MMXU1" />
+          <LN inst="1" lnClass="MSTA" lnType="MSTA1" />
+          <LN inst="1" lnClass="GGIO" lnType="GGIO1">
+            <DOI name="RO1">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RO2">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RO3">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RO4">
+              <DAI name="ctlModel">
+                <Val>direct-with-normal-security</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN inst="2" lnClass="MMXU" lnType="MMXU2" desc="实时需量" />
+          <LN inst="2" lnClass="MSTA" lnType="MSTA2" desc="实时需量" />
+          <!-- <LN inst="3" lnClass="MMXU" lnType="MMXU3" desc="预测需量"/> -->
+          <!-- <LN inst="3" lnClass="MSTA" lnType="MSTA3" desc="预测需量"/> -->
+          <LN inst="1" lnClass="MSQI" lnType="MSQI1" desc="电能质量" />
+          <LN inst="4" lnClass="MMXU" lnType="MMXU4" desc="电能质量" />
+          <LN inst="4" lnClass="MSTA" lnType="MSTA4" desc="合格率" />
+          <LN inst="1" lnClass="CALH" lnType="CALH1" desc="告警状态" />
+          <LN inst="1" lnClass="MMTR" lnType="MMTR1" desc="总电能" />
+          <!-- <LN inst="2" lnClass="MMTR" lnType="MMTR2" desc="总谐波电能"/> -->
+          <!-- <LN inst="3" lnClass="MMTR" lnType="MMTR3" desc="谐波电能2-15次 "/> -->
+          <!-- <LN inst="4" lnClass="MMTR" lnType="MMTR4" desc="谐波电能16-31次"/> -->
+          <!-- <LN inst="5" lnClass="MMTR" lnType="MMTR5" desc="谐波电能31-47次"/> -->
+          <!-- <LN inst="6" lnClass="MMTR" lnType="MMTR6" desc="谐波电能48-63次"/> -->
+          <LN inst="7" lnClass="MMTR" lnType="MMTR7" desc="费率电能" />
+          <LN inst="8" lnClass="MMTR" lnType="MMTR8"
+          desc="费率脉冲电能" />
+          <LN inst="9" lnClass="MMTR" lnType="MMTR9"
+          desc="脉冲输入电能" />
+          <LN inst="1" lnClass="MHAI" lnType="MHAI1"
+          desc="总谐波含有率" />
+          <LN inst="2" lnClass="MHAI" lnType="MHAI2"
+          desc="谐波含有率2-15次" />
+          <LN inst="3" lnClass="MHAI" lnType="MHAI3"
+          desc="谐波含有率16-31次" />
+          <!-- <LN inst="4" lnClass="MHAI" lnType="MHAI4" desc="谐波含有率32-47次"/> -->
+          <!-- <LN inst="5" lnClass="MHAI" lnType="MHAI5" desc="谐波含有率48-63次"/> -->
+          <LN inst="6" lnClass="MHAI" lnType="MHAI6"
+          desc="总间谐波含有率" />
+          <LN inst="7" lnClass="MHAI" lnType="MHAI7"
+          desc="间谐波含有率2-15次" />
+          <LN inst="8" lnClass="MHAI" lnType="MHAI8"
+          desc="间谐波含有率16-31次" />
+          <!-- <LN inst="9" lnClass="MHAI" lnType="MHAI9" desc="间谐波含有率32-47次"/> -->
+          <!-- <LN inst="10" lnClass="MHAI" lnType="MHAI10" desc="间谐波含有率48-63次-"/> -->
+          <!-- <LN inst="11" lnClass="MHAI" lnType="MHAI11" desc="总谐波有效值"/> -->
+          <!-- <LN inst="12" lnClass="MHAI" lnType="MHAI12" desc="谐波有效值2-15次"/> -->
+          <!-- <LN inst="13" lnClass="MHAI" lnType="MHAI13" desc="谐波有效值16-31次"/> -->
+          <!-- <LN inst="14" lnClass="MHAI" lnType="MHAI14" desc="谐波有效值31-47次"/> -->
+          <!-- <LN inst="15" lnClass="MHAI" lnType="MHAI15" desc="谐波有效值48-63次"/> -->
+          <!-- <LN inst="16" lnClass="MHAI" lnType="MHAI16" desc="总间谐波有效值"/> -->
+          <!-- <LN inst="17" lnClass="MHAI" lnType="MHAI17" desc="间谐波有效值2-15次"/> -->
+          <!-- <LN inst="18" lnClass="MHAI" lnType="MHAI18" desc="间谐波有效值16-31次"/> -->
+          <!-- <LN inst="19" lnClass="MHAI" lnType="MHAI19" desc="间谐波有效值31-47次"/> -->
+          <!-- <LN inst="20" lnClass="MHAI" lnType="MHAI20" desc="间谐波有效值48-63次"/> -->
+          <!-- <LN inst="5" lnClass="MMXU" lnType="MMXU5" desc="总谐波功率"/> -->
+          <!-- <LN inst="6" lnClass="MMXU" lnType="MMXU6" desc="谐波功率2-15次"/> -->
+          <!-- <LN inst="7" lnClass="MMXU" lnType="MMXU7" desc="谐波功率16-31次"/> -->
+          <!-- <LN inst="8" lnClass="MMXU" lnType="MMXU8" desc="谐波功率31-47次"/> -->
+          <!-- <LN inst="9" lnClass="MMXU" lnType="MMXU9" desc="谐波功率48-63次"/> -->
+          <!-- <LN inst="10" lnClass="MMXU" lnType="MMXU10" desc="谐波相角2-15次"/> -->
+          <!-- <LN inst="11" lnClass="MMXU" lnType="MMXU11" desc="谐波相角16-31次"/> -->
+          <!-- <LN inst="12" lnClass="MMXU" lnType="MMXU12" desc="谐波相角31-47次"/> -->
+          <!-- <LN inst="13" lnClass="MMXU" lnType="MMXU13" desc="谐波相角48-63次"/> -->
+          <LN inst="1" lnClass="PTOC" lnType="PTOC1" desc="基本参数" />
+        </LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+
+  <DataTypeTemplates>
+    <LNodeType id="LLN01" lnClass="LLN0">
+      <!-- <DO name="Mod" type="INC_1_Mod" /> -->
+      <!-- <DO name="Beh" type="INS_1_Beh" /> -->
+      <!-- <DO name="Health" type="INS_1_Beh" /> -->
+      <!-- <DO name="NamPlt" type="LPL_1_NamPlt" /> -->
+    </LNodeType>
+    <LNodeType id="MMXU1" lnClass="MMXU">
+      <DO desc="三相电流" name="A" type="WYE_1_phs" />
+      <DO desc="三相电压" name="PhV" type="WYE_1_phs" />
+      <DO desc="三相线电压" name="PPV" type="DEL_1_ppv" />
+      <DO desc="三相有功" name="W" type="WYE_1_phs" />
+      <DO desc="总有功" name="TotW" type="MV_1_POWER" />
+      <DO desc="三相无功" name="Var" type="WYE_1_phs" />
+      <DO desc="总无功" name="TotVAr" type="MV_1_POWER" />
+      <DO desc="三相视在功率" name="VA" type="WYE_1_phs" />
+      <DO desc="总视在功率" name="TotVA" type="MV_1_POWER" />
+      <DO desc="三相功率因数" name="PF" type="WYE_1_phs" />
+      <DO desc="总功率因数" name="TotPF" type="MV_1_POWER" />
+      <DO desc="hz" name="Hz" type="MV_1_HZ" />
+      <DO desc="Phase current A" name="i4" type="CMV_1_phs" />
+      <DO desc="电压相角" name="PhVAng" type="WYE_1_phs" />
+      <DO desc="电流相角" name="AAng" type="WYE_1_phs" />
+      <DO desc="总负载相限" name="TotLQ" type="MV_2_POWER" />
+      <DO desc="三相负载相限" name="LQ" type="WYE_2_phs" />
+      <DO desc="总负载性质" name="TotLC" type="MV_2_POWER" />
+      <DO desc="三相负载相限" name="LC" type="WYE_2_phs" />
+      <DO desc="总负载率" name="TotLF" type="MV_1_POWER" />
+      <DO desc="三相负载率" name="LF" type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType id="MSTA1" lnClass="MSTA">
+      <DO desc="平均电流" name="AvAmps" type="MV_1_Av" />
+      <DO desc="平均相电压" name="AvVolts" type="MV_1_Av" />
+      <DO desc="平均线电压" name="AvVolts2" type="MV_1_Av" />
+    </LNodeType>
+    <LNodeType id="GGIO1" lnClass="GGIO">
+      <DO desc="DI1" name="DI1" type="SPC_1_Ind" />
+      <DO desc="DI2" name="DI2" type="SPC_1_Ind" />
+      <DO desc="DI3" name="DI3" type="SPC_1_Ind" />
+      <DO desc="DI4" name="DI4" type="SPC_1_Ind" />
+      <DO desc="DI5" name="DI5" type="SPC_1_Ind" />
+      <DO desc="DI6" name="DI6" type="SPC_1_Ind" />
+      <DO desc="DI7" name="DI7" type="SPC_1_Ind" />
+      <DO desc="DI8" name="DI8" type="SPC_1_Ind" />
+      <DO desc="RO1" name="RO1" type="SPC_2_RO" />
+      <DO desc="RO2" name="RO2" type="SPC_2_RO" />
+      <DO desc="RO3" name="RO3" type="SPC_2_RO" />
+      <DO desc="RO4" name="RO4" type="SPC_2_RO" />
+    </LNodeType>
+    <LNodeType desc="实时需量测量" id="MMXU2" lnClass="MMXU">
+      <DO desc="三相电流" name="A" type="WYE_1_phs" />
+      <DO desc="三相电压" name="PhV" type="WYE_1_phs" />
+      <DO desc="三相线电压" name="PPV" type="DEL_1_ppv" />
+      <DO desc="三相有功" name="W" type="WYE_1_phs" />
+      <DO desc="总有功" name="TotW" type="MV_1_POWER" />
+      <DO desc="三相无功" name="Var" type="WYE_1_phs" />
+      <DO desc="总无功" name="TotVAr" type="MV_1_POWER" />
+      <DO desc="三相视在功率" name="VA" type="WYE_1_phs" />
+      <DO desc="总视在功率" name="TotVA" type="MV_1_POWER" />
+      <DO desc="三相功率因数" name="PF" type="WYE_1_phs" />
+      <DO desc="总功率因数" name="TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="i4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="实时需量计量" id="MSTA2" lnClass="MSTA">
+      <DO desc="平均电流" name="AvAmps" type="MV_1_Av" />
+      <DO desc="平均相电压" name="AvVolts" type="MV_1_Av" />
+      <DO desc="平均线电压" name="AvVolts2" type="MV_1_Av" />
+    </LNodeType>
+    <LNodeType desc="需测需量测量" id="MMXU3" lnClass="MMXU">
+      <DO desc="三相电流" name="A" type="WYE_1_phs" />
+      <DO desc="三相电压" name="PhV" type="WYE_1_phs" />
+      <DO desc="三相线电压" name="PPV" type="DEL_1_ppv" />
+      <DO desc="三相有功" name="W" type="WYE_1_phs" />
+      <DO desc="总有功" name="TotW" type="MV_1_POWER" />
+      <DO desc="三相无功" name="Var" type="WYE_1_phs" />
+      <DO desc="总无功" name="TotVAr" type="MV_1_POWER" />
+      <DO desc="三相视在功率" name="VA" type="WYE_1_phs" />
+      <DO desc="总视在功率" name="TotVA" type="MV_1_POWER" />
+      <DO desc="三相功率因数" name="PF" type="WYE_1_phs" />
+      <DO desc="总功率因数" name="TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="i4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="需测需量计量" id="MSTA3" lnClass="MSTA">
+      <DO desc="平均电流" name="AvAmps" type="MV_1_Av" />
+      <DO desc="平均相电压" name="AvVolts" type="MV_1_Av" />
+      <DO desc="平均线电压" name="AvVolts2" type="MV_1_Av" />
+    </LNodeType>
+    <LNodeType desc="电能质量数据相序和不平衡" id="MSQI1" lnClass="MSQI">
+      <DO desc="三相电压偏差" name="PhV_Deviation" type="WYE_1_phs" />
+      <DO desc="三相线电压偏差" name="PPV_Deviation" type="DEL_1_ppv" />
+      <DO desc="频率偏差" name="Hz_Deviation" type="MV_1_HZ" />
+      <DO desc="电压负序不平衡度" name="ImbNgV" type="MV_1_imb" />
+      <DO desc="电压零序不平衡度" name="ImbZroV" type="MV_1_imb" />
+      <DO desc="电流负序不平衡度" name="ImbNgA" type="MV_1_imb" />
+      <DO desc="电流零序不平衡度" name="ImbZroA" type="MV_1_imb" />
+      <DO desc="序电压" name="SeqV" type="SEQ_1" />
+      <DO desc="序电流" name="SeqA" type="SEQ_1" />
+    </LNodeType>
+    <LNodeType desc="电能质量数据测量" id="MMXU4" lnClass="MMXU">
+      <DO desc="电压短时闪变值" name="PhV_ShortFlicker"
+      type="WYE_1_phs" />
+      <DO desc="电压短时闪变值" name="PhV_LongFlicker" type="WYE_1_phs" />
+      <DO desc="电压波动" name="PhV_Range" type="WYE_1_phs" />
+      <DO desc="电流谐波总畸变率" name="ThdATot" type="WYE_1_Thd" />
+      <DO desc="电压谐波总畸变率" name="ThdVTot" type="WYE_1_Thd" />
+      <DO desc="三相电流K因子" name="A_K" type="WYE_1_phs" />
+      <DO desc="I4K因子" name="i4_K" type="CMV_1_phs" />
+      <DO desc="三相电流波峰系数" name="I_CrestFactor" type="WYE_1_phs" />
+      <DO desc="I4波峰系数" name="i4_CrestFactor" type="CMV_1_phs" />
+      <DO desc="三相电压波峰系数" name="U_CrestFactor" type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType desc="电压合格率统计" id="MSTA4" lnClass="MSTA">
+      <DO desc="当日电压合格率" name="DayV" type="MV_1_Av" />
+      <DO desc="当日电压超上限率" name="DayVUpperLimit" type="MV_1_Av" />
+      <DO desc="当日电压超下限率" name="DayVLowerLimit" type="MV_1_Av" />
+      <DO desc="当日频率合格率" name="DayF" type="MV_1_Av" />
+      <DO desc="当日频率超上限率" name="DayFUpperLimit" type="MV_1_Av" />
+      <DO desc="当日频率超下限率" name="DayFLowerLimit" type="MV_1_Av" />
+      <DO name="LDayV" type="MV_1_Av" />
+      <DO name="LDayVUpperLimit" type="MV_1_Av" />
+      <DO name="LDayVLowerLimit" type="MV_1_Av" />
+      <DO name="LDayF" type="MV_1_Av" />
+      <DO name="LDayFUpperLimit" type="MV_1_Av" />
+      <DO name="LDayFLowerLimit" type="MV_1_Av" />
+      <DO name="LLDayV" type="MV_1_Av" />
+      <DO name="LLDayVUpperLimit" type="MV_1_Av" />
+      <DO name="LLDayVLowerLimit" type="MV_1_Av" />
+      <DO name="LLDayF" type="MV_1_Av" />
+      <DO name="LLDayFUpperLimit" type="MV_1_Av" />
+      <DO name="LLDayFLowerLimit" type="MV_1_Av" />
+      <DO name="MonthV" type="MV_1_Av" />
+      <DO name="MonthVUpperLimit" type="MV_1_Av" />
+      <DO name="MonthVLowerLimit" type="MV_1_Av" />
+      <DO name="MonthF" type="MV_1_Av" />
+      <DO name="MonthFUpperLimit" type="MV_1_Av" />
+      <DO name="MonthFLowerLimit" type="MV_1_Av" />
+      <DO name="LMonthV" type="MV_1_Av" />
+      <DO name="LMonthVUpperLimit" type="MV_1_Av" />
+      <DO name="LMonthVLowerLimit" type="MV_1_Av" />
+      <DO name="LMonthF" type="MV_1_Av" />
+      <DO name="LMonthFUpperLimit" type="MV_1_Av" />
+      <DO name="LMonthFLowerLimit" type="MV_1_Av" />
+      <DO name="LLMonthV" type="MV_1_Av" />
+      <DO name="LLMonthVUpperLimit" type="MV_1_Av" />
+      <DO name="LLMonthVLowerLimit" type="MV_1_Av" />
+      <DO name="LLMonthF" type="MV_1_Av" />
+      <DO name="LLMonthFUpperLimit" type="MV_1_Av" />
+      <DO name="LLMonthFLowerLimit" type="MV_1_Av" />
+      <DO name="YearV" type="MV_1_Av" />
+      <DO name="YearVUpperLimit" type="MV_1_Av" />
+      <DO name="YearVLowerLimit" type="MV_1_Av" />
+      <DO name="YearF" type="MV_1_Av" />
+      <DO name="YearFUpperLimit" type="MV_1_Av" />
+      <DO name="YearFLowerLimit" type="MV_1_Av" />
+      <DO name="LYearV" type="MV_1_Av" />
+      <DO name="LYearVUpperLimit" type="MV_1_Av" />
+      <DO name="LYearVLowerLimit" type="MV_1_Av" />
+      <DO name="LYearF" type="MV_1_Av" />
+      <DO name="LYearFUpperLimit" type="MV_1_Av" />
+      <DO name="LYearFLowerLimit" type="MV_1_Av" />
+      <DO name="LLYearV" type="MV_1_Av" />
+      <DO name="LLYearVUpperLimit" type="MV_1_Av" />
+      <DO name="LLYearVLowerLimit" type="MV_1_Av" />
+      <DO name="LLYearF" type="MV_1_Av" />
+      <DO name="LLYearFUpperLimit" type="MV_1_Av" />
+      <DO name="LLYearFLowerLimit" type="MV_1_Av" />
+    </LNodeType>
+    <LNodeType desc="告警状态" id="CALH1" lnClass="CALH">
+      <DO desc="暂态电压骤升" name="PhV_Swell" type="SPS_1_GrAlm" />
+      <DO desc="暂态电压骤降" name="PhV_Dip" type="SPS_1_GrAlm" />
+      <DO desc="暂态电压中断" name="PhV_Interruption" type="SPS_1_GrAlm" />
+      <DO desc="第一组告警状态" name="GrAlm_1" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_2" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_3" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_4" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_5" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_6" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_7" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_8" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_9" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_10" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_11" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_12" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_13" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_14" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_15" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_16" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_17" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_18" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_19" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_20" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_21" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_22" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_23" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_24" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_25" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_26" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_27" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_28" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_29" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_30" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_31" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_32" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_33" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_34" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_35" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_36" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_37" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_38" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_39" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_40" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_41" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_42" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_43" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_44" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_45" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_46" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_47" type="SPS_1_GrAlm" />
+      <DO name="GrAlm_48" type="SPS_1_GrAlm" />
+    </LNodeType>
+    <LNodeType desc="统计电能" id="MMTR1" lnClass="MMTR">
+      <DO name="TotW" type="BCR_1_Tot" />
+      <DO name="TotWh" type="BCR_1_Tot" />
+      <DO name="TotVAr" type="BCR_1_Tot" />
+      <DO name="TotVArh" type="BCR_1_Tot" />
+      <DO name="TotVA" type="BCR_1_Tot" />
+      <DO name="TotWPos" type="BCR_1_Tot" />
+      <DO name="TotWRev" type="BCR_1_Tot" />
+      <DO name="TotVArPos" type="BCR_1_Tot" />
+      <DO name="TotVArRev" type="BCR_1_Tot" />
+      <DO name="PhA_TotW" type="BCR_1_Tot" />
+      <DO name="PhA_TotWh" type="BCR_1_Tot" />
+      <DO name="PhA_TotVAr" type="BCR_1_Tot" />
+      <DO name="PhA_TotVArh" type="BCR_1_Tot" />
+      <DO name="PhA_TotVA" type="BCR_1_Tot" />
+      <DO name="PhA_TotWPos" type="BCR_1_Tot" />
+      <DO name="PhA_TotWRev" type="BCR_1_Tot" />
+      <DO name="PhA_TotVArPos" type="BCR_1_Tot" />
+      <DO name="PhA_TotVArRev" type="BCR_1_Tot" />
+      <DO name="PhB_TotW" type="BCR_1_Tot" />
+      <DO name="PhB_TotWh" type="BCR_1_Tot" />
+      <DO name="PhB_TotVAr" type="BCR_1_Tot" />
+      <DO name="PhB_TotVArh" type="BCR_1_Tot" />
+      <DO name="PhB_TotVA" type="BCR_1_Tot" />
+      <DO name="PhB_TotWPos" type="BCR_1_Tot" />
+      <DO name="PhB_TotWRev" type="BCR_1_Tot" />
+      <DO name="PhB_TotVArPos" type="BCR_1_Tot" />
+      <DO name="PhB_TotVArRev" type="BCR_1_Tot" />
+      <DO name="PhC_TotW" type="BCR_1_Tot" />
+      <DO name="PhC_TotWh" type="BCR_1_Tot" />
+      <DO name="PhC_TotVAr" type="BCR_1_Tot" />
+      <DO name="PhC_TotVArh" type="BCR_1_Tot" />
+      <DO name="PhC_TotVA" type="BCR_1_Tot" />
+      <DO name="PhC_TotWPos" type="BCR_1_Tot" />
+      <DO name="PhC_TotWRev" type="BCR_1_Tot" />
+      <DO name="PhC_TotVArPos" type="BCR_1_Tot" />
+      <DO name="PhC_TotVArRev" type="BCR_1_Tot" />
+      <DO name="FirstQ_PhA_VAr" type="BCR_1_Tot" />
+      <DO name="FirstQ_PhB_VAr" type="BCR_1_Tot" />
+      <DO name="FirstQ_PhC_VAr" type="BCR_1_Tot" />
+      <DO name="FirstQ_TotVAr" type="BCR_1_Tot" />
+      <DO name="SecondQ_PhA_VAr" type="BCR_1_Tot" />
+      <DO name="SecondQ_PhB_VAr" type="BCR_1_Tot" />
+      <DO name="SecondQ_PhC_VAr" type="BCR_1_Tot" />
+      <DO name="SecondQ_TotVAr" type="BCR_1_Tot" />
+      <DO name="ThirdQ_PhA_VAr" type="BCR_1_Tot" />
+      <DO name="ThirdQ_PhB_VAr" type="BCR_1_Tot" />
+      <DO name="ThirdQ_PhC_VAr" type="BCR_1_Tot" />
+      <DO name="ThirdQ_TotVAr" type="BCR_1_Tot" />
+      <DO name="FourthQ_PhA_VAr" type="BCR_1_Tot" />
+      <DO name="FourthQ_PhB_VAr" type="BCR_1_Tot" />
+      <DO name="FourthQ_PhC_VAr" type="BCR_1_Tot" />
+      <DO name="FourthQ_TotVAr" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="统计电能谐波" id="MMTR2" lnClass="MMTR">
+      <DO desc="谐波总有功电能" name="Har_TotW" type="BCR_1_Tot" />
+      <DO desc="谐波净有功电能" name="Har_TotWh" type="BCR_1_Tot" />
+      <DO desc="谐波总无功电能" name="Har_TotVAr" type="BCR_1_Tot" />
+      <DO desc="谐波净无功电能" name="Har_TotVArh" type="BCR_1_Tot" />
+      <DO desc="谐波总视在电能" name="Har_TotVA" type="BCR_1_Tot" />
+      <DO desc="谐波正向总有功电能" name="Har_TotWPos" type="BCR_1_Tot" />
+      <DO desc="谐波反向总有功电能" name="Har_TotWRev" type="BCR_1_Tot" />
+      <DO desc="谐波正相总无功电能" name="Har_TotVArPos" type="BCR_1_Tot" />
+      <DO desc="谐波反向总无功电能" name="Har_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Fund_TotW" type="BCR_1_Tot" />
+      <DO name="Fund_TotWh" type="BCR_1_Tot" />
+      <DO name="Fund_TotVAr" type="BCR_1_Tot" />
+      <DO name="Fund_TotVArh" type="BCR_1_Tot" />
+      <DO name="Fund_TotVA" type="BCR_1_Tot" />
+      <DO name="Fund_TotWPos" type="BCR_1_Tot" />
+      <DO name="Fund_TotWRev" type="BCR_1_Tot" />
+      <DO name="Fund_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Fund_TotVArRev" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="统计电能谐波" id="MMTR3" lnClass="MMTR">
+      <DO name="Har2_TotW" type="BCR_1_Tot" />
+      <DO name="Har2_TotWh" type="BCR_1_Tot" />
+      <DO name="Har2_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har2_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har2_TotVA" type="BCR_1_Tot" />
+      <DO name="Har2_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har2_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har2_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har2_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har3_TotW" type="BCR_1_Tot" />
+      <DO name="Har3_TotWh" type="BCR_1_Tot" />
+      <DO name="Har3_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har3_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har3_TotVA" type="BCR_1_Tot" />
+      <DO name="Har3_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har3_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har3_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har3_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har4_TotW" type="BCR_1_Tot" />
+      <DO name="Har4_TotWh" type="BCR_1_Tot" />
+      <DO name="Har4_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har4_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har4_TotVA" type="BCR_1_Tot" />
+      <DO name="Har4_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har4_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har4_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har4_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har5_TotW" type="BCR_1_Tot" />
+      <DO name="Har5_TotWh" type="BCR_1_Tot" />
+      <DO name="Har5_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har5_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har5_TotVA" type="BCR_1_Tot" />
+      <DO name="Har5_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har5_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har5_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har5_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har6_TotW" type="BCR_1_Tot" />
+      <DO name="Har6_TotWh" type="BCR_1_Tot" />
+      <DO name="Har6_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har6_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har6_TotVA" type="BCR_1_Tot" />
+      <DO name="Har6_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har6_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har6_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har6_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har7_TotW" type="BCR_1_Tot" />
+      <DO name="Har7_TotWh" type="BCR_1_Tot" />
+      <DO name="Har7_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har7_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har7_TotVA" type="BCR_1_Tot" />
+      <DO name="Har7_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har7_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har7_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har7_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har8_TotW" type="BCR_1_Tot" />
+      <DO name="Har8_TotWh" type="BCR_1_Tot" />
+      <DO name="Har8_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har8_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har8_TotVA" type="BCR_1_Tot" />
+      <DO name="Har8_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har8_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har8_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har8_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har9_TotW" type="BCR_1_Tot" />
+      <DO name="Har9_TotWh" type="BCR_1_Tot" />
+      <DO name="Har9_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har9_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har9_TotVA" type="BCR_1_Tot" />
+      <DO name="Har9_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har9_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har9_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har9_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har10_TotW" type="BCR_1_Tot" />
+      <DO name="Har10_TotWh" type="BCR_1_Tot" />
+      <DO name="Har10_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har10_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har10_TotVA" type="BCR_1_Tot" />
+      <DO name="Har10_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har10_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har10_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har10_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har11_TotW" type="BCR_1_Tot" />
+      <DO name="Har11_TotWh" type="BCR_1_Tot" />
+      <DO name="Har11_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har11_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har11_TotVA" type="BCR_1_Tot" />
+      <DO name="Har11_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har11_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har11_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har11_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har12_TotW" type="BCR_1_Tot" />
+      <DO name="Har12_TotWh" type="BCR_1_Tot" />
+      <DO name="Har12_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har12_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har12_TotVA" type="BCR_1_Tot" />
+      <DO name="Har12_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har12_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har12_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har12_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har13_TotW" type="BCR_1_Tot" />
+      <DO name="Har13_TotWh" type="BCR_1_Tot" />
+      <DO name="Har13_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har13_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har13_TotVA" type="BCR_1_Tot" />
+      <DO name="Har13_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har13_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har13_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har13_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har14_TotW" type="BCR_1_Tot" />
+      <DO name="Har14_TotWh" type="BCR_1_Tot" />
+      <DO name="Har14_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har14_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har14_TotVA" type="BCR_1_Tot" />
+      <DO name="Har14_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har14_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har14_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har14_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har15_TotW" type="BCR_1_Tot" />
+      <DO name="Har15_TotWh" type="BCR_1_Tot" />
+      <DO name="Har15_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har15_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har15_TotVA" type="BCR_1_Tot" />
+      <DO name="Har15_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har15_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har15_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har15_TotVArRev" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="统计电能谐波" id="MMTR4" lnClass="MMTR">
+      <DO name="Har16_TotW" type="BCR_1_Tot" />
+      <DO name="Har16_TotWh" type="BCR_1_Tot" />
+      <DO name="Har16_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har16_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har16_TotVA" type="BCR_1_Tot" />
+      <DO name="Har16_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har16_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har16_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har16_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har17_TotW" type="BCR_1_Tot" />
+      <DO name="Har17_TotWh" type="BCR_1_Tot" />
+      <DO name="Har17_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har17_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har17_TotVA" type="BCR_1_Tot" />
+      <DO name="Har17_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har17_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har17_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har17_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har18_TotW" type="BCR_1_Tot" />
+      <DO name="Har18_TotWh" type="BCR_1_Tot" />
+      <DO name="Har18_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har18_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har18_TotVA" type="BCR_1_Tot" />
+      <DO name="Har18_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har18_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har18_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har18_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har19_TotW" type="BCR_1_Tot" />
+      <DO name="Har19_TotWh" type="BCR_1_Tot" />
+      <DO name="Har19_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har19_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har19_TotVA" type="BCR_1_Tot" />
+      <DO name="Har19_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har19_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har19_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har19_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har20_TotW" type="BCR_1_Tot" />
+      <DO name="Har20_TotWh" type="BCR_1_Tot" />
+      <DO name="Har20_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har20_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har20_TotVA" type="BCR_1_Tot" />
+      <DO name="Har20_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har20_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har20_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har20_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har21_TotW" type="BCR_1_Tot" />
+      <DO name="Har21_TotWh" type="BCR_1_Tot" />
+      <DO name="Har21_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har21_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har21_TotVA" type="BCR_1_Tot" />
+      <DO name="Har21_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har21_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har21_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har21_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har22_TotW" type="BCR_1_Tot" />
+      <DO name="Har22_TotWh" type="BCR_1_Tot" />
+      <DO name="Har22_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har22_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har22_TotVA" type="BCR_1_Tot" />
+      <DO name="Har22_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har22_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har22_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har22_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har23_TotW" type="BCR_1_Tot" />
+      <DO name="Har23_TotWh" type="BCR_1_Tot" />
+      <DO name="Har23_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har23_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har23_TotVA" type="BCR_1_Tot" />
+      <DO name="Har23_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har23_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har23_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har23_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har24_TotW" type="BCR_1_Tot" />
+      <DO name="Har24_TotWh" type="BCR_1_Tot" />
+      <DO name="Har24_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har24_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har24_TotVA" type="BCR_1_Tot" />
+      <DO name="Har24_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har24_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har24_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har24_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har25_TotW" type="BCR_1_Tot" />
+      <DO name="Har25_TotWh" type="BCR_1_Tot" />
+      <DO name="Har25_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har25_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har25_TotVA" type="BCR_1_Tot" />
+      <DO name="Har25_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har25_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har25_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har25_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har26_TotW" type="BCR_1_Tot" />
+      <DO name="Har26_TotWh" type="BCR_1_Tot" />
+      <DO name="Har26_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har26_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har26_TotVA" type="BCR_1_Tot" />
+      <DO name="Har26_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har26_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har26_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har26_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har27_TotW" type="BCR_1_Tot" />
+      <DO name="Har27_TotWh" type="BCR_1_Tot" />
+      <DO name="Har27_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har27_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har27_TotVA" type="BCR_1_Tot" />
+      <DO name="Har27_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har27_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har27_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har27_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har28_TotW" type="BCR_1_Tot" />
+      <DO name="Har28_TotWh" type="BCR_1_Tot" />
+      <DO name="Har28_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har28_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har28_TotVA" type="BCR_1_Tot" />
+      <DO name="Har28_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har28_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har28_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har28_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har29_TotW" type="BCR_1_Tot" />
+      <DO name="Har29_TotWh" type="BCR_1_Tot" />
+      <DO name="Har29_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har29_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har29_TotVA" type="BCR_1_Tot" />
+      <DO name="Har29_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har29_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har29_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har29_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har30_TotW" type="BCR_1_Tot" />
+      <DO name="Har30_TotWh" type="BCR_1_Tot" />
+      <DO name="Har30_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har30_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har30_TotVA" type="BCR_1_Tot" />
+      <DO name="Har30_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har30_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har30_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har30_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har31_TotW" type="BCR_1_Tot" />
+      <DO name="Har31_TotWh" type="BCR_1_Tot" />
+      <DO name="Har31_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har31_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har31_TotVA" type="BCR_1_Tot" />
+      <DO name="Har31_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har31_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har31_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har31_TotVArRev" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="统计电能谐波" id="MMTR5" lnClass="MMTR">
+      <DO name="Har32_TotW" type="BCR_1_Tot" />
+      <DO name="Har32_TotWh" type="BCR_1_Tot" />
+      <DO name="Har32_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har32_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har32_TotVA" type="BCR_1_Tot" />
+      <DO name="Har32_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har32_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har32_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har32_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har33_TotW" type="BCR_1_Tot" />
+      <DO name="Har33_TotWh" type="BCR_1_Tot" />
+      <DO name="Har33_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har33_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har33_TotVA" type="BCR_1_Tot" />
+      <DO name="Har33_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har33_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har33_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har33_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har34_TotW" type="BCR_1_Tot" />
+      <DO name="Har34_TotWh" type="BCR_1_Tot" />
+      <DO name="Har34_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har34_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har34_TotVA" type="BCR_1_Tot" />
+      <DO name="Har34_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har34_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har34_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har34_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har35_TotW" type="BCR_1_Tot" />
+      <DO name="Har35_TotWh" type="BCR_1_Tot" />
+      <DO name="Har35_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har35_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har35_TotVA" type="BCR_1_Tot" />
+      <DO name="Har35_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har35_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har35_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har35_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har36_TotW" type="BCR_1_Tot" />
+      <DO name="Har36_TotWh" type="BCR_1_Tot" />
+      <DO name="Har36_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har36_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har36_TotVA" type="BCR_1_Tot" />
+      <DO name="Har36_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har36_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har36_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har36_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har37_TotW" type="BCR_1_Tot" />
+      <DO name="Har37_TotWh" type="BCR_1_Tot" />
+      <DO name="Har37_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har37_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har37_TotVA" type="BCR_1_Tot" />
+      <DO name="Har37_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har37_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har37_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har37_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har38_TotW" type="BCR_1_Tot" />
+      <DO name="Har38_TotWh" type="BCR_1_Tot" />
+      <DO name="Har38_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har38_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har38_TotVA" type="BCR_1_Tot" />
+      <DO name="Har38_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har38_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har38_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har38_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har39_TotW" type="BCR_1_Tot" />
+      <DO name="Har39_TotWh" type="BCR_1_Tot" />
+      <DO name="Har39_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har39_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har39_TotVA" type="BCR_1_Tot" />
+      <DO name="Har39_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har39_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har39_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har39_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har40_TotW" type="BCR_1_Tot" />
+      <DO name="Har40_TotWh" type="BCR_1_Tot" />
+      <DO name="Har40_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har40_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har40_TotVA" type="BCR_1_Tot" />
+      <DO name="Har40_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har40_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har40_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har40_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har41_TotW" type="BCR_1_Tot" />
+      <DO name="Har41_TotWh" type="BCR_1_Tot" />
+      <DO name="Har41_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har41_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har41_TotVA" type="BCR_1_Tot" />
+      <DO name="Har41_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har41_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har41_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har41_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har42_TotW" type="BCR_1_Tot" />
+      <DO name="Har42_TotWh" type="BCR_1_Tot" />
+      <DO name="Har42_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har42_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har42_TotVA" type="BCR_1_Tot" />
+      <DO name="Har42_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har42_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har42_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har42_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har43_TotW" type="BCR_1_Tot" />
+      <DO name="Har43_TotWh" type="BCR_1_Tot" />
+      <DO name="Har43_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har43_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har43_TotVA" type="BCR_1_Tot" />
+      <DO name="Har43_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har43_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har43_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har43_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har44_TotW" type="BCR_1_Tot" />
+      <DO name="Har44_TotWh" type="BCR_1_Tot" />
+      <DO name="Har44_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har44_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har44_TotVA" type="BCR_1_Tot" />
+      <DO name="Har44_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har44_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har44_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har44_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har45_TotW" type="BCR_1_Tot" />
+      <DO name="Har45_TotWh" type="BCR_1_Tot" />
+      <DO name="Har45_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har45_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har45_TotVA" type="BCR_1_Tot" />
+      <DO name="Har45_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har45_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har45_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har45_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har46_TotW" type="BCR_1_Tot" />
+      <DO name="Har46_TotWh" type="BCR_1_Tot" />
+      <DO name="Har46_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har46_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har46_TotVA" type="BCR_1_Tot" />
+      <DO name="Har46_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har46_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har46_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har46_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har47_TotW" type="BCR_1_Tot" />
+      <DO name="Har47_TotWh" type="BCR_1_Tot" />
+      <DO name="Har47_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har47_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har47_TotVA" type="BCR_1_Tot" />
+      <DO name="Har47_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har47_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har47_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har47_TotVArRev" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="统计电能谐波" id="MMTR6" lnClass="MMTR">
+      <DO name="Har48_TotW" type="BCR_1_Tot" />
+      <DO name="Har48_TotWh" type="BCR_1_Tot" />
+      <DO name="Har48_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har48_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har48_TotVA" type="BCR_1_Tot" />
+      <DO name="Har48_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har48_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har48_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har48_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har49_TotW" type="BCR_1_Tot" />
+      <DO name="Har49_TotWh" type="BCR_1_Tot" />
+      <DO name="Har49_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har49_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har49_TotVA" type="BCR_1_Tot" />
+      <DO name="Har49_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har49_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har49_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har49_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har50_TotW" type="BCR_1_Tot" />
+      <DO name="Har50_TotWh" type="BCR_1_Tot" />
+      <DO name="Har50_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har50_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har50_TotVA" type="BCR_1_Tot" />
+      <DO name="Har50_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har50_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har50_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har50_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har51_TotW" type="BCR_1_Tot" />
+      <DO name="Har51_TotWh" type="BCR_1_Tot" />
+      <DO name="Har51_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har51_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har51_TotVA" type="BCR_1_Tot" />
+      <DO name="Har51_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har51_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har51_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har51_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har52_TotW" type="BCR_1_Tot" />
+      <DO name="Har52_TotWh" type="BCR_1_Tot" />
+      <DO name="Har52_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har52_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har52_TotVA" type="BCR_1_Tot" />
+      <DO name="Har52_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har52_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har52_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har52_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har53_TotW" type="BCR_1_Tot" />
+      <DO name="Har53_TotWh" type="BCR_1_Tot" />
+      <DO name="Har53_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har53_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har53_TotVA" type="BCR_1_Tot" />
+      <DO name="Har53_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har53_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har53_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har53_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har54_TotW" type="BCR_1_Tot" />
+      <DO name="Har54_TotWh" type="BCR_1_Tot" />
+      <DO name="Har54_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har54_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har54_TotVA" type="BCR_1_Tot" />
+      <DO name="Har54_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har54_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har54_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har54_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har55_TotW" type="BCR_1_Tot" />
+      <DO name="Har55_TotWh" type="BCR_1_Tot" />
+      <DO name="Har55_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har55_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har55_TotVA" type="BCR_1_Tot" />
+      <DO name="Har55_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har55_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har55_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har55_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har56_TotW" type="BCR_1_Tot" />
+      <DO name="Har56_TotWh" type="BCR_1_Tot" />
+      <DO name="Har56_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har56_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har56_TotVA" type="BCR_1_Tot" />
+      <DO name="Har56_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har56_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har56_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har56_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har57_TotW" type="BCR_1_Tot" />
+      <DO name="Har57_TotWh" type="BCR_1_Tot" />
+      <DO name="Har57_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har57_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har57_TotVA" type="BCR_1_Tot" />
+      <DO name="Har57_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har57_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har57_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har57_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har58_TotW" type="BCR_1_Tot" />
+      <DO name="Har58_TotWh" type="BCR_1_Tot" />
+      <DO name="Har58_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har58_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har58_TotVA" type="BCR_1_Tot" />
+      <DO name="Har58_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har58_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har58_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har58_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har59_TotW" type="BCR_1_Tot" />
+      <DO name="Har59_TotWh" type="BCR_1_Tot" />
+      <DO name="Har59_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har59_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har59_TotVA" type="BCR_1_Tot" />
+      <DO name="Har59_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har59_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har59_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har59_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har60_TotW" type="BCR_1_Tot" />
+      <DO name="Har60_TotWh" type="BCR_1_Tot" />
+      <DO name="Har60_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har60_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har60_TotVA" type="BCR_1_Tot" />
+      <DO name="Har60_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har60_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har60_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har60_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har61_TotW" type="BCR_1_Tot" />
+      <DO name="Har61_TotWh" type="BCR_1_Tot" />
+      <DO name="Har61_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har61_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har61_TotVA" type="BCR_1_Tot" />
+      <DO name="Har61_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har61_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har61_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har61_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har62_TotW" type="BCR_1_Tot" />
+      <DO name="Har62_TotWh" type="BCR_1_Tot" />
+      <DO name="Har62_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har62_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har62_TotVA" type="BCR_1_Tot" />
+      <DO name="Har62_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har62_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har62_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har62_TotVArRev" type="BCR_1_Tot" />
+      <DO name="Har63_TotW" type="BCR_1_Tot" />
+      <DO name="Har63_TotWh" type="BCR_1_Tot" />
+      <DO name="Har63_TotVAr" type="BCR_1_Tot" />
+      <DO name="Har63_TotVArh" type="BCR_1_Tot" />
+      <DO name="Har63_TotVA" type="BCR_1_Tot" />
+      <DO name="Har63_TotWPos" type="BCR_1_Tot" />
+      <DO name="Har63_TotWRev" type="BCR_1_Tot" />
+      <DO name="Har63_TotVArPos" type="BCR_1_Tot" />
+      <DO name="Har63_TotVArRev" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="费率电能" id="MMTR7" lnClass="MMTR">
+      <DO name="RateT1_TotW" type="BCR_1_Tot" />
+      <DO name="RateT1_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT1_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT1_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT1_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT1_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT1_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT1_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT1_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT2_TotW" type="BCR_1_Tot" />
+      <DO name="RateT2_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT2_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT2_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT2_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT2_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT2_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT2_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT2_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT3_TotW" type="BCR_1_Tot" />
+      <DO name="RateT3_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT3_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT3_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT3_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT3_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT3_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT3_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT3_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT4_TotW" type="BCR_1_Tot" />
+      <DO name="RateT4_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT4_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT4_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT4_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT4_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT4_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT4_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT4_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT5_TotW" type="BCR_1_Tot" />
+      <DO name="RateT5_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT5_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT5_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT5_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT5_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT5_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT5_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT5_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT6_TotW" type="BCR_1_Tot" />
+      <DO name="RateT6_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT6_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT6_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT6_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT6_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT6_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT6_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT6_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT7_TotW" type="BCR_1_Tot" />
+      <DO name="RateT7_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT7_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT7_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT7_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT7_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT7_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT7_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT7_TotVArRev" type="BCR_1_Tot" />
+      <DO name="RateT8_TotW" type="BCR_1_Tot" />
+      <DO name="RateT8_TotWh" type="BCR_1_Tot" />
+      <DO name="RateT8_TotVAr" type="BCR_1_Tot" />
+      <DO name="RateT8_TotVArh" type="BCR_1_Tot" />
+      <DO name="RateT8_TotVA" type="BCR_1_Tot" />
+      <DO name="RateT8_TotWPos" type="BCR_1_Tot" />
+      <DO name="RateT8_TotWRev" type="BCR_1_Tot" />
+      <DO name="RateT8_TotVArPos" type="BCR_1_Tot" />
+      <DO name="RateT8_TotVArRev" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="费率脉冲输入电能电能" id="MMTR8" lnClass="MMTR">
+      <DO name="RateT1_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT1_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT2_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT3_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT4_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT5_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT6_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT7_PulseD8" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD1" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD2" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD3" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD4" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD5" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD6" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD7" type="BCR_1_Tot" />
+      <DO name="RateT8_PulseD8" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="DI脉冲输入电能" id="MMTR9" lnClass="MMTR">
+      <DO name="PulseD1" type="BCR_1_Tot" />
+      <DO name="PulseD2" type="BCR_1_Tot" />
+      <DO name="PulseD3" type="BCR_1_Tot" />
+      <DO name="PulseD4" type="BCR_1_Tot" />
+      <DO name="PulseD5" type="BCR_1_Tot" />
+      <DO name="PulseD6" type="BCR_1_Tot" />
+      <DO name="PulseD7" type="BCR_1_Tot" />
+      <DO name="PulseD8" type="BCR_1_Tot" />
+    </LNodeType>
+    <LNodeType desc="谐波含有率" id="MHAI1" lnClass="MHAI">
+      <DO name="ThdPhv" type="WYE_1_Thd" />
+      <DO name="ThdA" type="WYE_1_Thd" />
+      <DO name="Thdi4" type="CMV_1_phs" />
+      <DO name="ThdOddPhv" type="WYE_1_Thd" />
+      <DO name="ThdOddPhvA" type="WYE_1_Thd" />
+      <DO name="ThdOddi4" type="CMV_1_phs" />
+      <DO name="ThdEvnPhv" type="WYE_1_Thd" />
+      <DO name="ThdEvnPhvA" type="WYE_1_Thd" />
+      <DO name="ThdEvni4" type="CMV_1_phs" />
+      <DO name="ThdDCPhv" type="WYE_1_Thd" />
+      <DO name="ThdDCPhvA" type="WYE_1_Thd" />
+      <DO name="ThdDCi4" type="CMV_1_phs" />
+      <DO name="ThdFundPhv" type="WYE_1_Thd" />
+      <DO name="ThdFundPhvA" type="WYE_1_Thd" />
+      <DO name="ThdFundi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波含有率" id="MHAI2" lnClass="MHAI">
+      <DO name="Har2_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har2_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har2_Thdi4" type="CMV_1_phs" />
+      <DO name="Har3_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har3_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har3_Thdi4" type="CMV_1_phs" />
+      <DO name="Har4_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har4_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har4_Thdi4" type="CMV_1_phs" />
+      <DO name="Har5_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har5_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har5_Thdi4" type="CMV_1_phs" />
+      <DO name="Har6_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har6_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har6_Thdi4" type="CMV_1_phs" />
+      <DO name="Har7_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har7_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har7_Thdi4" type="CMV_1_phs" />
+      <DO name="Har8_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har8_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har8_Thdi4" type="CMV_1_phs" />
+      <DO name="Har9_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har9_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har9_Thdi4" type="CMV_1_phs" />
+      <DO name="Har10_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har10_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har10_Thdi4" type="CMV_1_phs" />
+      <DO name="Har11_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har11_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har11_Thdi4" type="CMV_1_phs" />
+      <DO name="Har12_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har12_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har12_Thdi4" type="CMV_1_phs" />
+      <DO name="Har13_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har13_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har13_Thdi4" type="CMV_1_phs" />
+      <DO name="Har14_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har14_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har14_Thdi4" type="CMV_1_phs" />
+      <DO name="Har15_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har15_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har15_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波含有率" id="MHAI3" lnClass="MHAI">
+      <DO name="Har16_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har16_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har16_Thdi4" type="CMV_1_phs" />
+      <DO name="Har17_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har17_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har17_Thdi4" type="CMV_1_phs" />
+      <DO name="Har18_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har18_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har18_Thdi4" type="CMV_1_phs" />
+      <DO name="Har19_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har19_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har19_Thdi4" type="CMV_1_phs" />
+      <DO name="Har20_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har20_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har20_Thdi4" type="CMV_1_phs" />
+      <DO name="Har21_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har21_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har21_Thdi4" type="CMV_1_phs" />
+      <DO name="Har22_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har22_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har22_Thdi4" type="CMV_1_phs" />
+      <DO name="Har23_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har23_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har23_Thdi4" type="CMV_1_phs" />
+      <DO name="Har24_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har24_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har24_Thdi4" type="CMV_1_phs" />
+      <DO name="Har25_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har25_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har25_Thdi4" type="CMV_1_phs" />
+      <DO name="Har26_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har26_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har26_Thdi4" type="CMV_1_phs" />
+      <DO name="Har27_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har27_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har27_Thdi4" type="CMV_1_phs" />
+      <DO name="Har28_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har28_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har28_Thdi4" type="CMV_1_phs" />
+      <DO name="Har29_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har29_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har29_Thdi4" type="CMV_1_phs" />
+      <DO name="Har30_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har30_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har30_Thdi4" type="CMV_1_phs" />
+      <DO name="Har31_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har31_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har31_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波含有率" id="MHAI4" lnClass="MHAI">
+      <DO name="Har32_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har32_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har32_Thdi4" type="CMV_1_phs" />
+      <DO name="Har33_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har33_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har33_Thdi4" type="CMV_1_phs" />
+      <DO name="Har34_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har34_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har34_Thdi4" type="CMV_1_phs" />
+      <DO name="Har35_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har35_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har35_Thdi4" type="CMV_1_phs" />
+      <DO name="Har36_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har36_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har36_Thdi4" type="CMV_1_phs" />
+      <DO name="Har37_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har37_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har37_Thdi4" type="CMV_1_phs" />
+      <DO name="Har38_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har38_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har38_Thdi4" type="CMV_1_phs" />
+      <DO name="Har39_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har39_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har39_Thdi4" type="CMV_1_phs" />
+      <DO name="Har40_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har40_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har40_Thdi4" type="CMV_1_phs" />
+      <DO name="Har41_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har41_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har41_Thdi4" type="CMV_1_phs" />
+      <DO name="Har42_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har42_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har42_Thdi4" type="CMV_1_phs" />
+      <DO name="Har43_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har43_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har43_Thdi4" type="CMV_1_phs" />
+      <DO name="Har44_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har44_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har44_Thdi4" type="CMV_1_phs" />
+      <DO name="Har45_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har45_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har45_Thdi4" type="CMV_1_phs" />
+      <DO name="Har46_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har46_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har46_Thdi4" type="CMV_1_phs" />
+      <DO name="Har47_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har47_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har47_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波含有率" id="MHAI5" lnClass="MHAI">
+      <DO name="Har48_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har48_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har48_Thdi4" type="CMV_1_phs" />
+      <DO name="Har49_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har49_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har49_Thdi4" type="CMV_1_phs" />
+      <DO name="Har50_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har50_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har50_Thdi4" type="CMV_1_phs" />
+      <DO name="Har51_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har51_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har51_Thdi4" type="CMV_1_phs" />
+      <DO name="Har52_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har52_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har52_Thdi4" type="CMV_1_phs" />
+      <DO name="Har53_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har53_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har53_Thdi4" type="CMV_1_phs" />
+      <DO name="Har54_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har54_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har54_Thdi4" type="CMV_1_phs" />
+      <DO name="Har55_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har55_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har55_Thdi4" type="CMV_1_phs" />
+      <DO name="Har56_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har56_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har56_Thdi4" type="CMV_1_phs" />
+      <DO name="Har57_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har57_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har57_Thdi4" type="CMV_1_phs" />
+      <DO name="Har58_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har58_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har58_Thdi4" type="CMV_1_phs" />
+      <DO name="Har59_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har59_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har59_Thdi4" type="CMV_1_phs" />
+      <DO name="Har60_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har60_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har60_Thdi4" type="CMV_1_phs" />
+      <DO name="Har61_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har61_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har61_Thdi4" type="CMV_1_phs" />
+      <DO name="Har62_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har62_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har62_Thdi4" type="CMV_1_phs" />
+      <DO name="Har63_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har63_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har63_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波含有率" id="MHAI6" lnClass="MHAI">
+      <DO name="ThdPhv" type="WYE_1_Thd" />
+      <DO name="ThdA" type="WYE_1_Thd" />
+      <DO name="Thdi4" type="CMV_1_phs" />
+      <DO name="ThdOddPhv" type="WYE_1_Thd" />
+      <DO name="ThdOddPhvA" type="WYE_1_Thd" />
+      <DO name="ThdOddi4" type="CMV_1_phs" />
+      <DO name="ThdEvnPhv" type="WYE_1_Thd" />
+      <DO name="ThdEvnPhvA" type="WYE_1_Thd" />
+      <DO name="ThdEvni4" type="CMV_1_phs" />
+      <DO name="ThdDCPhv" type="WYE_1_Thd" />
+      <DO name="ThdDCPhvA" type="WYE_1_Thd" />
+      <DO name="ThdDCi4" type="CMV_1_phs" />
+      <DO name="ThdFundPhv" type="WYE_1_Thd" />
+      <DO name="ThdFundPhvA" type="WYE_1_Thd" />
+      <DO name="ThdFundi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波含有率" id="MHAI7" lnClass="MHAI">
+      <DO name="Har2_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har2_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har2_Thdi4" type="CMV_1_phs" />
+      <DO name="Har3_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har3_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har3_Thdi4" type="CMV_1_phs" />
+      <DO name="Har4_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har4_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har4_Thdi4" type="CMV_1_phs" />
+      <DO name="Har5_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har5_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har5_Thdi4" type="CMV_1_phs" />
+      <DO name="Har6_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har6_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har6_Thdi4" type="CMV_1_phs" />
+      <DO name="Har7_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har7_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har7_Thdi4" type="CMV_1_phs" />
+      <DO name="Har8_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har8_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har8_Thdi4" type="CMV_1_phs" />
+      <DO name="Har9_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har9_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har9_Thdi4" type="CMV_1_phs" />
+      <DO name="Har10_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har10_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har10_Thdi4" type="CMV_1_phs" />
+      <DO name="Har11_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har11_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har11_Thdi4" type="CMV_1_phs" />
+      <DO name="Har12_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har12_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har12_Thdi4" type="CMV_1_phs" />
+      <DO name="Har13_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har13_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har13_Thdi4" type="CMV_1_phs" />
+      <DO name="Har14_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har14_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har14_Thdi4" type="CMV_1_phs" />
+      <DO name="Har15_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har15_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har15_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波含有率" id="MHAI8" lnClass="MHAI">
+      <DO name="Har16_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har16_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har16_Thdi4" type="CMV_1_phs" />
+      <DO name="Har17_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har17_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har17_Thdi4" type="CMV_1_phs" />
+      <DO name="Har18_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har18_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har18_Thdi4" type="CMV_1_phs" />
+      <DO name="Har19_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har19_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har19_Thdi4" type="CMV_1_phs" />
+      <DO name="Har20_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har20_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har20_Thdi4" type="CMV_1_phs" />
+      <DO name="Har21_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har21_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har21_Thdi4" type="CMV_1_phs" />
+      <DO name="Har22_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har22_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har22_Thdi4" type="CMV_1_phs" />
+      <DO name="Har23_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har23_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har23_Thdi4" type="CMV_1_phs" />
+      <DO name="Har24_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har24_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har24_Thdi4" type="CMV_1_phs" />
+      <DO name="Har25_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har25_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har25_Thdi4" type="CMV_1_phs" />
+      <DO name="Har26_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har26_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har26_Thdi4" type="CMV_1_phs" />
+      <DO name="Har27_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har27_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har27_Thdi4" type="CMV_1_phs" />
+      <DO name="Har28_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har28_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har28_Thdi4" type="CMV_1_phs" />
+      <DO name="Har29_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har29_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har29_Thdi4" type="CMV_1_phs" />
+      <DO name="Har30_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har30_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har30_Thdi4" type="CMV_1_phs" />
+      <DO name="Har31_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har31_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har31_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波含有率" id="MHAI9" lnClass="MHAI">
+      <DO name="Har32_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har32_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har32_Thdi4" type="CMV_1_phs" />
+      <DO name="Har33_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har33_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har33_Thdi4" type="CMV_1_phs" />
+      <DO name="Har34_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har34_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har34_Thdi4" type="CMV_1_phs" />
+      <DO name="Har35_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har35_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har35_Thdi4" type="CMV_1_phs" />
+      <DO name="Har36_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har36_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har36_Thdi4" type="CMV_1_phs" />
+      <DO name="Har37_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har37_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har37_Thdi4" type="CMV_1_phs" />
+      <DO name="Har38_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har38_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har38_Thdi4" type="CMV_1_phs" />
+      <DO name="Har39_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har39_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har39_Thdi4" type="CMV_1_phs" />
+      <DO name="Har40_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har40_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har40_Thdi4" type="CMV_1_phs" />
+      <DO name="Har41_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har41_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har41_Thdi4" type="CMV_1_phs" />
+      <DO name="Har42_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har42_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har42_Thdi4" type="CMV_1_phs" />
+      <DO name="Har43_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har43_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har43_Thdi4" type="CMV_1_phs" />
+      <DO name="Har44_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har44_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har44_Thdi4" type="CMV_1_phs" />
+      <DO name="Har45_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har45_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har45_Thdi4" type="CMV_1_phs" />
+      <DO name="Har46_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har46_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har46_Thdi4" type="CMV_1_phs" />
+      <DO name="Har47_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har47_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har47_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波有效值" id="MHAI10" lnClass="MHAI">
+      <DO name="Har48_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har48_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har48_Thdi4" type="CMV_1_phs" />
+      <DO name="Har49_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har49_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har49_Thdi4" type="CMV_1_phs" />
+      <DO name="Har50_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har50_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har50_Thdi4" type="CMV_1_phs" />
+      <DO name="Har51_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har51_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har51_Thdi4" type="CMV_1_phs" />
+      <DO name="Har52_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har52_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har52_Thdi4" type="CMV_1_phs" />
+      <DO name="Har53_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har53_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har53_Thdi4" type="CMV_1_phs" />
+      <DO name="Har54_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har54_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har54_Thdi4" type="CMV_1_phs" />
+      <DO name="Har55_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har55_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har55_Thdi4" type="CMV_1_phs" />
+      <DO name="Har56_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har56_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har56_Thdi4" type="CMV_1_phs" />
+      <DO name="Har57_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har57_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har57_Thdi4" type="CMV_1_phs" />
+      <DO name="Har58_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har58_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har58_Thdi4" type="CMV_1_phs" />
+      <DO name="Har59_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har59_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har59_Thdi4" type="CMV_1_phs" />
+      <DO name="Har60_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har60_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har60_Thdi4" type="CMV_1_phs" />
+      <DO name="Har61_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har61_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har61_Thdi4" type="CMV_1_phs" />
+      <DO name="Har62_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har62_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har62_Thdi4" type="CMV_1_phs" />
+      <DO name="Har63_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har63_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har63_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波有效值" id="MHAI11" lnClass="MHAI">
+      <DO name="ThdPhv" type="WYE_1_Thd" />
+      <DO name="ThdA" type="WYE_1_Thd" />
+      <DO name="Thdi4" type="CMV_1_phs" />
+      <DO name="ThdOddPhv" type="WYE_1_Thd" />
+      <DO name="ThdOddPhvA" type="WYE_1_Thd" />
+      <DO name="ThdOddi4" type="CMV_1_phs" />
+      <DO name="ThdEvnPhv" type="WYE_1_Thd" />
+      <DO name="ThdEvnPhvA" type="WYE_1_Thd" />
+      <DO name="ThdEvni4" type="CMV_1_phs" />
+      <DO name="ThdDCPhv" type="WYE_1_Thd" />
+      <DO name="ThdDCPhvA" type="WYE_1_Thd" />
+      <DO name="ThdDCi4" type="CMV_1_phs" />
+      <DO name="ThdFundPhv" type="WYE_1_Thd" />
+      <DO name="ThdFundPhvA" type="WYE_1_Thd" />
+      <DO name="ThdFundi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波有效值" id="MHAI12" lnClass="MHAI">
+      <DO name="Har2_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har2_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har2_Thdi4" type="CMV_1_phs" />
+      <DO name="Har3_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har3_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har3_Thdi4" type="CMV_1_phs" />
+      <DO name="Har4_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har4_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har4_Thdi4" type="CMV_1_phs" />
+      <DO name="Har5_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har5_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har5_Thdi4" type="CMV_1_phs" />
+      <DO name="Har6_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har6_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har6_Thdi4" type="CMV_1_phs" />
+      <DO name="Har7_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har7_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har7_Thdi4" type="CMV_1_phs" />
+      <DO name="Har8_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har8_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har8_Thdi4" type="CMV_1_phs" />
+      <DO name="Har9_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har9_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har9_Thdi4" type="CMV_1_phs" />
+      <DO name="Har10_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har10_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har10_Thdi4" type="CMV_1_phs" />
+      <DO name="Har11_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har11_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har11_Thdi4" type="CMV_1_phs" />
+      <DO name="Har12_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har12_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har12_Thdi4" type="CMV_1_phs" />
+      <DO name="Har13_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har13_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har13_Thdi4" type="CMV_1_phs" />
+      <DO name="Har14_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har14_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har14_Thdi4" type="CMV_1_phs" />
+      <DO name="Har15_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har15_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har15_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波有效值" id="MHAI13" lnClass="MHAI">
+      <DO name="Har16_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har16_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har16_Thdi4" type="CMV_1_phs" />
+      <DO name="Har17_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har17_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har17_Thdi4" type="CMV_1_phs" />
+      <DO name="Har18_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har18_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har18_Thdi4" type="CMV_1_phs" />
+      <DO name="Har19_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har19_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har19_Thdi4" type="CMV_1_phs" />
+      <DO name="Har20_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har20_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har20_Thdi4" type="CMV_1_phs" />
+      <DO name="Har21_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har21_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har21_Thdi4" type="CMV_1_phs" />
+      <DO name="Har22_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har22_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har22_Thdi4" type="CMV_1_phs" />
+      <DO name="Har23_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har23_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har23_Thdi4" type="CMV_1_phs" />
+      <DO name="Har24_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har24_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har24_Thdi4" type="CMV_1_phs" />
+      <DO name="Har25_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har25_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har25_Thdi4" type="CMV_1_phs" />
+      <DO name="Har26_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har26_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har26_Thdi4" type="CMV_1_phs" />
+      <DO name="Har27_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har27_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har27_Thdi4" type="CMV_1_phs" />
+      <DO name="Har28_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har28_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har28_Thdi4" type="CMV_1_phs" />
+      <DO name="Har29_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har29_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har29_Thdi4" type="CMV_1_phs" />
+      <DO name="Har30_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har30_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har30_Thdi4" type="CMV_1_phs" />
+      <DO name="Har31_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har31_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har31_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波有效值" id="MHAI14" lnClass="MHAI">
+      <DO name="Har32_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har32_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har32_Thdi4" type="CMV_1_phs" />
+      <DO name="Har33_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har33_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har33_Thdi4" type="CMV_1_phs" />
+      <DO name="Har34_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har34_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har34_Thdi4" type="CMV_1_phs" />
+      <DO name="Har35_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har35_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har35_Thdi4" type="CMV_1_phs" />
+      <DO name="Har36_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har36_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har36_Thdi4" type="CMV_1_phs" />
+      <DO name="Har37_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har37_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har37_Thdi4" type="CMV_1_phs" />
+      <DO name="Har38_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har38_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har38_Thdi4" type="CMV_1_phs" />
+      <DO name="Har39_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har39_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har39_Thdi4" type="CMV_1_phs" />
+      <DO name="Har40_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har40_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har40_Thdi4" type="CMV_1_phs" />
+      <DO name="Har41_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har41_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har41_Thdi4" type="CMV_1_phs" />
+      <DO name="Har42_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har42_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har42_Thdi4" type="CMV_1_phs" />
+      <DO name="Har43_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har43_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har43_Thdi4" type="CMV_1_phs" />
+      <DO name="Har44_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har44_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har44_Thdi4" type="CMV_1_phs" />
+      <DO name="Har45_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har45_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har45_Thdi4" type="CMV_1_phs" />
+      <DO name="Har46_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har46_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har46_Thdi4" type="CMV_1_phs" />
+      <DO name="Har47_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har47_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har47_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波有效值" id="MHAI15" lnClass="MHAI">
+      <DO name="Har48_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har48_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har48_Thdi4" type="CMV_1_phs" />
+      <DO name="Har49_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har49_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har49_Thdi4" type="CMV_1_phs" />
+      <DO name="Har50_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har50_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har50_Thdi4" type="CMV_1_phs" />
+      <DO name="Har51_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har51_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har51_Thdi4" type="CMV_1_phs" />
+      <DO name="Har52_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har52_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har52_Thdi4" type="CMV_1_phs" />
+      <DO name="Har53_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har53_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har53_Thdi4" type="CMV_1_phs" />
+      <DO name="Har54_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har54_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har54_Thdi4" type="CMV_1_phs" />
+      <DO name="Har55_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har55_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har55_Thdi4" type="CMV_1_phs" />
+      <DO name="Har56_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har56_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har56_Thdi4" type="CMV_1_phs" />
+      <DO name="Har57_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har57_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har57_Thdi4" type="CMV_1_phs" />
+      <DO name="Har58_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har58_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har58_Thdi4" type="CMV_1_phs" />
+      <DO name="Har59_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har59_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har59_Thdi4" type="CMV_1_phs" />
+      <DO name="Har60_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har60_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har60_Thdi4" type="CMV_1_phs" />
+      <DO name="Har61_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har61_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har61_Thdi4" type="CMV_1_phs" />
+      <DO name="Har62_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har62_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har62_Thdi4" type="CMV_1_phs" />
+      <DO name="Har63_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har63_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har63_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波有效值" id="MHAI16" lnClass="MHAI">
+      <DO name="ThdPhv" type="WYE_1_Thd" />
+      <DO name="ThdA" type="WYE_1_Thd" />
+      <DO name="Thdi4" type="CMV_1_phs" />
+      <DO name="ThdOddPhv" type="WYE_1_Thd" />
+      <DO name="ThdOddPhvA" type="WYE_1_Thd" />
+      <DO name="ThdOddi4" type="CMV_1_phs" />
+      <DO name="ThdEvnPhv" type="WYE_1_Thd" />
+      <DO name="ThdEvnPhvA" type="WYE_1_Thd" />
+      <DO name="ThdEvni4" type="CMV_1_phs" />
+      <DO name="ThdDCPhv" type="WYE_1_Thd" />
+      <DO name="ThdDCPhvA" type="WYE_1_Thd" />
+      <DO name="ThdDCi4" type="CMV_1_phs" />
+      <DO name="ThdFundPhv" type="WYE_1_Thd" />
+      <DO name="ThdFundPhvA" type="WYE_1_Thd" />
+      <DO name="ThdFundi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波有效值" id="MHAI17" lnClass="MHAI">
+      <DO name="Har2_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har2_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har2_Thdi4" type="CMV_1_phs" />
+      <DO name="Har3_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har3_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har3_Thdi4" type="CMV_1_phs" />
+      <DO name="Har4_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har4_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har4_Thdi4" type="CMV_1_phs" />
+      <DO name="Har5_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har5_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har5_Thdi4" type="CMV_1_phs" />
+      <DO name="Har6_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har6_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har6_Thdi4" type="CMV_1_phs" />
+      <DO name="Har7_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har7_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har7_Thdi4" type="CMV_1_phs" />
+      <DO name="Har8_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har8_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har8_Thdi4" type="CMV_1_phs" />
+      <DO name="Har9_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har9_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har9_Thdi4" type="CMV_1_phs" />
+      <DO name="Har10_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har10_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har10_Thdi4" type="CMV_1_phs" />
+      <DO name="Har11_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har11_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har11_Thdi4" type="CMV_1_phs" />
+      <DO name="Har12_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har12_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har12_Thdi4" type="CMV_1_phs" />
+      <DO name="Har13_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har13_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har13_Thdi4" type="CMV_1_phs" />
+      <DO name="Har14_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har14_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har14_Thdi4" type="CMV_1_phs" />
+      <DO name="Har15_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har15_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har15_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波有效值" id="MHAI18" lnClass="MHAI">
+      <DO name="Har16_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har16_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har16_Thdi4" type="CMV_1_phs" />
+      <DO name="Har17_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har17_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har17_Thdi4" type="CMV_1_phs" />
+      <DO name="Har18_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har18_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har18_Thdi4" type="CMV_1_phs" />
+      <DO name="Har19_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har19_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har19_Thdi4" type="CMV_1_phs" />
+      <DO name="Har20_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har20_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har20_Thdi4" type="CMV_1_phs" />
+      <DO name="Har21_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har21_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har21_Thdi4" type="CMV_1_phs" />
+      <DO name="Har22_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har22_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har22_Thdi4" type="CMV_1_phs" />
+      <DO name="Har23_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har23_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har23_Thdi4" type="CMV_1_phs" />
+      <DO name="Har24_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har24_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har24_Thdi4" type="CMV_1_phs" />
+      <DO name="Har25_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har25_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har25_Thdi4" type="CMV_1_phs" />
+      <DO name="Har26_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har26_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har26_Thdi4" type="CMV_1_phs" />
+      <DO name="Har27_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har27_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har27_Thdi4" type="CMV_1_phs" />
+      <DO name="Har28_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har28_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har28_Thdi4" type="CMV_1_phs" />
+      <DO name="Har29_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har29_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har29_Thdi4" type="CMV_1_phs" />
+      <DO name="Har30_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har30_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har30_Thdi4" type="CMV_1_phs" />
+      <DO name="Har31_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har31_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har31_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波有效值" id="MHAI19" lnClass="MHAI">
+      <DO name="Har32_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har32_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har32_Thdi4" type="CMV_1_phs" />
+      <DO name="Har33_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har33_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har33_Thdi4" type="CMV_1_phs" />
+      <DO name="Har34_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har34_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har34_Thdi4" type="CMV_1_phs" />
+      <DO name="Har35_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har35_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har35_Thdi4" type="CMV_1_phs" />
+      <DO name="Har36_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har36_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har36_Thdi4" type="CMV_1_phs" />
+      <DO name="Har37_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har37_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har37_Thdi4" type="CMV_1_phs" />
+      <DO name="Har38_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har38_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har38_Thdi4" type="CMV_1_phs" />
+      <DO name="Har39_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har39_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har39_Thdi4" type="CMV_1_phs" />
+      <DO name="Har40_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har40_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har40_Thdi4" type="CMV_1_phs" />
+      <DO name="Har41_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har41_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har41_Thdi4" type="CMV_1_phs" />
+      <DO name="Har42_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har42_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har42_Thdi4" type="CMV_1_phs" />
+      <DO name="Har43_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har43_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har43_Thdi4" type="CMV_1_phs" />
+      <DO name="Har44_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har44_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har44_Thdi4" type="CMV_1_phs" />
+      <DO name="Har45_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har45_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har45_Thdi4" type="CMV_1_phs" />
+      <DO name="Har46_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har46_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har46_Thdi4" type="CMV_1_phs" />
+      <DO name="Har47_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har47_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har47_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="间谐波有效值" id="MHAI20" lnClass="MHAI">
+      <DO name="Har48_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har48_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har48_Thdi4" type="CMV_1_phs" />
+      <DO name="Har49_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har49_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har49_Thdi4" type="CMV_1_phs" />
+      <DO name="Har50_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har50_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har50_Thdi4" type="CMV_1_phs" />
+      <DO name="Har51_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har51_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har51_Thdi4" type="CMV_1_phs" />
+      <DO name="Har52_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har52_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har52_Thdi4" type="CMV_1_phs" />
+      <DO name="Har53_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har53_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har53_Thdi4" type="CMV_1_phs" />
+      <DO name="Har54_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har54_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har54_Thdi4" type="CMV_1_phs" />
+      <DO name="Har55_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har55_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har55_Thdi4" type="CMV_1_phs" />
+      <DO name="Har56_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har56_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har56_Thdi4" type="CMV_1_phs" />
+      <DO name="Har57_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har57_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har57_Thdi4" type="CMV_1_phs" />
+      <DO name="Har58_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har58_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har58_Thdi4" type="CMV_1_phs" />
+      <DO name="Har59_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har59_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har59_Thdi4" type="CMV_1_phs" />
+      <DO name="Har60_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har60_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har60_Thdi4" type="CMV_1_phs" />
+      <DO name="Har61_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har61_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har61_Thdi4" type="CMV_1_phs" />
+      <DO name="Har62_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har62_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har62_Thdi4" type="CMV_1_phs" />
+      <DO name="Har63_ThdPhv" type="WYE_1_Thd" />
+      <DO name="Har63_ThdPhvA" type="WYE_1_Thd" />
+      <DO name="Har63_Thdi4" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波功率" id="MMXU5" lnClass="MMXU">
+      <DO desc="P" name="Har_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har_Var" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Fund_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Fund_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Fund_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Fund_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Fund_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Fund_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Fund_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Fund_PF" type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波功率" id="MMXU6" lnClass="MMXU">
+      <DO desc="P" name="Har2_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har2_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har2_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har2_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har2_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har2_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har2_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har2_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har3_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har3_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har3_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har3_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har3_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har3_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har3_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har3_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har4_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har4_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har4_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har4_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har4_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har4_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har4_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har4_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har5_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har5_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har5_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har5_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har5_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har5_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har5_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har5_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har6_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har6_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har6_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har6_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har6_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har6_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har6_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har6_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har7_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har7_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har7_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har7_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har7_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har7_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har7_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har7_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har8_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har8_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har8_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har8_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har8_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har8_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har8_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har8_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har9_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har9_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har9_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har9_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har9_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har9_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har9_VA" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har9_PF" type="WYE_1_phs" />
+      <DO desc="P" name="Har10_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har10_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har10_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har10_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har10_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har10_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har10_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har10_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har11_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har11_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har11_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har11_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har11_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har11_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har11_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har11_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har12_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har12_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har12_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har12_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har12_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har12_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har12_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har12_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har13_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har13_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har13_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har13_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har13_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har13_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har13_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har13_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har14_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har14_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har14_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har14_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har14_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har14_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har14_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har14_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har15_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har15_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har15_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har15_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har15_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har15_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har15_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har15_PF"
+      type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波功率" id="MMXU7" lnClass="MMXU">
+      <DO desc="P" name="Har16_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har16_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har16_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har16_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har16_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har16_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har16_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har16_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har17_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har17_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har17_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har17_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har17_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har17_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har17_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har17_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har18_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har18_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har18_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har18_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har18_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har18_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har18_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har18_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har19_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har19_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har19_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har19_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har19_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har19_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har19_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har19_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har20_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har20_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har20_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har20_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har20_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har20_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har20_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har20_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har21_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har21_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har21_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har21_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har21_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har21_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har21_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har21_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har22_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har22_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har22_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har22_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har22_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har22_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har22_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har22_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har23_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har23_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har23_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har23_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har23_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har23_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har23_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har23_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har24_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har24_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har24_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har24_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har24_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har24_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har24_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har24_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har25_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har25_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har25_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har25_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har25_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har25_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har25_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har25_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har26_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har26_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har26_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har26_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har26_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har26_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har26_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har26_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har27_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har27_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har27_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har27_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har27_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har27_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har27_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har27_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har28_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har28_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har28_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har28_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har28_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har28_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har28_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har28_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har29_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har29_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har29_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har29_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har29_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har29_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har29_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har29_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har30_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har30_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har30_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har30_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har30_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har30_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har30_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har30_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har31_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har31_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har31_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har31_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har31_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har31_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har31_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har31_PF"
+      type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波功率" id="MMXU8" lnClass="MMXU">
+      <DO desc="P" name="Har32_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har32_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har32_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har32_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har32_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har32_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har32_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har32_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har33_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har33_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har33_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har33_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har33_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har33_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har33_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har33_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har34_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har34_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har34_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har34_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har34_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har34_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har34_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har34_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har35_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har35_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har35_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har35_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har35_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har35_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har35_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har35_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har36_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har36_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har36_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har36_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har36_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har36_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har36_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har36_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har37_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har37_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har37_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har37_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har37_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har37_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har37_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har37_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har38_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har38_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har38_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har38_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har38_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har38_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har38_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har38_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har39_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har39_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har39_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har39_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har39_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har39_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har39_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har39_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har40_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har40_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har40_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har40_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har40_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har40_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har40_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har40_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har41_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har41_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har41_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har41_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har41_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har41_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har41_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har41_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har42_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har42_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har42_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har42_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har42_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har42_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har42_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har42_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har43_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har43_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har43_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har43_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har43_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har43_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har43_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har43_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har44_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har44_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har44_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har44_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har44_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har44_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har44_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har44_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har45_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har45_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har45_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har45_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har45_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har45_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har45_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har45_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har46_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har46_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har46_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har46_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har46_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har46_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har46_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har46_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har47_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har47_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har47_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har47_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har47_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har47_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har47_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har47_PF"
+      type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波功率" id="MMXU9" lnClass="MMXU">
+      <DO desc="P" name="Har48_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har48_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har48_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har48_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har48_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har48_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har48_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har48_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har49_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har49_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har49_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har49_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har49_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har49_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har49_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har49_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har50_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har50_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har50_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har50_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har50_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har50_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har50_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har50_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har51_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har51_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har51_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har51_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har51_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har51_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har51_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har51_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har52_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har52_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har52_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har52_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har52_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har52_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har52_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har52_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har53_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har53_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har53_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har53_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har53_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har53_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har53_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har53_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har54_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har54_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har54_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har54_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har54_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har54_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har54_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har54_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har55_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har55_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har55_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har55_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har55_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har55_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har55_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har55_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har56_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har56_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har56_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har56_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har56_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har56_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har56_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har56_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har57_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har57_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har57_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har57_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har57_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har57_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har57_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har57_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har58_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har58_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har58_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har58_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har58_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har58_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har58_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har58_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har59_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har59_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har59_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har59_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har59_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har59_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har59_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har59_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har60_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har60_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har60_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har60_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har60_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har60_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har60_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har60_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har61_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har61_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har61_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har61_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har61_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har61_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har61_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har61_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har62_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har62_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har62_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har62_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har62_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har62_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har62_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har62_PF"
+      type="WYE_1_phs" />
+      <DO desc="P" name="Har63_TotW" type="MV_1_POWER" />
+      <DO desc="Q" name="Har63_TotVAr" type="MV_1_POWER" />
+      <DO desc="S" name="Har63_TotVA" type="MV_1_POWER" />
+      <DO desc="PF" name="Har63_TotPF" type="MV_1_POWER" />
+      <DO desc="Phase current A" name="Har63_W" type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har63_Var"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har63_VA"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har63_PF"
+      type="WYE_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波相角" id="MMXU10" lnClass="MMXU">
+      <DO desc="Phase voltage A" name="Fund_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Fund_AAng"
+      type="WYE_1_phs" />
+      <DO name="Fund_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har2_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har2_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har2_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har3_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har3_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har3_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har4_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har4_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har4_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har5_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har5_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har5_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har6_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har6_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har6_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har7_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har7_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har7_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har8_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har8_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har8_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har9_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har9_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har9_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har10_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har10_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har10_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har11_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har11_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har11_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har12_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har12_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har12_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har13_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har13_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har13_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har14_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har14_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har14_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har15_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har15_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har15_Thdi4Ang" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波相角" id="MMXU11" lnClass="MMXU">
+      <DO desc="Phase voltage A" name="Har16_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har16_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har16_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har17_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har17_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har17_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har18_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har18_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har18_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har19_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har19_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har19_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har20_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har20_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har20_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har21_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har21_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har21_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har22_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har22_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har22_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har23_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har23_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har23_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har24_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har24_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har24_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har25_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har25_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har25_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har26_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har26_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har26_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har27_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har27_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har27_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har28_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har28_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har28_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har29_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har29_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har29_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har30_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har30_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har30_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har31_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har31_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har31_Thdi4Ang" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波相角" id="MMXU12" lnClass="MMXU">
+      <DO desc="Phase voltage A" name="Har32_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har32_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har32_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har33_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har33_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har33_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har34_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har34_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har34_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har35_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har35_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har35_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har36_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har36_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har36_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har37_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har37_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har37_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har38_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har38_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har38_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har39_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har39_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har39_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har40_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har40_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har40_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har41_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har41_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har41_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har42_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har42_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har42_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har43_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har43_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har43_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har44_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har44_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har44_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har45_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har45_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har45_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har46_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har46_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har46_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har47_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har47_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har47_Thdi4Ang" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="谐波相角" id="MMXU13" lnClass="MMXU">
+      <DO desc="Phase voltage A" name="Har48_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har48_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har48_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har49_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har49_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har49_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har50_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har50_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har50_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har51_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har51_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har51_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har52_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har52_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har52_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har53_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har53_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har53_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har54_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har54_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har54_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har55_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har55_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har55_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har56_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har56_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har56_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har57_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har57_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har57_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har58_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har58_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har58_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har59_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har59_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har59_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har60_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har60_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har60_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har61_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har61_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har61_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har62_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har62_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har62_Thdi4Ang" type="CMV_1_phs" />
+      <DO desc="Phase voltage A" name="Har63_PhVAng"
+      type="WYE_1_phs" />
+      <DO desc="Phase current A" name="Har63_AAng"
+      type="WYE_1_phs" />
+      <DO name="Har63_Thdi4Ang" type="CMV_1_phs" />
+    </LNodeType>
+    <LNodeType desc="基本参数" id="PTOC1" lnClass="PTOC">
+      <DO desc="接线方式" name="Connection" type="ASG_SE_RATE_2" />
+      <DO desc="额定电压" name="RatedV" type="ASG_SE_RATE" />
+      <DO desc="额定电流" name="RatedA" type="ASG_SE_RATE" />
+      <DO desc="额定频率" name="RatedF" type="ASG_SE_RATE" />
+      <DO desc="PT一次额定电压" name="PT1RatedV" type="ASG_SE_RATE" />
+      <DO desc="PT二次额定电压" name="PT2RatedV" type="ASG_SE_RATE" />
+      <DO desc="CT一次额定电流" name="CT1RatedA" type="ASG_SE_RATE" />
+      <DO desc="CT二次额定电流" name="CT2RatedA" type="ASG_SE_RATE" />
+      <DO desc="CT4一次额定电流" name="CT41RatedA" type="ASG_SE_RATE" />
+      <DO desc="CT4二次额定电流" name="CT42RatedA" type="ASG_SE_RATE" />
+      <DO desc="电流方向" name="DirectionA" type="ASG_SE_RATE_2" />
+      <DO desc="功率因数算法" name="PFAlgorithm" type="ASG_SE_RATE_2" />
+      <DO desc="视在功率算法" name="VAAlgorithm" type="ASG_SE_RATE_2" />
+      <DO desc="谐波含有率算法" name="HarAlgorithm"
+      type="ASG_SE_RATE_2" />
+      <DO desc="谐波计算模式" name="HarMode" type="ASG_SE_RATE_2" />
+      <DO desc="间谐波计算模式" name="ThdMode" type="ASG_SE_RATE_2" />
+      <DO desc="总谐波畸变率统计次数" name="ThdTotCount"
+      type="ASG_SE_RATE_2" />
+      <DO desc="背光时间" name="BackLightTime" type="ASG_SE_RATE_2" />
+      <DO desc="背光亮度" name="BackLightBrightness"
+      type="ASG_SE_RATE" />
+      <DO desc="语言" name="Language" type="ASG_SE_RATE_2" />
+      <DO desc="概览时间" name="OverviewTime" type="ASG_SE_RATE_2" />
+      <DO desc="循环切屏时间" name="SwitchTime" type="ASG_SE_RATE_2" />
+      <DO desc="待机亮度" name="StandbyBrightness"
+      type="ASG_SE_RATE" />
+    </LNodeType>
+    <DOType cdc="INC" id="INC_1_Mod">
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModels" />
+    </DOType>
+    <DOType cdc="INS" id="INS_1_Beh">
+      <DA bType="INT32" dchg="true" fc="ST" name="stVal" />
+      <DA bType="Quality" fc="ST" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="LPL" id="LPL_1_NamPlt">
+      <DA bType="VisString255" fc="DC" name="vendor" />
+      <DA bType="VisString255" fc="DC" name="swRev" />
+      <DA bType="VisString255" fc="DC" name="d" />
+      <DA bType="VisString255" fc="DC" name="configRev" />
+      <DA bType="VisString255" fc="EX" name="ldNs" />
+    </DOType>
+    <DOType cdc="SPS" id="SPS_1_GrAlm">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_1_phs">
+      <SDO name="phsA" type="CMV_1_phs" />
+      <SDO name="phsB" type="CMV_1_phs" />
+      <SDO name="phsC" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_2_phs">
+      <SDO name="phsA" type="CMV_2_phs" />
+      <SDO name="phsB" type="CMV_2_phs" />
+      <SDO name="phsC" type="CMV_2_phs" />
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="WYE_1_Thd">
+      <SDO name="phsA" type="CMV_1_phs" />
+      <SDO name="phsB" type="CMV_1_phs" />
+      <SDO name="phsC" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="BCR" id="BCR_1_Tot">
+      <DA bType="INT64" dchg="true" fc="ST" name="actVal" />
+      <!-- <DA bType="Timestamp" fc="ST" name="t" /> -->
+    </DOType>
+    <DOType cdc="WYE" desc="phase voltage" id="DEL_1_ppv">
+      <SDO name="ppvAB" type="CMV_1_phs" />
+      <SDO name="ppvBC" type="CMV_1_phs" />
+      <SDO name="ppvCA" type="CMV_1_phs" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_HZ">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+      <DA bType="Quality" fc="MX" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="MX" name="t" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_Av">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_POWER">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="MV" id="MV_2_POWER">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_2" />
+    </DOType>
+    <DOType cdc="MV" id="MV_1_imb">
+      <DA bType="Struct" dchg="true" fc="MX" name="mag"
+      type="AnalogueValue_1" />
+      <DA bType="Quality" fc="MX" name="q" qchg="true" />
+      <DA bType="Timestamp" fc="MX" name="t" />
+    </DOType>
+    <DOType cdc="CMV" id="CMV_1_phs">
+      <DA bType="Struct" dchg="true" fc="MX" name="cVal"
+      type="Vector_1" />
+    </DOType>
+    <DOType cdc="CMV" id="CMV_2_phs">
+      <DA bType="Struct" dchg="true" fc="MX" name="cVal"
+      type="Vector_2" />
+    </DOType>
+    <DOType cdc="SPC" id="SPC_1_Ind">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DOType cdc="SPC" id="SPC_2_RO">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal" />
+      <DA bType="Struct" fc="CO" name="Oper" type="SPCOperate_1" />
+      <DA bType="Enum" fc="CF" name="ctlModel" type="CtlModels" />
+      <DA bType="Timestamp" fc="ST" name="t" />
+    </DOType>
+    <DAType id="SPCOperate_1">
+      <BDA bType="BOOLEAN" name="ctlVal" />
+      <BDA bType="Struct" name="origin" type="Originator_1" />
+      <BDA bType="INT8U" name="ctlNum" />
+      <BDA bType="Timestamp" name="T" />
+      <BDA bType="BOOLEAN" name="Test" />
+      <BDA bType="Check" name="Check" />
+    </DAType>
+    <DOType cdc="SEQ" id="SEQ_1">
+      <SDO name="c1" type="CMV_1_SEQ" />
+      <SDO name="c2" type="CMV_1_SEQ" />
+      <SDO name="c3" type="CMV_1_SEQ" />
+    </DOType>
+    <DOType cdc="CMV" id="CMV_1_SEQ">
+      <!-- <DA bType="Struct" fc="MX" name="instCVal" -->
+      <!-- type="AnalogueValue_1" /> -->
+      <DA bType="Struct" fc="MX" name="cVal"
+      type="AnalogueValue_1" />
+      <!-- <DA bType="Quality" fc="MX" name="q" /> -->
+      <!-- <DA bType="Timestamp" fc="MX" name="t" /> -->
+      <!-- <DA bType="INT32U" fc="CF" name="db" /> -->
+    </DOType>
+    <DOType cdc="ASG" id="ASG_SE_RATE">
+      <DA bType="Struct" fc="SE" name="setMag"
+      type="AnalogueValue_1" />
+    </DOType>
+    <DOType cdc="ASG" id="ASG_SE_RATE_2">
+      <DA bType="Struct" fc="SE" name="setMag"
+      type="AnalogueValue_2" />
+    </DOType>
+    <DAType id="Originator_1">
+      <BDA bType="Enum" name="orCat" type="OrCat" />
+      <BDA bType="Octet64" name="orIdent" />
+    </DAType>
+    <DAType id="Vector_1">
+      <BDA bType="Struct" name="mag" type="AnalogueValue_1" />
+    </DAType>
+    <DAType id="Vector_2">
+      <BDA bType="Struct" name="mag" type="AnalogueValue_2" />
+    </DAType>
+    <DAType id="AnalogueValue_1">
+      <BDA bType="FLOAT32" name="f" />
+    </DAType>
+    <DAType id="AnalogueValue_2">
+      <BDA bType="INT32" name="i" />
+    </DAType>
+    <EnumType id="CtlModels">
+      <EnumVal ord="0">status-only</EnumVal>
+      <EnumVal ord="1">direct-with-normal-security</EnumVal>
+      <EnumVal ord="2">sbo-with-normal-security</EnumVal>
+      <EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+      <EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+    </EnumType>
+    <EnumType id="OrCat">
+      <EnumVal ord="0">not-supported</EnumVal>
+      <EnumVal ord="1">bay-control</EnumVal>
+      <EnumVal ord="2">station-control</EnumVal>
+      <EnumVal ord="3">remote-control</EnumVal>
+      <EnumVal ord="4">automatic-bay</EnumVal>
+      <EnumVal ord="5">automatic-station</EnumVal>
+      <EnumVal ord="6">automatic-remote</EnumVal>
+      <EnumVal ord="7">maintenance</EnumVal>
+      <EnumVal ord="8">process</EnumVal>
+    </EnumType>
+  </DataTypeTemplates>
+</SCL>

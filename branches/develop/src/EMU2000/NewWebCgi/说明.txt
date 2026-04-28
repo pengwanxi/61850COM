@@ -1,0 +1,5 @@
+ln -sf  /mynand/lib/librtdb.so /lib
+ln -sf  /mynand/lib/libshare.so /lib
+ln -sf  /mynand/libsys/libiec61850.so /lib
+ln -sf   /mynand/libsys/libjsoncpp.so /lib
+创建软连接 是为boa在加载 getdata.cgi程序时所需要的库，没有改库，网页无法打开会报cgi-head LFLF错误

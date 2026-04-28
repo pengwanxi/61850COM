@@ -1,0 +1,104 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  Dlt645_DLQ_2007.h
+ *
+ *    Description:  dlt645 2007版本协议
+ *
+ *        Version:  1.0
+ *        Created:  2014年11月10日 14时12分46秒
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  mengqp (), 
+ *   Organization:  
+ *
+ *		  history:
+ *
+ * =====================================================================================
+ */
+
+#ifndef  DLT645_DLQ_2007_INC
+#define  DLT645_DLQ_2007_INC
+
+#include "CProtocol_Dlt645.h"
+
+
+/*
+ * =====================================================================================
+ *        Class:  CDlt645_DLQ
+ *  Description:  
+ * =====================================================================================
+ */
+class CDlt645_DLQ : public CProtocol_Dlt645
+{
+	public:
+		/* ====================  LIFECYCLE     ======================================= */
+		CDlt645_DLQ ();                             /* constructor      */
+		~CDlt645_DLQ ();                            /* destructor       */
+		//时间处理函数
+		virtual void    TimerProc( void );
+		//初始化协议数据
+		virtual BOOL Init( BYTE byLineNo );
+		//获取协议数据缓存
+		virtual BOOL GetProtocolBuf( BYTE * buf , int &len , PBUSMSG pBusMsg = NULL ) ;
+		//处理收到的数据缓存 
+		virtual BOOL ProcessProtocolBuf( BYTE * buf , int len ) ;
+		//更新通讯状态 
+		virtual BOOL GetDevCommState( void ) ;
+		//请求读电表数据
+		virtual BOOL RequestReadData( BYTE *buf, int &len );
+		//处理遥测数据
+		virtual BOOL ProcessYcData( const BYTE *buf, int len );
+		//处理遥信数据
+		virtual BOOL  ProcessYxData(const BYTE *buf, int len);
+		//处理遥脉数据
+		virtual BOOL ProcessYmData( const BYTE *buf, int len );
+		//处理最大最小值数据
+		virtual BOOL ProcessMaxMinData(const BYTE *buf, int len);
+		//处理SOE事件记录
+		virtual BOOL ProcessSOEData(const BYTE *buf, int len);
+		//对时报文
+		virtual BOOL TimeSync( BYTE *buf, int &len );
+		
+	public:
+		/* ====================  METHODS  ============================================ */
+
+
+	public:
+	protected:
+		//获取装置名称为本地地址
+		BOOL GetDevNameToAddr( void );
+		/* ====================  DATA MEMBERS  ======================================= */
+
+	private:
+		/* ====================  METHODS  ============================================ */
+		//是否对时
+		BOOL IsTimeToSync( void );
+		//初始化协议状态数据
+		BOOL InitProtocolStatus( void );
+		//获取报文
+		BOOL GetSendBuf( BYTE *buf, int &len );
+		//处理报文
+		BOOL ProcessBuf( const BYTE *buf, int len );
+	
+	private:
+		BOOL m_bLinkTimeSyn;	//当链接上时对时一次
+		BOOL m_bLinkStatus;		//链接状态
+		BOOL m_bIsSending;		//是否正在发送
+		BOOL m_bIsReSend;		//是否重发
+		BOOL m_bIsNeedResend;	//是否需要重发
+		BOOL m_bTimeSynFlag;	//对时标识
+
+
+		BYTE m_byResendCount;			//重发计数
+		BYTE m_byReSendBuf[DLT645_MAX_BUF_LEN];//重发缓存
+		BYTE m_byReSendLen;				//重发缓存长度
+
+		BYTE m_byRecvErrorCount;        //接收错误计数
+		BYTE m_dayflag;
+		/* ====================  DATA MEMBERS  ======================================= */
+
+}; /* -----  end of class CDlt645_DLQ  ----- */
+
+#endif   /* ----- #ifndef DLT645_DLQ_2007_INC  ----- */

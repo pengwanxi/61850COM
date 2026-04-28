@@ -1,0 +1,5 @@
+./autogen
+make && makeinstall
+
+
+需要先安装python

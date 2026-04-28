@@ -1,0 +1,21 @@
+{
+  "name": "gw",
+  "version": "1.0.0",
+  "desc": "61850-gw 的数据对应template 的数据模板",
+  "proto": "iec61850",
+
+  "dataset": [
+    {
+      "ref_name": "MMXU2/PPV/ppvCA/cVal/mag/f",
+
+      "data_type": "YC",
+      "data_idx": "1",
+      "data_desc": "对应点",
+
+      "name": "PhV_phsA",
+      "name_desc": "A相电压，对应数据中心名称",
+
+      "ratio": "1"
+    }
+  ]
+}

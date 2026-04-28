@@ -1,0 +1,57 @@
+                 GetSendBuf
+                 请求数据
+TX:(BUS1 len=18)FE FE 68 10 76 00 11 14 00 00 00 01 03 1F 90 02 C8 16 
+RX:(BUS1 len=37)FE FE 68 10 76 00 11 14 00 00 00 81 16 1F 90 02 00 00 00 00 2C 00 00 00 00 2C 00 00 00 00 00 00 00 00 FF B2 16 
+                 ProcessProtocolBuf
+                 读数据处理
+                 水表数据 
+                 0 yc0 update0.000000
+                 0 yc1 update0.000000
+                 0 yx0 update0
+                 0 yx1 update1
+                 0 yx2 update0
+                 0 yx3 update0
+                 0 yx4 update0
+                 0 yx5 update0
+                 0 yx6 update0
+                 0 yx7 update0
+                 0 yx8 update1
+                 0 yx9 update1
+                 0 yx10 update1
+                 0 yx11 update1
+                 0 yx12 update1
+                 0 yx13 update1
+                 0 yx14 update1
+                 0 yx15 update1
+                 GetSendBuf
+                 time to sync
+                 对时
+TX:(BUS1 len=25)FE FE 68 10 76 00 11 14 00 00 00 04 0A 15 A0 03 52 18 13 01 01 07 20 7F 16 
+                 GetSendBuf
+                 请求数据
+TX:(BUS1 len=18)FE FE 68 10 76 00 11 14 00 00 00 01 03 1F 90 04 CA 16 
+RX:(BUS1 len=37)FE FE 68 10 76 00 11 14 00 00 00 81 16 1F 90 04 00 00 00 00 2C 00 00 00 00 2C 00 00 00 00 00 00 00 00 FF B4 16 
+                 ProcessProtocolBuf
+                 读数据处理
+                 水表数据 
+                 0 yc0 update0.000000
+                 0 yc1 update0.000000
+                 0 yx0 update0
+                 0 yx1 update1
+                 0 yx2 update0
+                 0 yx3 update0
+                 0 yx4 update0
+                 0 yx5 update0
+                 0 yx6 update0
+                 0 yx7 update0
+                 0 yx8 update1
+                 0 yx9 update1
+                 0 yx10 update1
+                 0 yx11 update1
+                 0 yx12 update1
+                 0 yx13 update1
+                 0 yx14 update1
+                 0 yx15 update1
+                 GetSendBuf
+                 请求数据
+TX:(BUS1 len=18)FE FE 68 10 76 00 11 14 00 00 00 01 03 1F 90 05 CB 16 

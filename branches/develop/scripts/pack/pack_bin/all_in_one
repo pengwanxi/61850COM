@@ -1,0 +1,142 @@
+#!/bin/bash
+
+echo """
+###############################################
+## 		Exec all in one		     ##
+## vers.1.0.0                                ##
+## prepare:				     ##
+## 	1. a folder for your files,          ##
+##         named with patchfils recommended; ##
+## 	2. a script for your options,        ##
+##         name should like xxx.sh;          ##
+## 	3. script without exit at the end.   ##
+##                                           ##
+###############################################
+"""
+
+pfloc=patchfiles
+execloc=execute.sh
+patchfile=patch.tgz
+
+getpfloc()
+{
+	pfloc=$1
+	if [[ -d $pfloc ]];then
+		echo "Patchfiles Directory '$pfloc' find."
+		return 0
+	else
+		echo "Patch Directory:"
+		echo "--------------------------------------------"
+		dirs=`ls -F | grep "/$"`
+		i=0
+		for dir in $dirs;do
+			let i=i+1
+			echo "$i. $dir"
+		done
+		echo "--------------------------------------------"
+		read -p "Please Select your patchfiles directory(default 1): " pflocp
+		echo "--------------------------------------------"
+		[[ -z "$pflocp" ]] && pflocp=1
+		echo "Selected -- $pflocp in $i"
+		if [[ $pflocp -lt $[i+1] ]] && [[ $pflocp -gt 0 ]];then
+			pfloc=`echo $dirs | awk -v pl=$pflocp '{print $pl}'`
+		fi
+		getpfloc $pfloc
+	fi
+}
+
+getexecloc()
+{
+	execloc=$1
+	if [[ -f $execloc ]];then
+		echo "Patch will execute script $execloc."
+		return 0
+	else
+		echo "Executale script for patch(execpt $(basename $0)): "
+		echo "--------------------------------------------"
+		shes=`ls *.sh | grep -v "$(basename $0)"`
+		i=0
+		for sh in $shes;do
+			let i=i+1
+			echo "$i. $sh"
+		done
+		echo "--------------------------------------------"
+		read -p "Please Select executable file for patch: " execlocp
+		echo "--------------------------------------------"
+		if [[ -z "$execlocp" ]];then
+			echo "Please Select:"
+		elif [[ $execlocp -lt $[i+1] ]] && [[ $execlocp -gt 0 ]];then
+			execloc=`echo $shes | awk -v el=$execlocp '{print $el}'`
+		fi
+		getexecloc $execloc
+	fi
+}
+
+essentialCont()
+{
+	exectmp=$1
+	pfloc=$2
+	sed -i '2itail -n +$lines $0 > patch.tgz' $exectmp
+	sed -i "2arm $pfloc -rf" $exectmp
+	sed -i '3atar -xvf patch.tgz' $exectmp
+	sed -i '4arm patch.tgz -f' $exectmp
+	sed -i '5aoridir=`pwd -P`' $exectmp
+	sed -i "6acd $pfloc" $exectmp
+	echo "cd \$oridir" >> $exectmp
+	echo "rm $pfloc -rf" >> $exectmp
+	echo "exit 0" >> $exectmp
+	echo "" >> $exectmp
+	echo "============================" >> $exectmp
+}
+
+piecesRm()
+{
+	rm -i patch.tgz
+}
+
+if [[ $# -eq 2 ]];then
+	pfloc=$2
+	execloc=$1
+elif [[ $# -eq 0 ]];then
+	getpfloc $pfloc
+	getexecloc $execloc
+else
+	echo "$0 script filesfolder"
+	exit 1
+fi
+
+echo "--------------------------------------------"
+tar -cvf patch.tgz $pfloc
+## $execloc
+
+echo "\"$pfloc\" is patchfiles location."
+echo "\"$execloc\" is executable file for patch."
+
+exectmp="${execloc%.sh}.tmp"
+cp $execloc $exectmp -avf
+
+essentialCont $exectmp $pfloc
+
+lines=`wc -l $exectmp | awk '{print $1}'`
+lines=$[lines+2]
+
+echo "total $lines lines."
+lninfile=`awk 'NR==2{print $0}' $exectmp | grep "^lines=*"`
+
+[[ -z "$lninfile" ]] && sed -i "2ilines=$lines" $exectmp || sed -i "s/^lines=*$/lines=$lines/" $exectmp
+
+chmod +x $exectmp
+
+read -p "Name with Identify Code: " IDNUM
+if [[ -z "IDNUM" ]];then
+	execbin="${exectmp%.tmp}-`date +"%y%m%d-%H%M%S"`.bin"
+else
+	execbin="${exectmp%.tmp}_${IDNUM}-`date +"%y%m%d-%H%M%S"`.bin"
+fi
+mv -vf $exectmp $execbin
+cat patch.tgz >> $execbin
+
+rm -f $exectmp
+rm -f patch.tgz
+
+echo "script process done."

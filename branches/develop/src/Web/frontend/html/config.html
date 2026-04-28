@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网关配置界面</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- 修改密码模态框 -->
+<div id="pwdModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>修改密码</h3>
+        <form id="changePwdForm">
+            <div class="form-group">
+                <label>原密码</label>
+                <input type="password" id="oldPwd" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>新密码（至少5位）</label>
+                <input type="password" id="newPwd" required minlength="5">
+            </div>
+            <div class="form-group">
+                <label>确认新密码</label>
+                <input type="password" id="confirmPwd" required>
+            </div>
+            <div class="modal-buttons">
+                <button type="submit" class="btn-submit">确认修改</button>
+                <button type="button" class="btn-cancel">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="img/LOGO.png" alt="EMU2000">
+        </div>
+
+        <h1>网关配置界面</h1>
+        <div class="user-info">
+            <button onclick="reboot()" class="btn-danger">重启系统</button>
+            <span id="currentUser">admin</span>
+            <button id="changePwdBtn" class="btn-logout">修改密码</button>
+            <button onclick="logout()" class="btn-logout">退出</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="menu">
+                <li class="menu-item active" onclick="showSection('hardware')">
+                    <span class="menu-text">硬件参数配置</span>
+                </li>
+                <li class="menu-item" onclick="showSection('bus')">
+                    <span class="menu-text">总线装置配置</span>
+                </li>
+                <li class="menu-item" onclick="showSection('transfer')">
+                    <span class="menu-text">上传下载</span>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- 硬件参数配置 -->
+            <section id="hardware" class="section active">
+                <div class="section-header">
+                    <h2>硬件参数配置</h2>
+                    <div class="section-actions">
+                        <button onclick="loadHardwareConfig()" class="btn-secondary">读取配置</button>
+                        <button onclick="saveHardwareConfig()" class="btn-primary">保存配置</button>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <h3>网口配置</h3>
+                    <div class="network-config">
+                        <div class="port-card">
+                            <h4>LAN1、LAN2 (Switch Mode)</h4>
+                            <div class="form-row">
+                                <label>IP地址:</label>
+                                <input type="text" id="eth0_ip">
+                            </div>
+                            <div class="form-row">
+                                <label>子网掩码:</label>
+                                <input type="text" id="eth0_mask">
+                            </div>
+                            <div class="form-row">
+                                <label>网关:</label>
+                                <input type="text" id="eth0_gateway">
+                            </div>
+                        </div>
+
+                        <!-- <div class="port-card">
+                            <h4>网口 2 (ETH1)</h4>
+                            <div class="form-row">
+                                <label>IP地址:</label>
+                                <input type="text" id="eth1_ip" placeholder="192.168.1.100" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label>子网掩码:</label>
+                                <input type="text" id="eth1_mask" placeholder="255.255.255.0" readonly>
+                            </div>
+                            <div class="form-row">
+                                <label>网关:</label>
+                                <input type="text" id="eth1_gateway" placeholder="192.168.2.1" readonly>
+                            </div>
+                        </div> -->
+
+                        <div class="port-card">
+                            <h4>LAN3</h4>
+                            <div class="form-row">
+                                <label>IP地址:</label>
+                                <input type="text" id="eth1_ip">
+                            </div>
+                            <div class="form-row">
+                                <label>子网掩码:</label>
+                                <input type="text" id="eth1_mask">
+                            </div>
+                            <div class="form-row">
+                                <label>网关:</label>
+                                <input type="text" id="eth1_gateway">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="config-group">
+                    <h3>串口配置</h3>
+                    <div class="serial-config">
+                        <div class="port-card">
+                            <h4>RS485</h4>
+                            <div class="form-row">
+                                <label>波特率:</label>
+                                <select id="rs485_baud">
+                                    <option value="9600">9600</option>
+                                    <option value="19200">19200</option>
+                                    <option value="38400">38400</option>
+                                    <option value="57600">57600</option>
+                                    <option value="115200" selected>115200</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label>数据位:</label>
+                                <select id="rs485_data">
+                                    <option value="7">7</option>
+                                    <option value="8" selected>8</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label>停止位:</label>
+                                <select id="rs485_stop">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label>校验位:</label>
+                                <select id="rs485_parity">
+                                    <option value="none" selected>无</option>
+                                    <option value="odd">奇校验</option>
+                                    <option value="even">偶校验</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="config-row">
+                    <div class="config-group">
+                        <h3>IEC 61850 配置</h3>
+                        <div class="iec-config">
+                            <div class="form-row">
+                                <label>IED名称:</label>
+                                <input type="text" id="iec_ied_name" placeholder="PXR-61850COM">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="config-group">
+                        <h3>Comtrade文件配置</h3>
+                        <div class="iec-config">
+                            <div class="form-row">
+                                <label>dat文件类型:</label>
+                                <select id="dat_data_type">
+                                    <option value="ASCII" selected>ASCII</option>
+                                    <option value="BINARY">BINARY</option>
+                                    <option value="FLOAT32">FLOAT32</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <h3>NTP 配置</h3>
+                    <div class="network-config">
+                        <div class="port-card">
+                            <div class="form-row">
+                                <label>服务器IP:</label>
+                                <input type="text" id="ntp_client_ip" placeholder="请输入服务IP">
+                            </div>
+                            <div class="form-row">
+                                <label>端口:</label>
+                                <input type="text" id="ntp_client_port" placeholder="请输入端口">
+                            </div>
+                            <div class="form-row">
+                                <label>时区:</label>
+                                <input type="text" id="timezone" placeholder="请输入时区[-12,12]">
+                            </div>
+                        </div>
+
+                        <div class="port-card">
+                            <h3>手动时间设置（无 NTP 时使用）</h3>
+                            <div class="manual-time-config">
+                                <div class="form-row">
+                                    <label style="width: auto;">当前设备时间:</label>
+                                    <span style="width: auto;" id="current_system_time">-</span>
+                                    <button onclick="getSystemTime()" class="btn-secondary">获取设备时间</button>
+                                </div>
+                                <div class="form-row">
+                                    <label style="width: auto;">设置日期时间:</label>
+                                    <input type="datetime-local" id="manual_datetime" value="">
+                                    <button onclick="setManualTime()" class="btn-primary"
+                                        style="margin-left: 10px;">设置时间</button>
+                                    <button onclick="setNow()" class="btn-secondary"
+                                        style="margin-left: 5px;">现在</button>
+                                </div>
+                                <div class="form-hint">选择日期和时间，然后点击“设置时间”。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <h3>日志输出配置</h3>
+                    <div class="network-config">
+                        <div class="port-card">
+                            <div class="form-row">
+                                <label>网口:</label>
+                                <select id="log_netcard">
+                                    <option value="eth0" selected>eth0</option>
+                                    <option value="eth1">eth1</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <label>IP:</label>
+                                <input type="text" id="log_ip" placeholder="请输入打印IP">
+                            </div>
+                            <div class="form-row">
+                                <label>端口:</label>
+                                <input type="text" id="log_port" placeholder="请输入打印端口">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 总线装置配置 -->
+            <section id="bus" class="section">
+                <div class="section-header">
+                    <h2>总线装置配置</h2>
+                    <div class="section-actions">
+                        <button onclick="loadBusConfig()" class="btn-secondary">读取配置</button>
+                        <button onclick="saveBusConfig()" class="btn-primary">保存配置</button>
+                    </div>
+                </div>
+
+                <div class="bus-layout">
+                    <!-- 左侧树形列表 -->
+                    <!-- <div class="bus-sidebar"> -->
+                    <!-- <div class="bus-toolbar"> -->
+                    <!-- <h3>通讯行与装置</h3> -->
+                    <!-- <div class="bus-toolbar-buttons"> -->
+                    <!-- <button onclick="addCommRow()" class="btn-small btn-add" title="添加通讯行">
+                                    + 通讯行
+                                </button> -->
+                    <!-- <button onclick="addDeviceToCurrentRow()" class="btn-small btn-add-device" title="添加装置">
+                                    + 装置
+                                </button> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="bus-tree" id="busTree"> -->
+                    <!-- 树形结构动态生成 -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+
+                    <!-- 右侧详情编辑 -->
+                    <div class="bus-detail" id="busDetail">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📋</div>
+                            <h4>请选择一个通讯行或装置</h4>
+                            <p>点击左侧列表进行编辑配置</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 上传下载 -->
+            <section id="transfer" class="section">
+                <div class="section-header">
+                    <h2>文件上传下载</h2>
+                </div>
+
+                <div class="transfer-section">
+                    <h3>固件升级</h3>
+                    <div class="upload-area">
+                        <input type="file" id="firmwareFile" accept=".bin" style="display:none">
+                        <div class="file-drop-zone" onclick="document.getElementById('firmwareFile').click()">
+                            <p>点击选择或拖拽 .bin 文件到此处</p>
+                            <p class="file-name">
+                                <span id="firmwareFileName"></span>
+                                <span id="firmwareStatus"></span>
+                            </p>
+                        </div>
+                        <button id="uploadBtn" onclick="uploadFirmware()" class="btn-primary">上传固件</button>
+                    </div>
+                    <div class="progress-bar" id="uploadProgress" style="display:none">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+
+                    <!-- 上次升级信息 -->
+                    <div class="last-upgrade-section">
+                        <h3>上次升级信息</h3>
+                        <div id="lastUpgradeInfo" class="info-card">
+                            <p><strong>文件名：</strong><span id="last-filename">-</span></p>
+                            <p><strong>时间：</strong><span id="last-time">-</span></p>
+                            <p><strong>状态：</strong><span id="last-status">-</span></p>
+                            <p><strong>消息：</strong><span id="last-message">-</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transfer-section">
+                    <h3>配置文件管理</h3>
+                    <div class="config-actions">
+                        <button onclick="download61850Log()" class="btn-secondary">
+                            <span class="btn-icon">⬇</span> 下载61850日志文件
+                        </button>
+                        <!-- <button onclick="exportConfig()" class="btn-secondary">
+                            <span class="btn-icon">💾</span> 导出配置
+                        </button>
+                        <button onclick="resetConfig()" class="btn-danger">
+                            <span class="btn-icon">↺</span> 恢复出厂设置
+                        </button> -->
+                    </div>
+                </div>
+
+                <!-- <div class="transfer-section">
+                    <h3>配置备份上传</h3>
+                    <div class="upload-area">
+                        <input type="file" id="configFile" accept=".cfg,.json" style="display:none">
+                        <div class="file-drop-zone" onclick="document.getElementById('configFile').click()">
+                            <p>点击选择配置文件</p>
+                            <p class="file-name" id="configFileName"></p>
+                        </div>
+                        <button onclick="uploadConfig()" class="btn-primary">上传配置</button>
+                    </div>
+                </div> -->
+            </section>
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/hardware.js"></script>
+    <script src="js/bus.js"></script>
+    <script src="js/upload.js"></script>
+    <script>
+        // 菜单切换功能
+        function showSection(sectionId) {
+            // 隐藏所有section
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 显示目标section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // 更新菜单高亮
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                // 如果点击的是当前菜单项，添加active类
+                if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(sectionId)) {
+                    item.classList.add('active');
+                }
+            });
+            // 根据当前显示的内容控制总线状态轮询
+            if (sectionId === 'bus') {   // 总线配置卡片ID
+                window.startBusStatusPollingIfNeeded();
+            } else {
+                window.stopBusStatusPollingIfNeeded();
+            }
+        }
+
+        // 检查登录状态
+        checkAuth();
+
+        // 页面加载时读取硬件配置
+        document.addEventListener('DOMContentLoaded', function () {
+            loadHardwareConfig();
+        });
+    </script>
+</body>
+
+</html>
